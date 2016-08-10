@@ -1,0 +1,48 @@
+.layer {
+  position    : absolute;
+  top         : 50%;
+  left        : 50%;
+  width       : 1102px;
+  height      : 510px;
+  margin-top  : -202px;
+  margin-left : -551px;
+  cursor      : default;
+}
+
+.layer_left,
+.layer_right {
+  position : absolute;
+  top      : 0;
+}
+
+.layer_left {
+  left : 0;
+}
+
+.layer_right {
+  left : 570px;
+}
+
+.layer_side_fingers {
+  position : absolute;
+  top      : 0;
+  left     : 0;
+  width    : 534px;
+  height   : 400px;
+}
+
+.layer_side_thumb {
+  position : absolute;
+}
+
+.layer_left .layer_side_thumb {
+  top       : 182px;
+  left      : 390px;
+  transform : rotate(35deg);
+}
+
+.layer_right .layer_side_thumb {
+  top       : 278px;
+  left      : 0px;
+  transform : rotate(-35deg);
+}

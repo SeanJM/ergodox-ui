@@ -1,0 +1,71 @@
+.modal {
+  z-index     : 2;
+  position    : fixed;
+  top         : 0;
+  right       : 0;
+  bottom      : 0;
+  left        : 0;
+  background  : rgba(0, 0, 0, 0.3);
+  user-select : none;
+  cursor      : default;
+}
+
+.modal_window {
+  position    : absolute;
+  left        : 50%;
+  width       : 450px;
+  margin-left : -200px;
+}
+
+.modal_chrome {
+  margin-top    : -75px;
+  padding       : 100px 25px 25px;
+  border        : 1px solid map-get(map-get($color, grey), dark);
+  border-top    : none;
+  border-radius : 0 0 7px 7px;
+  background    : map-get(map-get($color, grey), lightest);
+  box-shadow    : 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal_body {
+  position   : relative;
+  background : map-get(map-get($color, grey), lightest);
+}
+
+.modal_feet {
+  padding-top : 25px;
+}
+
+.modal_text {
+  color       : map-get(map-get($color, grey), dark);
+  font-size   : $default;
+  line-height : $default * 1.35;
+
+  em {
+    font        : inherit;
+    font-weight : bold;
+  }
+}
+
+.modal .icon-large {
+  position : absolute;
+  top      : 0;
+  left     : 0;
+}
+
+.modal--has-icon .modal_body {
+  min-height   : 64px;
+  padding-left : 85px;
+}
+
+.modal_button {
+  @extend %button;
+}
+
+.modal_button.button--primary {
+  @extend %button-primary;
+}
+
+.modal_button + .modal_button {
+  margin-left : 5px;
+}

@@ -1,0 +1,45 @@
+.tab--edit {
+  .tab_close,
+  .tab_title {
+    opacity : 0;
+  }
+
+  .tab_edit {
+    left    : 0;
+    opacity : 1;
+  }
+}
+
+.tab_edit {
+  z-index  : 2;
+  position : absolute;
+  top      : 6px;
+  left     : -10000px;
+  padding  : 0 2px 0 2px;
+}
+
+.tab_edit_input {
+  width         : 100%;
+  height        : 22px;
+  color         : map-get(map-get($color, grey), darker);
+  border        : 1px solid map-get(map-get($color, grey), base);
+  border-radius : 3px;
+  background    : none;
+  box-shadow    : 0 1px 0 rgba(0, 0, 0, 0.1) inset;
+  text-align    : center;
+  font-size     : $default - 1;
+
+  &:active,
+  &:focus {
+    outline : none;
+  }
+}
+
+.tab--select {
+  .tab_edit_input {
+    &:active,
+    &:focus {
+      outline : none;
+    }
+  }
+}

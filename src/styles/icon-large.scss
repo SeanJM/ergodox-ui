@@ -1,0 +1,19 @@
+.icon-large {
+  width         : 64px;
+  height        : 64px;
+  overflow      : hidden;
+  border-radius : 50%;
+
+  img {
+    width  : 64px;
+    height : auto;
+  }
+}
+
+.icon-large--error-layer {
+  background : linear-gradient(45deg, map-get(map-get($color, red), light), map-get(map-get($color, red), base));
+}
+
+.icon-large--confirm-layer {
+  background : linear-gradient(45deg, map-get(map-get($color, orange), base), map-get(map-get($color, orange), dark));
+}

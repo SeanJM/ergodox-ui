@@ -1,0 +1,123 @@
+$black   : #2f363e;
+$blue    : #4299e0;
+$grey    : lighten(desaturate($blue, 60%), 5%);
+$aqua    : adjust-hue(darken($blue, 6%), -20deg);
+$green   : darken(adjust-hue($blue, -60deg), 5%);
+$mauve   : darken(adjust-hue($blue, 120deg), 10%);
+$purple  : adjust-hue($blue, 60deg);
+$red     : saturate(adjust-hue($blue, 150deg), 10%);
+$pink    : saturate(lighten(adjust-hue($blue, 105deg), 3%), 10%);
+$navy    : desaturate(darken(adjust-hue($blue, 10deg), 25%), 20%);
+$orange  : adjust-hue($blue, 185deg);
+$yellow  : adjust-hue($blue, 205deg);
+$color   : (
+  black : (
+    base : $black,
+    light : lighten($black, 13%),
+    lighter : lighten($black, 22%),
+    lightest : lighten($black, 31%),
+    dark : darken($black, 12%),
+    darker : darken($black, 25%),
+    darkest : darken($black, 35%)
+  ),
+  gray: (
+    base : $grey,
+    light : lighten($grey, 10%),
+    lighter : lighten($grey, 20%),
+    lightest : lighten($grey, 30%),
+    dark : darken($grey, 15%),
+    darker : darken($grey, 25%),
+    darkest : darken($grey, 35%)
+  ),
+  red : (
+    base : $red,
+    light : lighten($red, 13%),
+    lighter : lighten($red, 22%),
+    lightest : lighten($red, 31%),
+    dark : darken($red, 12%),
+    darker : darken($red, 25%),
+    darkest : darken($red, 35%),
+  ),
+  orange : (
+    base : $orange,
+    light : adjust-hue(lighten($orange, 12%), 5deg),
+    lighter : lighten($orange, 22%),
+    lightest : adjust-hue(lighten($orange, 32%), 3deg),
+    dark : adjust-hue(darken($orange, 6%), -10deg),
+    darker : adjust-hue(darken($orange, 10%), -20deg),
+    darkest : adjust-hue(darken($orange, 15%), -35deg),
+  ),
+  yellow : (
+    base : $yellow,
+    light : adjust-hue(lighten($yellow, 12%), 5deg),
+    lighter : lighten($yellow, 22%),
+    lightest : adjust-hue(lighten($yellow, 30%), 3deg),
+    dark : adjust-hue(darken($yellow, 3%), -8deg),
+    darker : adjust-hue(darken($yellow, 18%), -20deg),
+    darkest : adjust-hue(darken($yellow, 20%), -25deg),
+  ),
+  blue : (
+    base : $blue,
+    light : lighten($blue, 13%),
+    lighter : lighten($blue, 22%),
+    lightest : lighten($blue, 31%),
+    dark : darken($blue, 12%),
+    darker : darken($blue, 25%),
+    darkest : darken($blue, 35%)
+  ),
+  aqua : (
+    base : $aqua,
+    light : lighten($aqua, 13%),
+    lighter : lighten($aqua, 22%),
+    lightest : lighten($aqua, 31%),
+    dark : darken($aqua, 12%),
+    darker : darken($aqua, 25%),
+    darkest : darken($aqua, 35%)
+  ),
+  green : (
+    base : $green,
+    light : lighten($green, 15%),
+    lighter : lighten($green, 25%),
+    lightest : lighten(adjust-hue($green, -10deg), 40%),
+    dark : darken(adjust-hue($green, 5deg), 12%),
+    darker : darken(adjust-hue($green, 15deg), 25%),
+    darkest : darken(adjust-hue($green, 15deg), 35%),
+  ),
+  mauve : (
+    base : $mauve,
+    light : lighten($mauve, 13%),
+    lighter : adjust-hue(lighten($mauve, 22%), 30deg),
+    lightest : adjust-hue(lighten($mauve, 31%), 15deg),
+    dark : adjust-hue(darken($mauve, 12%), -10deg),
+    darker : adjust-hue(darken($mauve, 25%), -30deg),
+    darkest : adjust-hue(darken($mauve, 35%), -40deg),
+  ),
+  purple : (
+    base : $purple,
+    light : lighten($purple, 13%),
+    lighter : lighten($purple, 22%),
+    lightest : lighten($purple, 31%),
+    dark : darken($purple, 12%),
+    darker : darken($purple, 25%),
+    darkest : darken($purple, 35%),
+  ),
+  pink : (
+    base : $pink,
+    light : lighten($pink, 13%),
+    lighter : lighten($pink, 22%),
+    lightest : lighten($pink, 31%),
+    dark : darken($pink, 12%),
+    darker : darken($pink, 25%),
+    darkest : darken($pink, 35%),
+  ),
+  navy : (
+    base : $navy,
+    light : lighten($navy, 13%),
+    lighter : lighten($navy, 22%),
+    lightest : lighten($navy, 31%),
+    dark : darken($navy, 12%),
+    darker : darken($navy, 20%),
+    darkest : darken($navy, 35%)
+  ),
+);
+$default : 13px;

@@ -1,0 +1,172 @@
+.key_icon {
+  display  : inline-block;
+  width    : 25px;
+  height   : 25px;
+  overflow : hidden;
+
+  img {
+    width  : 50px;
+    height : auto;
+  }
+}
+
+.key_icon.icon-right img {
+  margin : 0 0;
+}
+
+.key_icon.icon-left img {
+  margin-top : -25px;
+}
+
+.key_icon.icon-up img {
+  margin-top : -50px;
+}
+
+.key_icon.icon-down img {
+  margin-top : -75px;
+}
+
+.key_icon.icon-tab img {
+  margin-top : -100px;
+}
+
+.key_icon.icon-enter img {
+  margin-top : -125px;
+}
+
+.key_icon.icon-shift img {
+  margin-top : -150px;
+}
+
+.key_icon.icon-alt img {
+  margin-top : -175px;
+}
+
+.key_icon.icon-cmd img {
+  margin-top : -200px;
+}
+
+.layer--mac .key_icon.icon-cmd img {
+  margin-top : -225px;
+}
+
+.key_icon.icon-control img {
+  margin-top : -250px;
+}
+
+.key_icon.icon-backspace img {
+  margin-top : -275px;
+}
+
+.key_icon.icon-none img {
+  margin-top : -300px;
+}
+
+.key_icon.icon-meh img {
+  margin-top : -325px;
+}
+
+.key_icon.icon-space img {
+  margin-top : -350px;
+}
+
+.key_icon.icon-toggle img {
+  margin-top : -375px;
+}
+
+.key_icon.icon-macro img {
+  margin-top : -425px;
+}
+
+.key_icon.icon-mouse-button img {
+  margin-top : -400px;
+}
+
+// Mouse
+
+.key_icon.icon-mouse-up img {
+  margin-top  : 0;
+  margin-left : -25px;
+}
+
+.key_icon.icon-mouse-down img {
+  margin-top  : -25px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-mouse-left img {
+  margin-top  : -50px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-mouse-right img {
+  margin-top  : -75px;
+  margin-left : -25px;
+}
+
+// Media
+
+.key_icon.icon-media-previous img {
+  margin-top  : -100px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-media-next img {
+  margin-top  : -125px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-media-play img {
+  margin-top  : -150px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-media-stop img {
+  margin-top  : -175px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-media-volume-up img {
+  margin-top  : -200px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-media-volume-down img {
+  margin-top  : -225px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-media-mute img {
+  margin-top  : -250px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-www-back img {
+  margin-top  : -275px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-www-forward img {
+  margin-top  : -300px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-www-refresh img {
+  margin-top  : -325px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-www-stop img {
+  margin-top  : -350px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-www-favorites img {
+  margin-top  : -375px;
+  margin-left : -25px;
+}
+
+.key_icon.icon-www-home img {
+  margin-top  : -400px;
+  margin-left : -25px;
+}

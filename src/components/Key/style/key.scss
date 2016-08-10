@@ -1,0 +1,313 @@
+@mixin key-color($name) {
+  .key_face {
+    border : 1px solid map-get(map-get($color, $name), darker);
+  }
+
+  .key_face_background {
+    border-top-color    : map-get(map-get($color, $name), lightest);
+    border-right-color  : map-get(map-get($color, $name), light);
+    border-bottom-color : map-get(map-get($color, $name), dark);
+    border-left-color   : map-get(map-get($color, $name), light);
+  }
+
+  .key_face_plane {
+    background          : map-get(map-get($color, $name), base);
+    background-image    : radial-gradient(transparentize(map-get(map-get($color, $name), dark), 0.8) 30%, transparentize(map-get(map-get($color, $name), dark), 0));
+    background-position : 0 -10px;
+    background-size     : 80px 80px;
+  }
+
+  .key_face_bevel {
+    background : linear-gradient(-20deg, map-get(map-get($color, $name), dark), map-get(map-get($color, $name), lightest));
+  }
+
+  .key_shadow {
+    background : linear-gradient(transparentize(map-get(map-get($color, $name), dark), 1) 70%, transparentize(map-get(map-get($color, $name), dark), 0.3));
+  }
+
+  .key_light {
+    background : linear-gradient(transparentize(map-get(map-get($color, $name), lightest), 0.5) 0%, transparentize(map-get(map-get($color, $name), lightest), 1) 40%);
+  }
+}
+
+@mixin key-transparent($name) {
+  background-image    : linear-gradient(45deg, transparentize(map-get(map-get($color, $name), dark), 0.5) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, $name), dark), 0.5) 75%, transparentize(map-get(map-get($color, $name), dark), 0.5)),
+                        linear-gradient(45deg, transparentize(map-get(map-get($color, $name), dark), 0.5) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, $name), dark), 0.5) 75%, transparentize(map-get(map-get($color, $name), dark), 0.5));
+  background-color    : transparent;
+  background-position : 0 0,
+                        4px 4px;
+  background-size     : 8px 8px;
+
+  .key_face {
+    border : 1px dashed map-get(map-get($color, $name), dark);
+  }
+}
+
+.key_face_bevel,
+.key_face_plane,
+.key_light,
+.key_select,
+.key_shadow {
+  position : absolute;
+}
+
+.key {
+  position : absolute;
+  width    : 56px;
+  height   : 56px;
+}
+
+.key_well {
+  position            : absolute;
+  top                 : 2px;
+  right               : 2px;
+  bottom              : 2px;
+  left                : 2px;
+  border-radius       : 5px;
+  background-image    : linear-gradient(45deg, transparentize(map-get(map-get($color, grey), dark), 0.8) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, grey), dark), 0.8) 75%, transparentize(map-get(map-get($color, grey), dark), 0.8)),
+                        linear-gradient(45deg, transparentize(map-get(map-get($color, grey), dark), 0.8) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, grey), dark), 0.8) 75%, transparentize(map-get(map-get($color, grey), dark), 0.8));
+  background-color    : transparentize(map-get(map-get($color, grey), dark), 0.8);
+  background-position : 0 0,
+                        1px 1px;
+  background-size     : 2px 2px;
+}
+
+.key_cap {
+  position      : relative;
+  width         : 100%;
+  height        : 100%;
+  overflow      : hidden;
+  border-radius : 4px;
+}
+
+.key_face {
+  width         : 100%;
+  height        : 100%;
+  overflow      : hidden;
+  border        : 1px solid transaprent;
+  border-radius : 4px;
+}
+
+.key_select {
+  z-index       : 1;
+  top           : 5px;
+  right         : 5px;
+  bottom        : 6px;
+  left          : 5px;
+  border-radius : 4px;
+}
+
+.key--select {
+  .key_select {
+    border              : 2px solid $aqua;
+    background-image    : linear-gradient(45deg, transparentize($aqua, 0.5) 25%, transparent 25%, transparent 75%, transparentize($aqua, 0.5) 75%, transparentize($aqua, 0.5)),
+                          linear-gradient(45deg, transparentize($aqua, 0.5) 25%, transparent 25%, transparent 75%, transparentize($aqua, 0.5) 75%, transparentize($aqua, 0.5));
+    background-color    : rgba(0, 0, 0, 0);
+    background-position : 0 0,
+                          1px 1px;
+    background-size     : 2px 2px;
+  }
+}
+
+.key_face_background {
+  width  : 100%;
+  height : 100%;
+  border : 10px solid transparent;
+}
+
+.key_face_bevel {
+  top           : 4px;
+  right         : 4px;
+  bottom        : 5px;
+  left          : 4px;
+  border-radius : 5px;
+}
+
+.key_face_plane {
+  top                 : 5px;
+  right               : 5px;
+  bottom              : 6px;
+  left                : 5px;
+  border-radius       : 4px;
+  background          : $grey;
+  background-position : 0 -10px;
+  background-size     : 80px 80px;
+}
+
+.key_light {
+  top           : 0;
+  right         : 0;
+  bottom        : 0;
+  left          : 0;
+  border-radius : 3px;
+}
+
+.key:active {
+  margin-top : 2px;
+}
+
+.key_icon,
+.key_primary,
+.key_secondary {
+  position    : absolute;
+  font-size   : 11px;
+  line-height : 12px;
+  user-select : none;
+}
+
+.key_primary,
+.key_secondary {
+  color : rgba(255, 255, 255, 0.9);
+}
+
+.key_primary {
+  bottom : 8px;
+  left   : 9px;
+}
+
+.key_secondary {
+  top  : 10px;
+  left : 9px;
+}
+
+.key_icon {
+  bottom      : 8px;
+  left        : 50%;
+  width       : 25px;
+  height      : 25px;
+  margin-left : -13px;
+}
+
+.key--size-1 .key_icon {
+  top        : 50%;
+  bottom     : auto;
+  margin-top : -13px;
+}
+
+.key--size-2 .key_icon-primary {
+  top    : 6px;
+  right  : 8px;
+  bottom : auto;
+  left   : auto;
+}
+
+.key--size-2 .key_icon-secondary {
+  top    : auto;
+  right  : auto;
+  bottom : 6px;
+  left   : 20px;
+}
+
+.key--hold-key-tap-key .key_secondary,
+.key--hold-layer-tap-key .key_secondary {
+  width         : 32px;
+  overflow      : hidden;
+  text-align    : left;
+  text-overflow : ellipsis;
+  font-size     : 9px;
+}
+
+.key--default {
+  @include key-color(grey);
+}
+
+.key--layer-toggle {
+  @include key-color(orange);
+}
+
+.key--modified {
+  @include key-color(aqua);
+}
+
+.key--hold-key-tap-key,
+.key--hold-layer-tap-key {
+  @include key-color(blue);
+}
+
+.key--macro {
+  @include key-color(mauve);
+}
+
+.key--tall {
+  height : 83px;
+
+  .key_face_plane {
+    background-size : 60px 100px;
+  }
+}
+
+.key--giant {
+  height : 111px;
+
+  .key_face_plane {
+    background-size : 60px 150px;
+  }
+}
+
+.key--wide {
+  width  : 84px;
+  height : 56px;
+}
+
+.key--transparent {
+  .key_face {
+    opacity : 0.8;
+  }
+
+  .key_light {
+    background : none;
+  }
+
+  .key_face_bevel {
+    background : none;
+  }
+
+  .key_icon,
+  .key_primary,
+  .key_secondary {
+    opacity : 0.7;
+  }
+}
+
+.key--hilight {
+  .key_hover {
+    z-index             : 1;
+    position            : absolute;
+    top                 : 0;
+    left                : 0;
+    width               : 100%;
+    height              : 100%;
+    background          : transparentize(map-get(map-get($color, cyan), base), 0.8);
+    background-image    : linear-gradient(45deg, transparentize(map-get(map-get($color, cyan), base), 0.5) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, cyan), base), 0.5) 75%, transparentize(map-get(map-get($color, cyan), base), 0.5)),
+                          linear-gradient(45deg, transparentize(map-get(map-get($color, cyan), base), 0.5) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, cyan), base), 0.5) 75%, transparentize(map-get(map-get($color, cyan), base), 0.5));
+    background-position : 0 0,
+                          1px 1px;
+    background-size     : 2px 2px;
+  }
+}
+
+.key--dragging {
+  opacity : 0.6;
+}
+
+.key--default.key--transparent {
+  @include   key-transparent(grey);
+
+  .key_face_background {
+    border-top-color    : map-get(map-get($color, grey), lightest);
+    border-right-color  : map-get(map-get($color, grey), lighter);
+    border-bottom-color : map-get(map-get($color, grey), base);
+    border-left-color   : map-get(map-get($color, grey), lighter);
+  }
+
+  .key_face_plane {
+    background          : map-get(map-get($color, grey), light);
+    background-image    : radial-gradient(transparentize(map-get(map-get($color, grey), light), 0.8) 30%, transparentize(map-get(map-get($color, grey), light), 0));
+    background-position : 0 -10px;
+    background-size     : 80px 80px;
+  }
+}
+
+.key--layer-toggle.key--transparent {
+  @include key-transparent(orange);
+}
