@@ -101,7 +101,8 @@ Tab.prototype.canEdit = function (opt) {
   document.body.addEventListener('click', function (e) {
     if (
       self.isEditing
-      && !self.node.node.contains(e.target)
+      && !self.node.document.contains(e.target)
+      && self.node.document.node !== e.target
       && !e.target.closest('.modal')
     ) {
       self.editCancel();
