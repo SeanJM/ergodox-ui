@@ -45,8 +45,8 @@
 
   Component.prototype.prependTo = function (target) {
     var node = typeof target === 'string'
-    ? document.querySelector(target)
-    : undefined;
+      ? document.querySelector(target)
+      : undefined;
 
     this.node.document.prependTo(target);
 
@@ -79,8 +79,8 @@
 
   Component.prototype.appendTo = function (target) {
     var node = typeof target === 'string'
-    ? document.querySelector(target)
-    : undefined;
+      ? document.querySelector(target)
+      : undefined;
 
     this.node.document.appendTo(target);
 
