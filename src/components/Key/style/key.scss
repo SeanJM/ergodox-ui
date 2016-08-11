@@ -1,6 +1,6 @@
 @mixin key-color($name) {
   .key_cap {
-    border : 2px solid map-get(map-get($color, $name), dark);
+    border : 2px solid map-get(map-get($color, $name), darker);
   }
 
   .key_face_plane:before {
@@ -200,27 +200,6 @@
 
 .key--macro {
   @include key-color(mauve);
-}
-
-.key--tall {
-  height : 83px;
-
-  .key_face_plane {
-    background-size : 60px 100px;
-  }
-}
-
-.key--giant {
-  height : 111px;
-
-  .key_face_plane {
-    background-size : 60px 150px;
-  }
-}
-
-.key--wide {
-  width  : 84px;
-  height : 56px;
 }
 
 .key--transparent {
