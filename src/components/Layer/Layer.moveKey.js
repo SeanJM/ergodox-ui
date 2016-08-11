@@ -78,9 +78,16 @@
       var opt = {
         key : key,
         points : points,
-        offset : targetOffset
+        offset : targetOffset,
+        angle : angle,
+        pivot : pivot,
+        rotatedOffset : {
+          left : left,
+          top : top,
+          right : right,
+          bottom : bottom,
+        }
       };
-
 
       if (!leftest || opt.offset.left < leftest) {
         leftest = opt.offset.left;
@@ -129,7 +136,9 @@
       // than 1 bounding box match
       if (inside.length > 1) {
         inside = inside.filter(function (x) {
-          return inPoly(point, x.points);
+          // Rotate the cursor and check based on the rotated offset
+          var rPage = rotatePoint(x.pivot, [ e.pageX, e.pageY ], x.angle);
+          return inRect(rPage, x.rotatedOffset);
         });
       }
 
@@ -303,7 +312,7 @@
         && !clone
       ) {
         anime({
-          targets : key.node_cap.node,
+          targets : key.node.cap.node,
           translateX : [
             (distance.x * Math.pow(dragDecay, Math.abs(distance.x))),
             0
@@ -323,7 +332,7 @@
         drawLink(e);
         clone.node.document.style.transform = 'translate(' + (e.pageX - (cloneOffset.width / 2)) + 'px, ' + (e.pageY - (cloneOffset.height / 2)) + 'px)';
       } else {
-        key.node_cap.style.transform = 'translate(' + (distance.x * Math.pow(dragDecay, Math.abs(distance.x))) + 'px) translateY(' + (distance.y * Math.pow(dragDecay, Math.abs(distance.y))) + 'px)';
+        key.node.cap.style.transform = 'translate(' + (distance.x * Math.pow(dragDecay, Math.abs(distance.x))) + 'px) translateY(' + (distance.y * Math.pow(dragDecay, Math.abs(distance.y))) + 'px)';
       }
     });
 
