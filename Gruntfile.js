@@ -44,7 +44,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('sass-concat', function () {
-    var w = lib.sass.map(f => '@import \"' + f.slice(4) + '\";\n').join('\n');
+    var w = lib.sass.map(f => '@import \"' + f.slice(4) + '\";\n').join('');
 
     fs.writeFile('src/import.scss', w);
   });
