@@ -16,13 +16,13 @@ function Button() {
 
       onKeydown : function (e) {
         if (e.which === KEYCODE_ENTER) {
-          self.node.addClass('button--active');
+          self.node.document.addClass('button--active');
         }
       },
 
       onKeyup : function (e) {
         if (e.which === KEYCODE_ENTER) {
-          self.node.removeClass('button--active');
+          self.node.document.removeClass('button--active');
           self.trigger('click');
         }
       }
@@ -71,15 +71,15 @@ Button.prototype.text = function (text) {
 };
 
 Button.prototype.select = function () {
-  this.node.addClass('button--select');
+  this.node.document.addClass('button--select');
 };
 
 Button.prototype.deselect = function () {
-  this.node.removeClass('button--select');
+  this.node.document.removeClass('button--select');
 };
 
 Button.prototype.focus = function () {
-  this.node.focus();
+  this.node.document.focus();
 };
 
 Component.extend(Button);
