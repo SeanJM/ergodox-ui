@@ -18,20 +18,16 @@ function Modal() {
 }
 
 Modal.prototype.text = function (v) {
-  var node = el('p',
-    {
-      class : 'modal_text'
-    },
-    v
-  );
+  var node = el('p', { class : 'modal_text' });
 
-  node.node.innerHTML = node.node.innerHTML
-    .replace(/\*\*([^\*]+)\*\*/, function (a, b) {
+  node.html(
+    v.replace(/\*\*([^\*]+)\*\*/, function (a, b) {
       return '<em>' + b + '</em>';
     })
     .replace(/\*([^\*]+)\*/, function (a, b) {
       return '<ul>' + b + '</ul>';
-    });
+    })
+  );
 
   this.node.content.append(node);
 };
@@ -72,7 +68,7 @@ Modal.prototype.control = function () {
 
 Modal.prototype.icon = function (name) {
   if (typeof this.node.icon === 'undefined') {
-    this.node.addClass('modal--has-icon');
+    this.node.document.addClass('modal--has-icon');
 
     this.node.body.append(
       this.node.icon = el(IconLarge, name)
@@ -90,8 +86,8 @@ Modal.prototype.open = function () {
   var bodyHeight;
   var winHeight;
 
-  this.node.node.style.opacity = 0;
-  this.node.appendTo(document.body);
+  this.node.document.node.style.opacity = 0;
+  this.node.document.appendTo(document.body);
   this.node.control.focus();
 
   contentHeight = this.node.content.offset().height;
@@ -100,7 +96,7 @@ Modal.prototype.open = function () {
 
   this.node.content.style.paddingTop = (bodyHeight / 2) - (contentHeight / 2) + 'px';
 
-  this.node.fadeIn(1000);
+  this.node.document.fadeIn(1000);
 
   anime({
     targets : this.node.window.node,
@@ -126,7 +122,7 @@ Modal.prototype.open = function () {
 Modal.prototype.close = function () {
   document.body.removeEventListener('keydown', this.cancelListener);
   Modal.isOpen = false;
-  this.node.remove();
+  this.node.document.remove();
 };
 
 Modal.isOpen = false;
