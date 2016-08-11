@@ -27,8 +27,6 @@
         this.node.hover = el('div', { class : 'key_hover' }),
         this.node.selected = el('div', { class : 'key_select' }),
         this.node.face = el('div', { class : 'key_face' },
-          el('div', { class : 'key_light' }),
-          el('div', { class : 'key_face_bevel' }),
           el('div', { class : 'key_face_background' }),
           el('div', { class : 'key_face_plane' })
         ),
