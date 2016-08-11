@@ -1,6 +1,6 @@
 $black   : #2f363e;
 $blue    : #4299e0;
-$grey    : lighten(desaturate($blue, 60%), 5%);
+$grey    : lighten(desaturate($blue, 60%), 10%);
 $aqua    : adjust-hue(darken($blue, 6%), -20deg);
 $green   : darken(adjust-hue($blue, -60deg), 5%);
 $mauve   : darken(adjust-hue($blue, 120deg), 10%);
@@ -70,9 +70,9 @@ $color   : (
     light : lighten($aqua, 13%),
     lighter : lighten($aqua, 22%),
     lightest : lighten($aqua, 31%),
-    dark : darken($aqua, 12%),
-    darker : darken($aqua, 25%),
-    darkest : darken($aqua, 35%)
+    dark : adjust-hue(darken($aqua, 12%), 5deg),
+    darker : adjust-hue(darken($aqua, 25%), 5deg),
+    darkest : adjust-hue(darken($aqua, 35%), 5deg)
   ),
   green : (
     base : $green,
