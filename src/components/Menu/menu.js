@@ -7,10 +7,14 @@ function Menu() {
   );
 }
 
+Component.extend(Menu);
+
 Menu.prototype.open = function () {
   var offset;
 
-  el(document.body).append(this.node);
+  console.log('open');
+
+  this.node.document.appendTo('body');
 
   if (this.openTarget) {
     offset = this.openTarget.offset();
@@ -18,6 +22,7 @@ Menu.prototype.open = function () {
     this.node.document.style.top = offset.top + 'px';
   }
 };
+
 
 Menu.prototype.target = function (target) {
   this.openTarget = target;
@@ -33,8 +38,17 @@ Menu.prototype.append = function () {
 };
 
 Menu.Item = function () {
-  this.node = el({ class : 'menu_item' });
+  this.node = {
+    document : el({ class : 'menu_item' })
+  };
+
+  this.node.document.append(
+    this.node.text = el({ class : 'menu_item-text' })
+  );
 };
 
-Component.extend(Menu);
 Component.extend(Menu.Item);
+
+Menu.Item.prototype.text = function (value) {
+  this.node.text.text(value);
+};
