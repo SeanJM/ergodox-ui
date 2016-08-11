@@ -115,36 +115,24 @@
 
     document.body.addEventListener('mousemove', mousemove = function (e) {
       var inside = [];
-      var point = { x : e.pageX, y : e.pageY };
+      var point;
+      var hObj;
 
       for (var k in hoverPoints) {
         if (e.pageX < k) {
           // find row
           for (var i = 0, n = hoverPoints[k].length; i < n; i++) {
-            hoverPoints[k][i].key.lightOff();
-            // Test relative to bounding box first
-            if (inRect(point, hoverPoints[k][i].offset)) {
-              inside.push(hoverPoints[k][i]);
+            hObj = hoverPoints[k][i];
+            point = rotatePoint(hObj.pivot, [ e.pageX, e.pageY ], hObj.angle);
+            hObj.key.lightOff();
+            key.keyTarget = false;
+
+            if (inRect(point, hObj.rotatedOffset)) {
+              key.keyTarget = hObj.key;
+              hObj.key.lightOn();
             }
           }
         }
-      }
-
-      key.keyTarget = false;
-
-      // Only check if the point is inside the polygon when there are more
-      // than 1 bounding box match
-      if (inside.length > 1) {
-        inside = inside.filter(function (x) {
-          // Rotate the cursor and check based on the rotated offset
-          var rPage = rotatePoint(x.pivot, [ e.pageX, e.pageY ], x.angle);
-          return inRect(rPage, x.rotatedOffset);
-        });
-      }
-
-      if (inside.length) {
-        key.keyTarget = inside[0].key;
-        inside[0].key.lightOn();
       }
     });
 
