@@ -24,7 +24,7 @@ $color   : (
     base : $grey,
     light : lighten($grey, 10%),
     lighter : lighten($grey, 20%),
-    lightest : lighten($grey, 30%),
+    lightest : lighten($grey, 32%),
     dark : darken($grey, 15%),
     darker : darken($grey, 25%),
     darkest : darken($grey, 35%)
@@ -42,7 +42,7 @@ $color   : (
     base : $orange,
     light : adjust-hue(lighten($orange, 12%), 5deg),
     lighter : lighten($orange, 22%),
-    lightest : adjust-hue(lighten($orange, 32%), 3deg),
+    lightest : adjust-hue(lighten($orange, 32%), 10deg),
     dark : adjust-hue(darken($orange, 6%), -10deg),
     darker : adjust-hue(darken($orange, 10%), -20deg),
     darkest : adjust-hue(darken($orange, 15%), -35deg),
@@ -60,10 +60,10 @@ $color   : (
     base : $blue,
     light : lighten($blue, 13%),
     lighter : lighten($blue, 22%),
-    lightest : lighten($blue, 31%),
+    lightest : adjust-hue(lighten($blue, 35%), -10deg),
     dark : darken($blue, 12%),
-    darker : darken($blue, 25%),
-    darkest : darken($blue, 35%)
+    darker : darken($blue, 20%),
+    darkest : adjust-hue(darken($blue, 28%), 10deg)
   ),
   aqua : (
     base : $aqua,
