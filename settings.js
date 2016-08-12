@@ -238,7 +238,6 @@ var settings = {
         'KC_TRNS',
         'KC_TRNS',
         'KC_TRNS',
-        'KC_TRNS',
         'KC_TRNS'
       ]
     }],
