@@ -5,14 +5,16 @@ function App(opt) {
   this.macros = opt.keyboard.macros;
 
   this.node = {
-    document : el('div', { class : 'app-container' })
+    document : el({ class : 'app-container' })
   };
 
   this.node.document.append(
     this.node.layers = el(Layers),
     this.node.toolbar = el(Toolbar,
       this.node.tabs = el(Tabs),
-      this.node.tabAdd = el(TabAdd)
+      this.node.tabAdd = el({ class : 'tab tab_add' },
+        el({ class : 'tab_title' }, '+')
+      )
     ),
     this.node.status = el(Status)
   );
