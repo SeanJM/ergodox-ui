@@ -118,6 +118,8 @@
       var point;
       var hObj;
 
+      key.dropTarget = false;
+
       for (var k in hoverPoints) {
         if (e.pageX < k) {
           // find row
@@ -125,10 +127,9 @@
             hObj = hoverPoints[k][i];
             point = rotatePoint(hObj.pivot, [ e.pageX, e.pageY ], hObj.angle);
             hObj.key.lightOff();
-            key.keyTarget = false;
 
             if (inRect(point, hObj.rotatedOffset)) {
-              key.keyTarget = hObj.key;
+              key.dropTarget = hObj.key;
               hObj.key.lightOn();
             }
           }
@@ -262,7 +263,15 @@
       keyOffset.bottom = bottom - 2;
 
       clone = key.clone();
+
+      clone.removeClass('key--giant');
+      clone.removeClass('key--tall');
       clone.addClass('key--dragging');
+
+      clone.node.document.style.position = 'absolute';
+      clone.node.document.style.zIndex = 2;
+      clone.node.document.style.left = '0';
+      clone.node.document.style.top = '0';
 
       canvas.node.width = window.innerWidth * 2;
       canvas.node.height = window.innerHeight * 2;
@@ -336,8 +345,8 @@
         clone = undefined;
       }
 
-      if (key.keyTarget) {
-        key.drop();
+      if (key.dropTarget) {
+        Layer.dropKey(key, { x : e.pageX, y : e.pageY });
       }
     });
   };
