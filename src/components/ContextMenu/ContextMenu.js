@@ -18,6 +18,8 @@ ContextMenu.prototype.close = function () {
   this.node.document.fadeOut(700, function () {
     self.node.document.remove();
   });
+
+  this.trigger('close');
 };
 
 ContextMenu.prototype.open = function (coordinates) {
