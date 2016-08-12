@@ -1,4 +1,4 @@
 Key.prototype.clear = function () {
-  var clear = new Key({ keyCode : 'KC_TRNS' });
+  var clear = new Key({ keyCode : KEYCODE.EMPTY });
   return this.replaceWith(clear);
 };
