@@ -32,7 +32,7 @@ Layer.dropKey = function (key, coordinates) {
           onClick : function () {
             key.dropTarget.setHoldKey(key);
           }
-        }, 'Replace layer hold key')
+        }, 'Insert layer hold key')
       );
     } else if (key.dropTarget.isHoldLayerTapKey) {
       contextMenu.append(
