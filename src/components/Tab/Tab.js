@@ -22,8 +22,6 @@ function Tab(opt) {
   };
 
   this.node.document.append(
-    el('div', { class : 'tab_left-corner' }),
-    el('div', { class : 'tab_right-corner' }),
     this.node.title = el('div', { class : 'tab_title' }, this.title)
   );
 }
