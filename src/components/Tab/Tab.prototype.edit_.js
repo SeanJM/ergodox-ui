@@ -70,7 +70,7 @@ Tab.prototype.canEdit = function (opt) {
 
   this.hasEdit = true;
 
-  this.node.edit = el('div', { class : 'tab_edit' },
+  this.node.edit = el({ class : 'tab_edit' },
     this.node.edit_input = el('input', {
       class : 'tab_edit_input',
       type : 'text',

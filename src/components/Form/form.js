@@ -1,7 +1,7 @@
 function Form() {
   this.elements = [];
   this.node = {
-    document : el('div', { class : 'form' })
+    document : el({ class : 'form' })
   };
 }
 

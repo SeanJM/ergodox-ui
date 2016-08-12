@@ -6,7 +6,7 @@ function Tab(opt) {
   this.title = opt ? opt.title : false;
 
   this.node = {
-    document : el('div', {
+    document : el({
       class : 'tab',
 
       onClick : function (e) {
@@ -22,7 +22,7 @@ function Tab(opt) {
   };
 
   this.node.document.append(
-    this.node.title = el('div', { class : 'tab_title' }, this.title)
+    this.node.title = el({ class : 'tab_title' }, this.title)
   );
 }
 

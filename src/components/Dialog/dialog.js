@@ -1,12 +1,12 @@
 function Dialog() {
   this.node = {
-    document : el('div', { class : 'dialog' })
+    document : el({ class : 'dialog' })
   };
 
   this.node.document.append(
-    this.node.head = el('div', { class : 'dialog_head' }),
-    this.node.body = el('div', { class : 'dialog_body' }),
-    this.node.feet = el('div', { class : 'dialog_feet' })
+    this.node.head = el({ class : 'dialog_head' }),
+    this.node.body = el({ class : 'dialog_body' }),
+    this.node.feet = el({ class : 'dialog_feet' })
   );
 }
 

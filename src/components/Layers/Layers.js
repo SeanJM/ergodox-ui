@@ -2,7 +2,7 @@ function Layers() {
   var self = this;
 
   this.node = {
-    document : el('div', { class : 'layers' })
+    document : el({ class : 'layers' })
   };
   
   this.elements = [];

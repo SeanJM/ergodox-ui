@@ -2,7 +2,7 @@ function Control() {
   var self = this;
 
   this.node = {
-    document : el('div', { class : 'control' })
+    document : el({ class : 'control' })
   };
 
   this.on('cancel', function () {

@@ -1,15 +1,15 @@
 function Modal() {
   this.node = {
-    document : el('div', { class : 'modal' })
+    document : el({ class : 'modal' })
   };
 
   this.node.document.append(
-    this.node.window = el('div', { class : 'modal_window' },
-      this.node.chrome = el('div', { class : 'modal_chrome' },
-        this.node.body = el('div', { class : 'modal_body' },
-          this.node.content = el('div', { class : 'modal_content' })
+    this.node.window = el({ class : 'modal_window' },
+      this.node.chrome = el({ class : 'modal_chrome' },
+        this.node.body = el({ class : 'modal_body' },
+          this.node.content = el({ class : 'modal_content' })
         ),
-        this.node.feet = el('div', { class : 'modal_feet' },
+        this.node.feet = el({ class : 'modal_feet' },
           this.node.control = el(Control, { class : 'modal_control' })
         )
       )

@@ -8,7 +8,7 @@
 
     // Key node
     this.node = {
-      document : el('div', {
+      document : el({
         class : 'key',
 
         onClick : function () {
@@ -22,17 +22,17 @@
     };
 
     this.node.document.append(
-      this.node.well = el('div', { class : 'key_well '}),
-        this.node.cap = el('div', { class : 'key_cap' },
-        this.node.hover = el('div', { class : 'key_hover' }),
-        this.node.selected = el('div', { class : 'key_select' }),
-        this.node.face = el('div', { class : 'key_face' },
-          el('div', { class : 'key_face_background' }),
-          el('div', { class : 'key_face_plane' })
+      this.node.well = el({ class : 'key_well '}),
+        this.node.cap = el({ class : 'key_cap' },
+        this.node.hover = el({ class : 'key_hover' }),
+        this.node.selected = el({ class : 'key_select' }),
+        this.node.face = el({ class : 'key_face' },
+          el({ class : 'key_face_background' }),
+          el({ class : 'key_face_plane' })
         ),
 
-        this.node.primary = el('div', { class : 'key_primary' }),
-        this.node.secondary = el('div', { class : 'key_secondary' }),
+        this.node.primary = el({ class : 'key_primary' }),
+        this.node.secondary = el({ class : 'key_secondary' }),
         this.node.iconPrimary = el(Icon, { class : 'key_icon key_icon-primary' }),
         this.node.iconSecondary = el(Icon, { class : 'key_icon key_icon-secondary' })
       )

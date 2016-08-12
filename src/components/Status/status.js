@@ -1,11 +1,11 @@
 function StatusKey() {
   this.node = {
-    document : el('div', { class : 'status_key status_key--empty' })
+    document : el({ class : 'status_key status_key--empty' })
   };
 
   this.node.document.append(
-    this.node.type = el('div', { class : 'status_key_type' }),
-    this.node.value = el('div', { class : 'status_key_value' })
+    this.node.type = el({ class : 'status_key_type' }),
+    this.node.value = el({ class : 'status_key_value' })
   );
 }
 
@@ -24,14 +24,14 @@ Component.extend(StatusKey);
 
 function Status () {
   this.node = {
-    document : el('div', { class : 'status' })
+    document : el({ class : 'status' })
   };
 
   this.node.document.append(
-    el('div', { class : 'status_container' },
+    el({ class : 'status_container' },
       this.node.primary = el(StatusKey),
       this.node.secondary = el(StatusKey),
-      this.node.longName = el('div', { class : 'status_key status_key--long-name' })
+      this.node.longName = el({ class : 'status_key status_key--long-name' })
     )
   );
 }

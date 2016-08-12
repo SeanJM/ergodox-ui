@@ -1,6 +1,6 @@
 function Input() {
   this.node = {
-    document : el('div', { class : 'input' })
+    document : el({ class : 'input' })
   };
 }
 

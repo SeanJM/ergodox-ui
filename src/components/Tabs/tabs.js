@@ -2,7 +2,7 @@ function Tabs() {
   var self = this;
 
   this.node = {
-    document : el('div', { class : 'tabs' })
+    document : el({ class : 'tabs' })
   };
 
   this.selected = false;

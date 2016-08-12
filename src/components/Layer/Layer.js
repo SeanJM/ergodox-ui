@@ -10,7 +10,7 @@ function Layer(opt) {
   this.selected = false;
 
   this.node = {
-    document : el('div', { class : 'layer layer--' + os })
+    document : el({ class : 'layer layer--' + os })
   };
 }
 

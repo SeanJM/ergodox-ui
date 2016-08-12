@@ -1,7 +1,7 @@
 function Icon() {
   this.img = false;
   this.node = {
-    document : el('div', { class : 'icon' })
+    document : el({ class : 'icon' })
   };
 }
 

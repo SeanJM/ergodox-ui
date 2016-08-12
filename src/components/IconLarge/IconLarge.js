@@ -1,6 +1,6 @@
 function IconLarge() {
   this.node = {
-    document : el('div', { class : 'icon-large' },
+    document : el({ class : 'icon-large' },
       el('img', { src : 'bin/ergodox_icon-large.svg' })
     )
   };

@@ -2,7 +2,7 @@ function Button() {
   var self = this;
 
   this.node = {
-    document : el('div', {
+    document : el({
       class : 'button',
       tabIndex : 0,
 
@@ -30,9 +30,9 @@ function Button() {
   };
 
   this.node.document.append(
-    this.node.face = el('div', { class : 'button_face' }),
-    this.node.text = el('div', { class : 'button_text' }),
-    el('div', { class : 'button_active' })
+    this.node.face = el({ class : 'button_face' }),
+    this.node.text = el({ class : 'button_text' }),
+    el({ class : 'button_active' })
   );
 }
 
