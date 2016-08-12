@@ -1,0 +1,33 @@
+.context-menu {
+  z-index       : 1;
+  position      : absolute;
+  border-radius : 5px;
+  background    : map-get(map-get($color, grey), lightest);
+  box-shadow    : 0 1px 10px rgba(0, 0, 0, 0.6);
+  user-select   : none;
+  cursor        : default;
+}
+
+.context-menu hr {
+  margin     : 6px 0;
+  border     : none;
+  border-top : 1px solid map-get(map-get($color, grey), lighter);
+}
+
+.context-menu_content {
+  min-width : 200px;
+  padding   : 7px 0;
+}
+
+.context-menu_item {
+  position    : relative;
+  padding     : 0 10px 0 20px;
+  color       : map-get(map-get($color, grey), darker);
+  font-size   : $default;
+  line-height : $default * 2.5;
+
+  &:hover {
+    color      : #fff;
+    background : map-get(map-get($color, blue), base);
+  }
+}
