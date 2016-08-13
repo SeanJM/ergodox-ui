@@ -6,6 +6,11 @@ KEYCODE.isHoldLayerTapKey = function (keyCode) {
   return keyCode.substr(0, 3) === 'LT(';
 };
 
+KEYCODE.isShift = function (keyCode) {
+  var shift = ['KC_LSFT', 'KC_RSFT', 'KC_SFT'];
+  return shift.indexOf(keyCode) > -1;
+};
+
 KEYCODE.isHoldModifierTapKey = function (keyCode) {
   return /_T\(/.test(keyCode);
 };
