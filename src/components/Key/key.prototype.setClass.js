@@ -27,8 +27,6 @@
       this.node.document.addClass('key--layer-toggle');
     } else if (this.isMacro) {
       this.node.document.addClass('key--macro');
-    } else if (this.isLocked) {
-      this.node.document.addClass('key--locked');
     } else {
       this.node.document.addClass('key--default');
     }
