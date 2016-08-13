@@ -19,10 +19,18 @@ lib.sass = lib.sass.concat(M('src/components/', /scss$/));
 lib.js.vendor = [ 'src/scripts/vendor/*.js' ];
 
 lib.js.custom = [
+  'src/scripts/custom/KEY_IS.js',
   'src/scripts/custom/KEYCODE.js',
-  'src/scripts/custom/KEYBOARD.js',
+  'src/scripts/custom/KEYCODE.ICON.js',
+  'src/scripts/custom/KEYCODE.LIST.js',
+  'src/scripts/custom/KEYCODE.LONG_NAME.js',
+  'src/scripts/custom/KEYCODE.MODIFIERS.js',
+  'src/scripts/custom/KEYCODE.PRIMARY.js',
+  'src/scripts/custom/KEYCODE.SFT.js',
+  'src/scripts/custom/KEYCODE.is.js',
   'src/scripts/custom/COLOR.js',
   'src/scripts/custom/EMPTY.js',
+  'src/scripts/custom/tinyMarkdown.js',
   'src/scripts/custom/Modal.*.js',
   'src/scripts/custom/language/english.js',
   'src/scripts/custom/index.js',
