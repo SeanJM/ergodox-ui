@@ -5,7 +5,7 @@ $aqua    : adjust-hue(darken($blue, 6%), -20deg);
 $green   : darken(adjust-hue($blue, -60deg), 5%);
 $mauve   : desaturate(darken(adjust-hue($blue, 90deg), 10%), 20%);
 $purple  : desaturate(adjust-hue($blue, 60deg), 5%);
-$red     : adjust-hue($blue, 145deg);
+$red     : adjust-hue($blue, 155deg);
 $pink    : saturate(lighten(adjust-hue($blue, 105deg), 3%), 10%);
 $navy    : desaturate(darken(adjust-hue($blue, 10deg), 25%), 20%);
 $orange  : adjust-hue($blue, 185deg);
@@ -31,9 +31,9 @@ $color   : (
   ),
   red : (
     base : $red,
-    light : lighten($red, 13%),
-    lighter : lighten($red, 22%),
-    lightest : lighten($red, 31%),
+    light : adjust-hue(lighten($red, 13%), 6deg),
+    lighter : adjust-hue(lighten($red, 22%), 6deg),
+    lightest : adjust-hue(lighten($red, 31%), 6deg),
     dark : darken($red, 12%),
     darker : darken($red, 25%),
     darkest : darken($red, 35%),
