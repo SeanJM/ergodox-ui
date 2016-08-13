@@ -20,14 +20,7 @@ function Modal() {
 Modal.prototype.text = function (v) {
   var node = el('p', { class : 'modal_text' });
 
-  node.html(
-    v.replace(/\*\*([^\*]+)\*\*/, function (a, b) {
-      return '<em>' + b + '</em>';
-    })
-    .replace(/\*([^\*]+)\*/, function (a, b) {
-      return '<ul>' + b + '</ul>';
-    })
-  );
+  node.html(tinyMarkdown(v));
 
   this.node.content.append(node);
 };
