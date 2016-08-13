@@ -11,7 +11,7 @@
 }
 
 .icon-large--error-layer {
-  background : linear-gradient(45deg, map-get(map-get($color, red), light), map-get(map-get($color, red), base));
+  background : linear-gradient(45deg, map-get(map-get($color, red), light), map-get(map-get($color, red), dark));
 }
 
 .icon-large--confirm-layer {
