@@ -143,6 +143,80 @@
     });
   }
 
+  function drawLink(ctx, keyOffset, cloneOffset, e) {
+    // Top left corner
+    drawLine(ctx,
+      keyOffset[0].x,
+      keyOffset[0].y,
+      e.pageX - (cloneOffset.width / 2) + 1,
+      e.pageY - (cloneOffset.height / 2) + 1
+    );
+
+    // Top right corner
+    drawLine(ctx,
+      keyOffset[1].x,
+      keyOffset[1].y,
+      e.pageX + (cloneOffset.width / 2) - 1,
+      e.pageY - (cloneOffset.height / 2) + 1
+    );
+
+    // Bottom left corner
+    drawLine(ctx,
+      keyOffset[2].x,
+      keyOffset[2].y,
+      e.pageX - (cloneOffset.width / 2) + 1,
+      e.pageY + (cloneOffset.height / 2) - 1
+    );
+
+    // Bottom right corner
+    drawLine(ctx,
+      keyOffset[3].x,
+      keyOffset[3].y,
+      e.pageX + (cloneOffset.width / 2) - 1,
+      e.pageY + (cloneOffset.height / 2) - 1
+    );
+
+    drawPoly(ctx, [
+      keyOffset[0].x, keyOffset[0].y,
+    ], [
+      keyOffset[1].x, keyOffset[1].y,
+    ], [
+      e.pageX + (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2),
+    ], [
+      e.pageX - (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
+    ]);
+
+    drawPoly(ctx, [
+      keyOffset[0].x, keyOffset[0].y,
+    ], [
+      keyOffset[2].x, keyOffset[2].y,
+    ], [
+      e.pageX - (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
+    ], [
+      e.pageX - (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
+    ]);
+
+    drawPoly(ctx, [
+      keyOffset[1].x, keyOffset[1].y,
+    ], [
+      keyOffset[3].x, keyOffset[3].y,
+    ], [
+      e.pageX + (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
+    ], [
+      e.pageX + (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
+    ]);
+
+    drawPoly(ctx, [
+      keyOffset[2].x, keyOffset[2].y,
+    ], [
+      keyOffset[3].x, keyOffset[3].y,
+    ], [
+      e.pageX + (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2)
+    ], [
+      e.pageX - (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
+    ]);
+  }
+
   Layer.moveKey = function(key, keyList) {
     var angle;
     var clone;
@@ -164,80 +238,6 @@
     });
 
     var ctx = canvas.node.getContext('2d');
-
-    function drawLink(e) {
-      // Top left corner
-      drawLine(ctx,
-        keyOffset[0].x,
-        keyOffset[0].y,
-        e.pageX - (cloneOffset.width / 2) + 1,
-        e.pageY - (cloneOffset.height / 2) + 1
-      );
-
-      // Top right corner
-      drawLine(ctx,
-        keyOffset[1].x,
-        keyOffset[1].y,
-        e.pageX + (cloneOffset.width / 2) - 1,
-        e.pageY - (cloneOffset.height / 2) + 1
-      );
-
-      // Bottom left corner
-      drawLine(ctx,
-        keyOffset[2].x,
-        keyOffset[2].y,
-        e.pageX - (cloneOffset.width / 2) + 1,
-        e.pageY + (cloneOffset.height / 2) - 1
-      );
-
-      // Bottom right corner
-      drawLine(ctx,
-        keyOffset[3].x,
-        keyOffset[3].y,
-        e.pageX + (cloneOffset.width / 2) - 1,
-        e.pageY + (cloneOffset.height / 2) - 1
-      );
-
-      drawPoly(ctx, [
-        keyOffset[0].x, keyOffset[0].y,
-      ], [
-        keyOffset[1].x, keyOffset[1].y,
-      ], [
-        e.pageX + (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2),
-      ], [
-        e.pageX - (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
-      ]);
-
-      drawPoly(ctx, [
-        keyOffset[0].x, keyOffset[0].y,
-      ], [
-        keyOffset[2].x, keyOffset[2].y,
-      ], [
-        e.pageX - (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
-      ], [
-        e.pageX - (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
-      ]);
-
-      drawPoly(ctx, [
-        keyOffset[1].x, keyOffset[1].y,
-      ], [
-        keyOffset[3].x, keyOffset[3].y,
-      ], [
-        e.pageX + (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
-      ], [
-        e.pageX + (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
-      ]);
-
-      drawPoly(ctx, [
-        keyOffset[2].x, keyOffset[2].y,
-      ], [
-        keyOffset[3].x, keyOffset[3].y,
-      ], [
-        e.pageX + (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2)
-      ], [
-        e.pageX - (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
-      ]);
-    }
 
     function drawClone(e) {
       var width = parseInt(e.target.styles().width, 10);
@@ -285,10 +285,10 @@
 
       cloneOffset = clone.node.document.offset();
       clone.node.document.style.transform = 'translate(' + (e.pageX - (cloneOffset.width / 2)) + 'px, ' + (e.pageY - (cloneOffset.height / 2)) + 'px)';
-      drawLink(e);
+      drawLink(ctx, keyOffset, cloneOffset, e);
     }
 
-    key.on('dragstart', function (e) {
+    function dragstart(e) {
       angle = e.target.matrixRotation();
       targetOffset = e.target.offset();
 
@@ -298,9 +298,9 @@
       ];
 
       e.target.addClass('key--drag-source');
-    });
+    }
 
-    key.on('dragmove', function (e) {
+    function dragmove(e) {
       // Calculate the rotated distance around a pivot of 0 -- the starting point
       var distance = rotatePoint([0, 0], [e.distanceX, e.distanceY], angle);
 
@@ -326,14 +326,14 @@
         keyHover(key, keyList);
       } else if (clone) {
         ctx.clearRect(0, 0, canvas.node.width, canvas.node.height);
-        drawLink(e);
+        drawLink(ctx, keyOffset, cloneOffset, e);
         clone.node.document.style.transform = 'translate(' + (e.pageX - (cloneOffset.width / 2)) + 'px, ' + (e.pageY - (cloneOffset.height / 2)) + 'px)';
       } else {
         key.node.cap.style.transform = 'translate(' + (distance.x * Math.pow(dragDecay, Math.abs(distance.x))) + 'px) translateY(' + (distance.y * Math.pow(dragDecay, Math.abs(distance.y))) + 'px)';
       }
-    });
+    }
 
-    key.on('dragend', function (e) {
+    function dragend(e) {
       e.target.removeClass('key--drag-source');
 
       if (canvas) {
@@ -345,8 +345,24 @@
         clone = undefined;
       }
 
-      if (key.dropTarget) {
-        Layer.dropKey(key, { x : e.pageX, y : e.pageY });
+      Layer.dropKey(key, { x : e.pageX, y : e.pageY });
+    }
+
+    key.on('dragstart', function (e) {
+      if (!key.isLocked) {
+        dragstart(e);
+      }
+    });
+
+    key.on('dragmove', function (e) {
+      if (!key.isLocked) {
+        dragmove(e);
+      }
+    });
+
+    key.on('dragend', function (e) {
+      if (!key.isLocked) {
+        dragend(e);
       }
     });
   };
