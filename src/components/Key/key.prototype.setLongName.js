@@ -20,10 +20,10 @@ Key.prototype.setLongName = function () {
       this.str_longName = KEYCODE.PRIMARY['KC_' + this.keyHold] + ' + ' + KEYCODE.PRIMARY[this.keyTap] + ' when held.';
     } else if (
       KEYCODE.isModifier(this.keyHold)
-      && KEYBOARD[this.keyHold]
-      && KEYBOARD[this.keyHold][this.keyTap]
+      && KEYCODE[this.keyHold]
+      && KEYCODE[this.keyHold][this.keyTap]
     ) {
-      this.str_longName = KEYBOARD[this.keyHold][this.keyTap] + ' when pressed.';
+      this.str_longName = KEYCODE[this.keyHold][this.keyTap] + ' when pressed.';
     } else {
       this.str_longName = 'Unknown';
     }
