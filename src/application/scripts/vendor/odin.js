@@ -1,28 +1,23 @@
 function Odin(opt) {
+  this.history = [];
   this.singleton = opt || {};
   this.subscriber = {};
 }
 
-Odin.prototype.set = function (path, value) {
-  var x = this.singleton;
-
-  path = Array.isArray(path)
+Odin.prototype.path = function(path) {
+  return Array.isArray(path)
     ? path.join('.').split('.')
     : path.split('.');
-
-  for (var i = 0, n = path.length - 1; i < n; i++) {
-    if (typeof x[path[i]] === 'undefined') {
-      x[path[i]] = {};
-    }
-
-    x = x[path[i]];
-  }
-
-  this.trigger(path.join('.'), value);
-  x[path[path.length - 1]] = value;
 };
 
-Odin.prototype.get = function (path, value) {
+Odin.prototype.set = function (path, value) {
+  var p = this.path(path);
+  var v = this.get(p.slice(0, -1));
+  this.trigger(p, value);
+  v[p.slice(-1)] = value;
+};
+
+Odin.prototype.get = function (path) {
   var x = this.singleton;
 
   path = path.split('.');

@@ -174,27 +174,6 @@
   font-size     : 9px;
 }
 
-.key--default {
-  @include key-color(grey);
-}
-
-.key--layer-toggle {
-  @include key-color(orange);
-}
-
-.key--modified {
-  @include key-color(red);
-}
-
-.key--hold-key-tap-key,
-.key--hold-layer-tap-key {
-  @include key-color(blue);
-}
-
-.key--macro {
-  @include key-color(mauve);
-}
-
 .key--hilight {
   .key_hover {
     z-index             : 1;

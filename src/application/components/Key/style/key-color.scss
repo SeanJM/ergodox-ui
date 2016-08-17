@@ -1,0 +1,20 @@
+.key--default {
+  @include key-color(grey);
+}
+
+.key--layer-toggle {
+  @include key-color(orange);
+}
+
+.key--modified {
+  @include key-color(mauve);
+}
+
+.key--hold-key-tap-key,
+.key--hold-layer-tap-key {
+  @include key-color(blue);
+}
+
+.key--macro {
+  @include key-color(mauve);
+}

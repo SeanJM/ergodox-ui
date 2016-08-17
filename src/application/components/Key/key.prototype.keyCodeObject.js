@@ -67,7 +67,6 @@ Key.prototype.keyCodeObject = function (keyCode) {
       this.str_primary = args[1];
       this.str_iconPrimary = KEYCODE.ICON.toggle;
     } else if (this.isModifiedKey) {
-      console.log(this);
       // LCTL(KC_1) | LSFT(KC_1) -- The value of the key when the modifier is applied
       this.keyHold = args[0];
       this.keyTap = args[1];
@@ -75,7 +74,11 @@ Key.prototype.keyCodeObject = function (keyCode) {
         KEYCODE[args[0]]
         && KEYCODE[args[0]][args[1]]
       ) ? KEYCODE[args[0]][args[1]]
-      : KEYCODE.PRIMARY['KC_' + args[0]] + ' + ' + KEYCODE.PRIMARY[args[1]];
+        : KEYCODE.PRIMARY['KC_' + args[0]] + ' + ' + KEYCODE.PRIMARY[args[1]];
+      console.trace(args[0], KEYCODE.isShift(args[0]), KEYCODE.ICON.SFT);
+      if (KEYCODE.isShift(args[0])) {
+        this.str_iconPrimary = KEYCODE.ICON.KC_LSFT;
+      }
     }
   } else {
     // KC_QUOT | KC_EQL -- the normal keys

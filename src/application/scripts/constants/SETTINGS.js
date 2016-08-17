@@ -1,4 +1,4 @@
-var settings = {
+var SETTINGS = {
   default : {
     layers : [{
       name : 'BASE',

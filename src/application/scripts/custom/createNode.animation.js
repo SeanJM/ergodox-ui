@@ -1,6 +1,3 @@
-// Contains event listeners and reactions
-var state = new Odin();
-
 el.fn('popFadeIn', function (time, callback) {
   var self = this;
   time = time || 600;
@@ -98,25 +95,3 @@ el.fn('fadeIn', function () {
 
   anime(opt);
 });
-
-el.fn('matrixRotation', function () {
-  var matrix = this.styles().transform;
-
-  var parent = this.parentsUntil(function (p) {
-    return /^matrix/.test(window.getComputedStyle(p).transform);
-  });
-
-  matrix = /matrix/.test(matrix) && !parent
-  ? matrix
-  : parent
-  ? parent.styles().transform
-  : false;
-
-  return matrix
-  ? Math.round(
-    Math.asin(matrix.split('(')[1].split(')')[0].split(',').map(Number)[1]) * (180 / Math.PI)
-  )
-  : 0;
-});
-
-App.main = el(App, { keyboard : settings.default });

@@ -7,7 +7,7 @@ KEYCODE.isHoldLayerTapKey = function (keyCode) {
 };
 
 KEYCODE.isShift = function (keyCode) {
-  var shift = ['KC_LSFT', 'KC_RSFT', 'KC_SFT'];
+  var shift = ['KC_LSFT', 'KC_RSFT', 'KC_SFT', 'LSFT', 'RSFT'];
   return shift.indexOf(keyCode) > -1;
 };
 
