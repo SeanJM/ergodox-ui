@@ -55,6 +55,10 @@ module.exports = function(grunt) {
       ? { empty : {} }
       : isSite
         ? {
+          options : {
+            sourceMap : true
+          },
+          
           constants : {
             src : scripts.src.constants,
             dest : scripts.dest.constants,

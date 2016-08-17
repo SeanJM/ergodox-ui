@@ -4,8 +4,8 @@ const isSite = require('./isSite');
 const isProduction = require('./isProduction');
 
 let src = {
-  constants : m('src/application/scripts/constants/', /\.js$/),
   vendor : m('src/application/scripts/vendor/', /\.js$/),
+  constants : m('src/application/scripts/constants/', /\.js$/),
   components : m('src/application/components/', /\.js$/),
   containers : m('src/application/containers/', /\.js$/),
   custom : m('src/application/scripts/custom/', /\.js$/),
@@ -16,12 +16,12 @@ let src = {
 let dest = {
   site : {
     development : {
-      constants : 'bin/constants.js',
       vendor : 'bin/vendor.js',
+      constants : 'bin/constants.js',
       custom : 'bin/custom.js',
       components : 'bin/components.js',
-      collections : 'bin/collections.js',
       containers : 'bin/containers.js',
+      collections : 'bin/collections.js',
       init : 'bin/init.js'
     },
     production : {
