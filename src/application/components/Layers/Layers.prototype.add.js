@@ -4,7 +4,7 @@ Layers.prototype.add = function (name, keys) {
   this.elements.push(
     el(Layer, {
       name : name || false,
-      keys : keys || EMPTY.ergodox,
+      keys : keys || LAYER_EMPTY[SETTINGS.KEYBOARD],
       onKeyhover : function (e) {
         self.trigger('keyhover', e);
       },

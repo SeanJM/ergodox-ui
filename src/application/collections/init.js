@@ -1,1 +1,1 @@
-App.main = el(App, { keyboard : settings.default });
+App.main = el(App, { keyboard : SETTINGS.DEFAULT });

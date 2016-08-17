@@ -1,5 +1,7 @@
 var SETTINGS = {
-  default : {
+  KEYBOARD : 'ergodox',
+
+  DEFAULT : {
     layers : [{
       name : 'BASE',
       keys : [
