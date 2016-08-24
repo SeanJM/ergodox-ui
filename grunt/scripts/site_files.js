@@ -8,8 +8,8 @@ function notGrunt(file) {
 }
 
 let src = {
-  shared_constants : m('src/shared/scripts/constants/', /\.js$/).filter(notGrunt),
   shared_vendor : m('src/shared/scripts/vendor/', /\.js$/).filter(notGrunt),
+  shared_constants : m('src/shared/scripts/constants/', /\.js$/).filter(notGrunt),
   shared_custom : m('src/shared/scripts/custom/', /\.js$/).filter(notGrunt),
   shared_components : m('src/shared/scripts/components/', /\.js$/).filter(notGrunt),
   shared_containers : m('src/shared/scripts/containers/', /\.js$/).filter(notGrunt),
@@ -17,8 +17,8 @@ let src = {
   shared_main : m('src/shared/scripts/main/', /\.js$/).filter(notGrunt),
   shared_init : m('src/shared/scripts/init/', /\.js$/).filter(notGrunt),
 
-  constants : m('src/application/scripts/constants/', /\.js$/).filter(notGrunt),
   vendor : m('src/application/scripts/vendor/', /\.js$/).filter(notGrunt),
+  constants : m('src/application/scripts/constants/', /\.js$/).filter(notGrunt),
   custom : m('src/application/scripts/custom/', /\.js$/).filter(notGrunt),
   components : m('src/application/components/', /\.js$/).filter(notGrunt),
   containers : m('src/application/containers/', /\.js$/).filter(notGrunt),

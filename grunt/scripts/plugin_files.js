@@ -7,8 +7,8 @@ function notGrunt(file) {
 }
 
 let src = {
-  constants : m('src/constants/', /\.js$/).filter(notGrunt),
   vendor : m('src/vendor/', /\.js$/).filter(notGrunt),
+  constants : m('src/constants/', /\.js$/).filter(notGrunt),
   common : m('src/common/', /\.js$/).filter(notGrunt),
   containers : m('src/containers/', /\.js$/).filter(notGrunt),
   components : m('src/components/', /\.js$/).filter(notGrunt),
