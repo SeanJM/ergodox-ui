@@ -1,12 +1,17 @@
 const m = require('match-file-utility');
 const fs = require('fs');
 const scripts = require('./scripts');
-const isProduction = require('../grunt/isProduction');
+const config = JSON.parse(fs.readFileSync('package.json'));
 
 let files = m('src/flatman/', /\.js$/);
 
 module.exports = {
-  glob : 'src/flatman/**/*.js',
+  glob : [
+    'src/flatman/**/*.js',
+    'src/flatman/**/*.txt',
+    'src/flatman/**/*.md'
+  ],
+  
   files : files,
   task : function () {
     const pages = m('src/flatman/pages', /\.js$/).map(a => '../' + a);
@@ -18,10 +23,10 @@ module.exports = {
         console.log('Cannot generate: \'' + file + '\', is it using \'module.exports\'?');
       }
 
-      if (isProduction) {
+      if (config.gruntBuild.isProduction) {
         page
-          .css('bin/bundle.min')
-          .script('bin/bundle.min');
+          .css('bin/bundle')
+          .script('bin/bundle');
       } else {
         page.css('bin/bundle');
         for (var k in scripts.dest) {
