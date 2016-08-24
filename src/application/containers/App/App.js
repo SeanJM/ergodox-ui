@@ -88,7 +88,7 @@ function App(opt) {
     });
   });
 
-  this.node.layers.on('keyhover', function (e) {
+  this.node.layers.on('keyHover', function (e) {
     self.node.status.value(e.target);
   });
 
