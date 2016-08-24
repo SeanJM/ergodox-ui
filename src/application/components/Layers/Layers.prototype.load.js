@@ -7,5 +7,5 @@ Layers.prototype.load = function (layers) {
     self.add(layer.name, layer.keys);
   });
 
-  this.lockKeys();
+  this.setLockedKeys();
 };

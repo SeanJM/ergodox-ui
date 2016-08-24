@@ -12,5 +12,5 @@ Layers.prototype.rename = function (e) {
       key.draw();
     }
   });
-  this.lockKeys();
+  this.setLockedKeys();
 };
