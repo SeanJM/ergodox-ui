@@ -75,7 +75,6 @@ Key.prototype.keyCodeObject = function (keyCode) {
         && KEYCODE[args[0]][args[1]]
       ) ? KEYCODE[args[0]][args[1]]
         : KEYCODE.PRIMARY['KC_' + args[0]] + ' + ' + KEYCODE.PRIMARY[args[1]];
-      console.trace(args[0], KEYCODE.isShift(args[0]), KEYCODE.ICON.SFT);
       if (KEYCODE.isShift(args[0])) {
         this.str_iconPrimary = KEYCODE.ICON.KC_LSFT;
       }
