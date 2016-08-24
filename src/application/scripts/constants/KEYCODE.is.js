@@ -2,10 +2,6 @@ KEYCODE.isFnKey = function (keyCode) {
   return /^KC_FN([0-9]|1[0-9]|2[0-9]|30|31|32)$/.test(keyCode);
 };
 
-KEYCODE.isHoldLayerTapKey = function (keyCode) {
-  return keyCode.substr(0, 3) === 'LT(';
-};
-
 KEYCODE.isShift = function (keyCode) {
   var shift = ['KC_LSFT', 'KC_RSFT', 'KC_SFT', 'LSFT', 'RSFT'];
   return shift.indexOf(keyCode) > -1;
@@ -15,8 +11,26 @@ KEYCODE.isHoldModifierTapKey = function (keyCode) {
   return /_T\(/.test(keyCode);
 };
 
+// Layer signals
+
+KEYCODE.isHoldLayerTapKey = function (keyCode) {
+  return keyCode.substr(0, 3) === 'LT(';
+};
+
 KEYCODE.isLayerToggle = function (keyCode) {
   return keyCode.substr(0, 3) === 'TG(';
+};
+
+KEYCODE.isMomentLayer = function (keyCode) {
+  return keyCode.substr(0, 3) === 'MO(';
+};
+
+KEYCODE.isLayerSignal = function (keyCode) {
+  return (
+    KEYCODE.isLayerToggle(keyCode)
+    || KEYCODE.isHoldLayerTapKey(keyCode)
+    || KEYCODE.isMomentLayer(keyCode)
+  );
 };
 
 KEYCODE.isLetter = function (keyCode) {
@@ -38,10 +52,6 @@ KEYCODE.isModifier = function (keyCode) {
 KEYCODE.isModifiedKey = function (keyCode) {
   var keySubstr = keyCode.substr(0, keyCode.indexOf('('));
   return KEYCODE.isModifier(keySubstr);
-};
-
-KEYCODE.isMomentLayer = function (keyCode) {
-  return keyCode.substr(0, 3) === 'MO(';
 };
 
 KEYCODE.isMouseButton = function (keyCode) {
