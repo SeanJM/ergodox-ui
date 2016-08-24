@@ -5,9 +5,16 @@ Layers.prototype.add = function (name, keys) {
     el(Layer, {
       name : name || false,
       keys : keys || LAYER_EMPTY[SETTINGS.KEYBOARD],
+
       onKeyhover : function (e) {
-        self.trigger('keyhover', e);
+        self.trigger('keyHover', e);
       },
+
+      onKeyChange : function (e) {
+        self.setLockedKeys();
+        self.trigger('keyChange', e);
+      },
+
       onName : function (e) {
         self.rename(e);
       }

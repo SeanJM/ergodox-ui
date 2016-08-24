@@ -9,6 +9,7 @@ Key.prototype.replaceWith = function (key) {
   }
 
   this.draw();
+  this.trigger('change');
 
   return this;
 };

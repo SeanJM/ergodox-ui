@@ -33,6 +33,10 @@ Layer.prototype.keys = function (keys) {
         e.target.select();
         self.selected = e.target;
         self.trigger('keyclick', e);
+      },
+
+      onChange : function (e) {
+        self.trigger('keyChange', e);
       }
     });
 
