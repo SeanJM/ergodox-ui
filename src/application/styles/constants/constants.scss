@@ -8,8 +8,8 @@ $purple  : desaturate(adjust-hue($blue, 60deg), 5%);
 $red     : adjust-hue($blue, 155deg);
 $pink    : saturate(lighten(adjust-hue($blue, 105deg), 3%), 10%);
 $navy    : desaturate(darken(adjust-hue($blue, 10deg), 25%), 20%);
-$orange  : adjust-hue($blue, 185deg);
-$yellow  : adjust-hue($blue, 205deg);
+$orange  : adjust-hue($blue, 180deg);
+$yellow  : adjust-hue($blue, 194deg);
 $color   : (
   black : (
     base : $black,
