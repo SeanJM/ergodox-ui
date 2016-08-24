@@ -9,7 +9,7 @@ Key.prototype.replaceWith = function (key) {
   }
 
   this.draw();
-  this.trigger('change');
+  this.trigger('keyChange');
 
   return this;
 };

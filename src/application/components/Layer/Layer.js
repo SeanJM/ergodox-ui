@@ -35,7 +35,7 @@ Layer.prototype.keys = function (keys) {
         self.trigger('keyclick', e);
       },
 
-      onChange : function (e) {
+      onKeyChange : function (e) {
         self.trigger('keyChange', e);
       }
     });
