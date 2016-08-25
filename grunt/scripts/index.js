@@ -32,7 +32,7 @@ task.uglify = {
   }
 };
 
-if (config.gruntBuild.alwaysBundle) {
+if (config.gruntBuild.isBundle) {
   task.concat.scripts = {
     options : {
       sourceMap : config.gruntBuild.sourceMap,

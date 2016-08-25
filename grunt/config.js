@@ -56,11 +56,6 @@ module.exports = {
   watch : config.gruntBuild.isProduction
     ? {}
     : Object.assign({
-    css : {
-      files : css.glob,
-      tasks : ['sass', 'autoprefixer']
-    },
-
     // Flatman
     flatman : {
       files : flatman.glob,
@@ -75,5 +70,5 @@ module.exports = {
       },
       tasks: ['default']
     }
-  }, scripts.task.watch)
+  }, scripts.task.watch, css.task.watch)
 };
