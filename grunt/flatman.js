@@ -2,7 +2,6 @@ const m = require('match-file-utility');
 const fs = require('fs');
 const scripts = require('./scripts');
 const css = require('./css');
-const config = JSON.parse(fs.readFileSync('package.json'));
 
 let files = m('src/flatman/', /\.js$/);
 
@@ -30,6 +29,8 @@ module.exports = {
           page.script(scripts.dest[k]);
         } catch (e) {}
       }
+
+      console.log(css.dest);
 
       for (k in css.dest) {
         try {

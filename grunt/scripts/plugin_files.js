@@ -1,6 +1,6 @@
 const fs = require('fs');
 const m = require('match-file-utility');
-const config = JSON.parse(fs.readFileSync('package.json'));
+const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
 
 function notGrunt(file) {
   return !/Gruntfile.js$/.test(file);
@@ -21,8 +21,8 @@ let src = {
 let dest = {
   development : {},
   production : {
-    bundle : config.scripts && config.gruntBuild.bundle
-      ? config.gruntBuild.bundle
+    bundle : config.scripts && config.bundle
+      ? config.bundle
       : 'bin/bundle.min.js'
   }
 };

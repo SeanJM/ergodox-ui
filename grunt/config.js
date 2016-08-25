@@ -5,11 +5,11 @@ const css = require('./css');
 const images = require('./images');
 const fonts = require('./fonts');
 
-const config = JSON.parse(fs.readFileSync('package.json'));
+const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
 
 module.exports = {
   copy : {
-    fonts : config.gruntBuild.isProduction
+    fonts : config.isProduction
       ? {}
       : {
         expand : true,
@@ -18,7 +18,7 @@ module.exports = {
         dest : 'bin/'
       },
 
-    images : config.gruntBuild.isProduction
+    images : config.isProduction
       ? {}
       : {
         expand : true,
@@ -47,13 +47,13 @@ module.exports = {
         svgoPlugins : [{ removeViewBox : false }],
         use : [],
       },
-      files : config.gruntBuild.isProduction
+      files : config.isProduction
         ? images.dest
         : {}
     }
   },
 
-  watch : config.gruntBuild.isProduction
+  watch : config.isProduction
     ? {}
     : Object.assign({
     // Flatman

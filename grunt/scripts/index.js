@@ -1,13 +1,13 @@
 const fs = require('fs');
 const m = require('match-file-utility');
-const config = JSON.parse(fs.readFileSync('package.json'));
+const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
 
-const files = config.gruntBuild.isSite
+const files = config.isSite
   ? require('./site_files')
   : require('./plugin_files');
 
 const dest = files.dest[
-  config.gruntBuild.isProduction
+  config.isProduction
     ? 'production'
     : 'development'
 ];
@@ -20,26 +20,26 @@ let task = {
 task.uglify = {
   options : {
     mangle : true,
-    wrap : config.gruntBuild.useClosure
+    wrap : config.useClosure
       ? true
       : false
   },
   files : {
     src : files.list,
-    dest : config.gruntBuild.bundle
-     ? 'bin/' + config.gruntBuild.bundle + '.min.js'
+    dest : config.bundle
+     ? 'bin/' + config.bundle + '.min.js'
      : 'bin/bundle.min.js'
   }
 };
 
-if (config.gruntBuild.isBundle) {
+if (config.isBundle) {
   task.concat.scripts = {
     options : {
-      sourceMap : config.gruntBuild.sourceMap,
+      sourceMap : config.sourceMap,
     },
     src : files.list,
-    dest : config.gruntBuild.bundle
-      ? 'bin/' + config.gruntBuild.bundle + '.js'
+    dest : config.bundle
+      ? 'bin/' + config.bundle + '.js'
       : 'bin/bundle.js'
   };
 
@@ -48,7 +48,7 @@ if (config.gruntBuild.isBundle) {
     tasks : [ 'concat:scripts' ]
   };
 
-  if (config.gruntBuild.useClosure) {
+  if (config.useClosure) {
     task.concat.scripts.options.banner = '(function () {\n';
     task.concat.scripts.options.footer = '\n}());';
   }
@@ -58,7 +58,7 @@ if (config.gruntBuild.isBundle) {
     if (files.src[k].length) {
       task.concat[k] = {
         options : {
-          sourceMap : config.gruntBuild.sourceMap,
+          sourceMap : config.sourceMap,
         },
         src : files.src[k],
         dest : dest[k]
@@ -69,7 +69,7 @@ if (config.gruntBuild.isBundle) {
         tasks : [ 'concat:' + k ]
       };
 
-      if (config.gruntBuild.useClosure) {
+      if (config.useClosure) {
         task.concat[k].options.banner = '(function () {\n';
         task.concat[k].options.footer = '\n}());';
       }

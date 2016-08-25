@@ -1,16 +1,16 @@
 const _ = require('lodash');
 const m = require('match-file-utility');
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('package.json'));
+const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
 
 const imageFiles = Object.keys(require('./images').dest);
 
 const scriptFiles = _.map((
-  config.gruntBuild.isSite
+  config.isSite
     ? require('./scripts/site_files')
     : require('./scripts/plugin_files')
   ).dest[
-    config.gruntBuild.isProduction
+    config.isProduction
       ? 'production'
       : 'development'
   ], a => a);

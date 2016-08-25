@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const m = require('match-file-utility');
-const config = JSON.parse(fs.readFileSync('package.json'));
+const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
 
 const order = [
   'constants.scss',
@@ -48,24 +48,29 @@ let src = {
   collections : list.concat(m('src/application/collections/', /\.scss$/).sort(byType))
 };
 
-let dest = {
-  development : {},
-  production : {
-    bundle : config.scripts && config.gruntBuild.bundle
-      ? config.gruntBuild.bundle
-      : 'bin/bundle.css'
-  }
-};
+let dest = {};
 
-for (var k in src) {
-  if (src[k].length) {
-    dest.development[k] = 'bin/' + k + '.css';
+if (
+  config.isProduction
+  || config.isBundle
+) {
+  if (config.bundle) {
+    dest.bundle = config.bundle;
+  } else {
+    dest.bundle = 'bundle.css';
+  }
+} else {
+  for (var k in src) {
+    if (src[k].length) {
+      dest[k] = 'bin/' + k + '.css';
+    }
   }
 }
 
 module.exports = {
   src : src,
   dest : dest,
+  import : config.isSite ? 'src/application/import.scss' : 'src/import.scss',
   list : [].concat(
     src.vendor,
     src.fonts,

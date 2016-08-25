@@ -1,58 +1,59 @@
 const path = require('path');
 const fs = require('fs');
 const m = require('match-file-utility');
-const config = JSON.parse(fs.readFileSync('package.json'));
-
-const importFile = config.gruntBuild.isSite
-  ? 'src/application/import.scss'
-  : 'src/import.scss';
+const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
+const writeImport = require('./writeImport');
 
 const files = require('./files');
 
-const dest = files.dest[
-  config.gruntBuild.isProduction
-    ? 'production'
-    : 'development'
-];
-
 let task = {
+  autoprefixer : {
+    options : {
+      browsers : ['last 3 version'],
+      map : false,
+      src : files.dest.bundle,
+      dest : files.dest.bundle
+    }
+  },
   concat : {},
   watch : {},
-  sass : {}
+  sass : {
+    options : { sourcemap : false }
+  }
 };
 
 if (files.list.length) {
-  fs.writeFile(importFile, files.list.map(function (f) {
-    let s = f.split(path.sep).slice(2);
-    return `@import "${s.join(path.sep)}";\n`;
-  }).join(''));
-} else if (m('src/application/styles', /\.scss$/).length) {
-  console.log('Incorrect folder structure. Styles must go into folders like\n - \'styles/vendor\'\n- \'styles/custom\'\n- \'styles/constants\'');
+  writeImport(importFile, files.list);
+} else if (m('src/application/', /\.scss$/).length) {
+  console.log(
+`Incorrect folder structure. Styles go into folders like
+  - \'src/application/styles/vendor\'
+  - \'src/application/styles/custom\'
+  - \'src/application/styles/constants\'
+`);
 }
 
-if (config.gruntBuild.isProduction) {
-  task.sass = {
-    dist : {
-      files : {
-        'bin/bundle.css' : importFile
-      }
-    },
-    options : {
-      sourcemap : false,
-    }
-  };
+task.sass = {
+  dist : { files : {} },
+  options : {}
+};
 
-  task.autoprefixer = {
-    options : {
-      browsers : ['last 3 version'],
-      map : false
-    },
+if (!config.isProduction) {
+  task.sass.options.trace = true;
+  task.sass.options.style = 'expanded';
 
-    single_file : {
-      src : 'bin/bundle.css',
-      dest : 'bin/bundle.css'
+  if (config.sourceMap) {
+    task.sass.options.sourcemap = 'inline';
+    task.autoprefixer.options.map = true;
+  }
+
+  if (config.isBundle) {
+    task.sass.dist.files[dest.bundle] = importFile;
+  } else {
+    for (var k in files.dest) {
+      task.sass.dist.files[files.dest[k]] = files.src[k];
     }
-  };
+  }
 
   task.watch.css = {
     files : [
@@ -63,37 +64,12 @@ if (config.gruntBuild.isProduction) {
     ],
     tasks : ['sass', 'autoprefixer']
   };
-} else {
-  task.sass = {
-    dist : {
-      files : {
-        'bin/bundle.css' : importFile
-      }
-    },
-    options : {
-      trace : true,
-      sourcemap : config.gruntBuild.sourceMap
-        ? 'inline'
-        : false,
-      style : 'expanded'
-    }
-  };
-
-  task.autoprefixer = {
-    options : {
-      browsers : ['last 3 version'],
-      map : config.gruntBuild.sourceMap ? true : false
-    },
-
-    single_file : {
-      src : 'bin/bundle.css',
-      dest : 'bin/bundle.css'
-    }
-  };
 }
+
+console.log(task.sass.dist.files);
 
 module.exports = {
   list : files.list,
-  dest : dest,
+  dest : files.dest,
   task : task
 };
