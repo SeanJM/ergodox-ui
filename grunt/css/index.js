@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const m = require('match-file-utility');
 const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
-const writeImport = require('./writeImport');
 
 const files = require('./files');
 
@@ -11,19 +10,29 @@ let task = {
     options : {
       browsers : ['last 3 version'],
       map : false,
-      src : files.dest.bundle,
-      dest : files.dest.bundle
+      src : files.dest,
+      dest : files.dest
     }
   },
+  cssmin : { files : {} },
   concat : {},
   watch : {},
   sass : {
+    dist : { files : {} },
     options : { sourcemap : false }
   }
 };
 
 if (files.list.length) {
-  writeImport(importFile, files.list);
+  fs.writeFile(files.import,
+    files.list.map(
+      function (fullpath) {
+        let relative = fullpath.split(path.sep).slice(2);
+        return `@import "${relative.join(path.sep)}";`;
+      }
+    )
+    .join('\n')
+  );
 } else if (m('src/application/', /\.scss$/).length) {
   console.log(
 `Incorrect folder structure. Styles go into folders like
@@ -33,10 +42,8 @@ if (files.list.length) {
 `);
 }
 
-task.sass = {
-  dist : { files : {} },
-  options : {}
-};
+task.sass.dist.files[files.dest] = files.import;
+task.cssmin.files[files.dest] = files.dest;
 
 if (!config.isProduction) {
   task.sass.options.trace = true;
@@ -45,14 +52,6 @@ if (!config.isProduction) {
   if (config.sourceMap) {
     task.sass.options.sourcemap = 'inline';
     task.autoprefixer.options.map = true;
-  }
-
-  if (config.isBundle) {
-    task.sass.dist.files[dest.bundle] = importFile;
-  } else {
-    for (var k in files.dest) {
-      task.sass.dist.files[files.dest[k]] = files.src[k];
-    }
   }
 
   task.watch.css = {
@@ -66,10 +65,9 @@ if (!config.isProduction) {
   };
 }
 
-console.log(task.sass.dist.files);
+console.log(task.sass.dist);
 
 module.exports = {
-  list : files.list,
-  dest : files.dest,
+  files : files,
   task : task
 };

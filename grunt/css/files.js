@@ -50,21 +50,10 @@ let src = {
 
 let dest = {};
 
-if (
-  config.isProduction
-  || config.isBundle
-) {
-  if (config.bundle) {
-    dest.bundle = config.bundle;
-  } else {
-    dest.bundle = 'bundle.css';
-  }
+if (config.bundle) {
+  dest = 'bin/' + config.bundle;
 } else {
-  for (var k in src) {
-    if (src[k].length) {
-      dest[k] = 'bin/' + k + '.css';
-    }
-  }
+  dest = 'bin/bundle.css';
 }
 
 module.exports = {

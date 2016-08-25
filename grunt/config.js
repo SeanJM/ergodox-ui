@@ -30,9 +30,7 @@ module.exports = {
 
   sass : css.task.sass,
 
-  cssmin : {
-    files : { 'bin/bundle.css' : 'bin/bundle.css' }
-  },
+  cssmin : css.task.cssmin,
 
   concat : scripts.task.concat,
 
