@@ -30,12 +30,10 @@ module.exports = {
         } catch (e) {}
       }
 
-      for (k in css.files.dest) {
-        try {
-          fs.statSync(css.files.dest[k]);
-          page.css(css.files.dest[k]);
-        } catch (e) {}
-      }
+      try {
+        fs.statSync(css.files.dest);
+        page.css(css.files.dest);
+      } catch (e) {}
 
       page.write();
     });
