@@ -2,7 +2,7 @@
   "name": "express-home-buyers",
   "version": "0.1.0",
   "gruntBuild": {
-    "alwaysBundle": false,
+    "isBundle": false,
     "isProduction": false,
     "sourceMap": true,
     "isSite": true
