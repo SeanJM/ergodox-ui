@@ -8,13 +8,7 @@ Key.prototype.keyCodeObject = function (keyCode) {
 
   // Store the keyCode
   this.keyCode = keyCode;
-
-  // Booleans
-  for (var k in KEYCODE) {
-    if (k.substr(0, 2) === 'is') {
-      this[k] = KEYCODE[k](keyCode);
-    }
-  }
+  Object.assign(this, KEYCODE.is(keyCode));
 
   this.str_iconPrimary = false;
   this.str_iconSecondary = false;
