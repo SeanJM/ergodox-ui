@@ -61,3 +61,22 @@ KEYCODE.isMouseButton = function (keyCode) {
 KEYCODE.isEmpty = function (keyCode) {
   return keyCode === 'KC_TRNS';
 };
+
+KEYCODE.is = function (keyCode) {
+  return {
+    isFnKey : KEYCODE.isFnKey(keyCode),
+    isShift : KEYCODE.isShift(keyCode),
+    isHoldModifierTapKey : KEYCODE.isHoldModifierTapKey(keyCode),
+    isHoldLayerTapKey : KEYCODE.isHoldLayerTapKey(keyCode),
+    isLayerToggle : KEYCODE.isLayerToggle(keyCode),
+    isMomentLayer : KEYCODE.isMomentLayer(keyCode),
+    isLayerSignal : KEYCODE.isLayerSignal(keyCode),
+    isLetter : KEYCODE.isLetter(keyCode),
+    isLocked : KEYCODE.isLocked(keyCode),
+    isMacro : KEYCODE.isMacro(keyCode),
+    isModifier : KEYCODE.isModifier(keyCode),
+    isModifiedKey : KEYCODE.isModifiedKey(keyCode),
+    isMouseButton : KEYCODE.isMouseButton(keyCode),
+    isEmpty : KEYCODE.isEmpty(keyCode),
+  };
+};
