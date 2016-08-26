@@ -65,8 +65,6 @@ if (!config.isProduction) {
   };
 }
 
-console.log(task.sass.dist);
-
 module.exports = {
   files : files,
   task : task
