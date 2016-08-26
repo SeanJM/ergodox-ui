@@ -1,5 +1,5 @@
 $black  : #2f363e;
-$red    : #d23551;
+$red    : #d92b55;
 $blue   : adjust-hue($red, -140deg);
 $grey   : lighten(desaturate($blue, 60%), 10%);
 $aqua   : adjust-hue(darken($blue, 6%), -20deg);
@@ -9,8 +9,10 @@ $purple : desaturate(adjust-hue($blue, 60deg), 5%);
 $red    : adjust-hue($blue, 155deg);
 $pink   : saturate(lighten(adjust-hue($blue, 105deg), 3%), 10%);
 $navy   : desaturate(darken(adjust-hue($blue, 10deg), 25%), 20%);
-$orange : adjust-hue($blue, 180deg);
+$orange : adjust-hue($blue, 183deg);
 $yellow : adjust-hue($blue, 194deg);
+$metal : desaturate(darken(adjust-hue($blue, -40deg), 10%), 55%);
+
 $color  : (
   black : (
     base : $black,
@@ -92,6 +94,15 @@ $color  : (
     dark : adjust-hue(darken($mauve, 12%), -10deg),
     darker : adjust-hue(darken($mauve, 25%), -30deg),
     darkest : adjust-hue(darken($mauve, 35%), -40deg),
+  ),
+  metal : (
+    base : $metal,
+    light : lighten($metal, 13%),
+    lighter : adjust-hue(lighten($metal, 22%), 30deg),
+    lightest : adjust-hue(lighten($metal, 31%), 15deg),
+    dark : adjust-hue(darken($metal, 12%), -10deg),
+    darker : adjust-hue(darken($metal, 25%), -30deg),
+    darkest : adjust-hue(darken($metal, 35%), -40deg),
   ),
   purple : (
     base : $purple,
