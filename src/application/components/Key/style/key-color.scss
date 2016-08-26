@@ -12,9 +12,35 @@
 
 .key--hold-key-tap-key,
 .key--hold-layer-tap-key {
-  @include key-color(blue);
+  @include key-color(aqua);
 }
 
 .key--macro {
   @include key-color(mauve);
+}
+
+.key--transparent {
+  .key_face {
+    opacity : 0.7;
+  }
+
+  .key_light {
+    background : none;
+  }
+
+  .key_face_bevel {
+    background : none;
+  }
+}
+
+.key--default.key--transparent {
+  @include key-transparent(grey);
+}
+
+.key--layer-toggle.key--transparent {
+  @include key-transparent(orange);
+}
+
+.key--hold-layer-tap-key.key--transparent {
+  @include key-transparent(aqua);
 }
