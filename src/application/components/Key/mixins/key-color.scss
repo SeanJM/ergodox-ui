@@ -1,0 +1,20 @@
+@mixin key-color($name) {
+  .key_cap {
+    border : 1px solid map-get(map-get($color, $name), darkest);
+  }
+
+  .key_face_plane::before {
+    border : 1px solid map-get(map-get($color, $name), dark);
+  }
+
+  .key_face_background {
+    border-top-color    : map-get(map-get($color, $name), lightest);
+    border-right-color  : map-get(map-get($color, $name), light);
+    border-bottom-color : map-get(map-get($color, $name), dark);
+    border-left-color   : map-get(map-get($color, $name), light);
+  }
+
+  .key_face_plane {
+    background : map-get(map-get($color, $name), base);
+  }
+}
