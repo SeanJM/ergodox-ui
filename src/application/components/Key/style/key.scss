@@ -1,24 +1,3 @@
-@mixin key-color($name) {
-  .key_cap {
-    border : 1px solid map-get(map-get($color, $name), darkest);
-  }
-
-  .key_face_plane::before {
-    border : 1px solid map-get(map-get($color, $name), dark);
-  }
-
-  .key_face_background {
-    border-top-color    : map-get(map-get($color, $name), lightest);
-    border-right-color  : map-get(map-get($color, $name), light);
-    border-bottom-color : map-get(map-get($color, $name), dark);
-    border-left-color   : map-get(map-get($color, $name), light);
-  }
-
-  .key_face_plane {
-    background : map-get(map-get($color, $name), base);
-  }
-}
-
 .key_face_plane,
 .key_light,
 .key_select,
@@ -39,8 +18,22 @@
   bottom              : 2px;
   left                : 2px;
   border-radius       : 5px;
-  background-image    : linear-gradient(45deg, transparentize(map-get(map-get($color, grey), dark), 0.8) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, grey), dark), 0.8) 75%, transparentize(map-get(map-get($color, grey), dark), 0.8)),
-                        linear-gradient(45deg, transparentize(map-get(map-get($color, grey), dark), 0.8) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, grey), dark), 0.8) 75%, transparentize(map-get(map-get($color, grey), dark), 0.8));
+  background-image    : linear-gradient(
+                          45deg,
+                          transparentize(map-get(map-get($color, grey), dark), 0.8) 25%,
+                          transparent 25%,
+                          transparent 75%,
+                          transparentize(map-get(map-get($color, grey), dark), 0.8) 75%,
+                          transparentize(map-get(map-get($color, grey), dark), 0.8)
+                        ),
+                        linear-gradient(
+                          45deg,
+                          transparentize(map-get(map-get($color, grey), dark), 0.8) 25%,
+                          transparent 25%,
+                          transparent 75%,
+                          transparentize(map-get(map-get($color, grey), dark), 0.8) 75%,
+                          transparentize(map-get(map-get($color, grey), dark), 0.8)
+                        );
   background-color    : transparentize(map-get(map-get($color, grey), dark), 0.8);
   background-position : 0 0,
                         1px 1px;
@@ -94,8 +87,22 @@
 .key--select {
   .key_select {
     border              : 2px solid $aqua;
-    background-image    : linear-gradient(45deg, transparentize($aqua, 0.5) 25%, transparent 25%, transparent 75%, transparentize($aqua, 0.5) 75%, transparentize($aqua, 0.5)),
-                          linear-gradient(45deg, transparentize($aqua, 0.5) 25%, transparent 25%, transparent 75%, transparentize($aqua, 0.5) 75%, transparentize($aqua, 0.5));
+    background-image    : linear-gradient(
+                            45deg,
+                            transparentize($aqua, 0.5) 25%,
+                            transparent 25%,
+                            transparent 75%,
+                            transparentize($aqua, 0.5) 75%,
+                            transparentize($aqua, 0.5)
+                          ),
+                          linear-gradient(
+                            45deg,
+                            transparentize($aqua, 0.5) 25%,
+                            transparent 25%,
+                            transparent 75%,
+                            transparentize($aqua, 0.5) 75%,
+                            transparentize($aqua, 0.5)
+                          );
     background-color    : rgba(0, 0, 0, 0);
     background-position : 0 0,
                           1px 1px;
@@ -183,8 +190,22 @@
     width               : 100%;
     height              : 100%;
     background          : transparentize(map-get(map-get($color, cyan), base), 0.8);
-    background-image    : linear-gradient(45deg, transparentize(map-get(map-get($color, cyan), base), 0.5) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, cyan), base), 0.5) 75%, transparentize(map-get(map-get($color, cyan), base), 0.5)),
-                          linear-gradient(45deg, transparentize(map-get(map-get($color, cyan), base), 0.5) 25%, transparent 25%, transparent 75%, transparentize(map-get(map-get($color, cyan), base), 0.5) 75%, transparentize(map-get(map-get($color, cyan), base), 0.5));
+    background-image    : linear-gradient(
+                            45deg,
+                            transparentize(map-get(map-get($color, cyan), base), 0.5) 25%,
+                            transparent 25%,
+                            transparent 75%,
+                            transparentize(map-get(map-get($color, cyan), base), 0.5) 75%,
+                            transparentize(map-get(map-get($color, cyan), base), 0.5)
+                          ),
+                          linear-gradient(
+                            45deg,
+                            transparentize(map-get(map-get($color, cyan), base), 0.5) 25%,
+                            transparent 25%,
+                            transparent 75%,
+                            transparentize(map-get(map-get($color, cyan), base), 0.5) 75%,
+                            transparentize(map-get(map-get($color, cyan), base), 0.5)
+                          );
     background-position : 0 0,
                           1px 1px;
     background-size     : 2px 2px;
