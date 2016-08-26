@@ -5,7 +5,7 @@ const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
 
 const imageFiles = Object.keys(require('./images').dest);
 
-const cssFiles = _.map(require('./css').files.dest, a => a);
+const cssFiles = require('./css').files.dest;
 
 const scriptFiles = _.map((
   config.isSite
@@ -18,13 +18,13 @@ const scriptFiles = _.map((
   ], a => a);
 
 m('bin', /\.css$/).forEach(function (f) {
-  if (cssFiles.indexOf(f) === -1) {
+  if (cssFiles !== f) {
     fs.unlink(f);
   }
 });
 
 m('bin', /\.css\.map$/).forEach(function (f) {
-  if (cssFiles.indexOf(f + '.map') === -1) {
+  if (cssFiles + '.map' !== f) {
     fs.unlink(f);
   }
 });
@@ -42,7 +42,7 @@ m('bin', /\.(js)$/).forEach(function (f) {
 });
 
 m('bin', /\.(js\.map)$/).forEach(function (f) {
-  if (scriptFiles.indexOf(f + '.map') === -1) {
+  if (scriptFiles.indexOf(f.slice(-4)) === -1) {
     fs.unlink(f);
   }
 });
