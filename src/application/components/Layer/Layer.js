@@ -26,7 +26,7 @@ Layer.prototype.keys = function (keys) {
         self.trigger('keyhover', e);
       },
 
-      onClick : function (e) {
+      onKeyClick : function (e) {
         if (self.selected) {
           self.selected.deselect();
         }

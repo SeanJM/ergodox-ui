@@ -10,6 +10,10 @@ Layers.prototype.add = function (name, keys) {
         self.trigger('keyHover', e);
       },
 
+      onKeyClick : function (e) {
+        self.trigger('keyClick', e);
+      },
+
       onKeyChange : function (e) {
         self.setLockedKeys();
         self.trigger('keyChange', e);

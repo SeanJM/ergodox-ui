@@ -12,7 +12,7 @@
         class : 'key',
 
         onClick : function () {
-          self.trigger('click');
+          self.trigger('keyClick');
         },
 
         onMousemove : function () {
