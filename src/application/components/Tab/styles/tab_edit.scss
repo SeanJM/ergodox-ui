@@ -21,8 +21,8 @@
 .tab_edit_input {
   width         : 100%;
   height        : 22px;
-  color         : map-get(map-get($color, grey), darker);
-  border        : 1px solid map-get(map-get($color, grey), base);
+  color         : color(grey, darker);
+  border        : 1px solid color(grey, base);
   border-radius : 3px;
   background    : none;
   box-shadow    : 0 1px 0 rgba(0, 0, 0, 0.1) inset;

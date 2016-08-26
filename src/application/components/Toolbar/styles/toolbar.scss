@@ -4,8 +4,8 @@
   right         : 0;
   left          : 0;
   height        : 40px;
-  border-bottom : 1px solid map-get(map-get($color, grey), dark);
-  background    : map-get(map-get($color, grey), lighter);
+  border-bottom : 1px solid color(grey, dark);
+  background    : color(grey, lighter);
 
   .tab_add {
     display       : inline-block;
@@ -20,7 +20,7 @@
     .tab_title {
       z-index     : 2;
       position    : relative;
-      color       : map-get(map-get($color, grey), dark);
+      color       : color(grey, dark);
       font-size   : $default;
       line-height : 24px;
     }

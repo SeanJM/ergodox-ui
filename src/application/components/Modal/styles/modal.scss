@@ -20,16 +20,16 @@
 .modal_chrome {
   margin-top    : -75px;
   padding       : 100px 25px 25px;
-  border        : 1px solid map-get(map-get($color, grey), dark);
+  border        : 1px solid color(grey, dark);
   border-top    : none;
   border-radius : 0 0 7px 7px;
-  background    : map-get(map-get($color, grey), lightest);
+  background    : color(grey, lightest);
   box-shadow    : 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .modal_body {
   position   : relative;
-  background : map-get(map-get($color, grey), lightest);
+  background : color(grey, lightest);
 }
 
 .modal_feet {
@@ -37,7 +37,7 @@
 }
 
 .modal_text {
-  color       : map-get(map-get($color, grey), dark);
+  color       : color(grey, dark);
   font-size   : $default;
   line-height : $default * 1.35;
 

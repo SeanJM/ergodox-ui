@@ -5,7 +5,7 @@
   width         : 500px;
   margin-left   : -250px;
   overflow      : hidden;
-  border        : 1px solid map-get(map-get($color, grey), dark);
+  border        : 1px solid color(grey, dark);
   border-radius : 3px;
   box-shadow    : 0 6px 60px rgba(0, 0, 0, 0.6);
 }
@@ -13,12 +13,12 @@
 .dialog_head {
   padding       : 2px 10px 0;
   border-bottom : 1px solid $grey;
-  background    : map-get(map-get($color, grey), light);
+  background    : color(grey, light);
   box-shadow    : 0 1px 0 rgba(255, 255, 255, 0.3) inset,
                   0 1px 0 #fff;
 
   h1 {
-    color       : map-get(map-get($color, grey), darker);
+    color       : color(grey, darker);
     font-size   : $default;
     line-height : $default * 2.3;
   }
@@ -26,12 +26,12 @@
 
 .dialog_body {
   padding    : 10px;
-  background : map-get(map-get($color, grey), lighter);
+  background : color(grey, lighter);
 }
 
 .dialog_feet {
   padding    : 0 10px 10px;
-  background : map-get(map-get($color, grey), lighter);
+  background : color(grey, lighter);
 
   .button {
     @extend %button;

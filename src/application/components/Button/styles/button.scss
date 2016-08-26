@@ -16,16 +16,16 @@
     left          : 0;
     padding       : 0 10px;
     border        : 1px solid $grey;
-    border-color  : map-get(map-get($color, grey), dark);
+    border-color  : color(grey, dark);
     border-radius : 4px;
-    background    : linear-gradient(map-get(map-get($color, grey), lightest) 93%, map-get(map-get($color, grey), light));
+    background    : linear-gradient(color(grey, lightest) 93%, color(grey, light));
     box-shadow    : 0 1px 0 #fff inset;
   }
 
   .button_text {
     z-index     : 2;
     position    : relative;
-    color       : map-get(map-get($color, grey), darker);
+    color       : color(grey, darker);
     font-size   : $default;
     line-height : 30px;
   }
@@ -49,14 +49,14 @@
   }
 
   &:focus .button_active {
-    background : transparentize(map-get(map-get($color, aqua), light), 0.3);
+    background : transparentize(color(aqua, light), 0.3);
     animation  : button_active 1.3s infinite;
   }
 
   &.button--active .button_face,
   &:active .button_face {
-    background : linear-gradient(map-get(map-get($color, grey), lighter) 93%, map-get(map-get($color, grey), lighter));
-    box-shadow : 0 1px 3px map-get(map-get($color, grey), dark) inset,
+    background : linear-gradient(color(grey, lighter) 93%, color(grey, lighter));
+    box-shadow : 0 1px 3px color(grey, dark) inset,
                  0 1px 0 #fff;
   }
 
@@ -71,15 +71,15 @@
   @extend   %button;
 
   .button_face {
-    border-color : map-get(map-get($color, aqua), darker);
-    background   : linear-gradient(map-get(map-get($color, aqua), base) 93%, map-get(map-get($color, aqua), dark));
-    box-shadow   : 0 1px 0 map-get(map-get($color, aqua), light) inset;
+    border-color : color(aqua, darker);
+    background   : linear-gradient(color(aqua, base) 93%, color(aqua, dark));
+    box-shadow   : 0 1px 0 color(aqua, light) inset;
   }
 
   &.button--active .button_face,
   &:active .button_face {
-    background : linear-gradient(map-get(map-get($color, aqua), dark) 93%, map-get(map-get($color, aqua), dark));
-    box-shadow : 0 1px 3px map-get(map-get($color, aqua), darkest) inset,
+    background : linear-gradient(color(aqua, dark) 93%, color(aqua, dark));
+    box-shadow : 0 1px 3px color(aqua, darkest) inset,
                  0 1px 0 #fff;
   }
 
