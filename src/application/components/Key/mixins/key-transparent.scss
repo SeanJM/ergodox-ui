@@ -8,25 +8,3 @@
     background-size     : 8px 8px;
   }
 }
-
-.key--transparent {
-  .key_face {
-    opacity : 0.7;
-  }
-
-  .key_light {
-    background : none;
-  }
-
-  .key_face_bevel {
-    background : none;
-  }
-}
-
-.key--default.key--transparent {
-  @include key-transparent(grey);
-}
-
-.key--layer-toggle.key--transparent {
-  @include key-transparent(orange);
-}
