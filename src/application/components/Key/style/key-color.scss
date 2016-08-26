@@ -10,7 +10,10 @@
   @include key-color(mauve);
 }
 
-.key--hold-key-tap-key,
+.key--hold-key-tap-key {
+  @include key-color(green);
+}
+
 .key--hold-layer-tap-key {
   @include key-color(aqua);
 }
