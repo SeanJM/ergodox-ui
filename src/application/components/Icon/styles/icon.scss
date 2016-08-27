@@ -1,9 +1,15 @@
 .icon {
   display  : inline-block;
+  width    : 25px;
+  height   : 25px;
   overflow : hidden;
 
   svg {
     width  : 75px;
     height : auto;
   }
+}
+
+.icon-search svg {
+  margin-left : -50px;
 }
