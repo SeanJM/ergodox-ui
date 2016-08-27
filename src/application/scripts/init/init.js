@@ -1,4 +1,4 @@
-ajax.get('bin/ergodox_icon.svg')
+ajax.get('bin/icon.svg')
   .then(function (a) {
     ICON_SVG = function () {
       this.node = {

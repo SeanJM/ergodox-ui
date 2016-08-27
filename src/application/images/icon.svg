@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 75 450" style="enable-background:new 0 0 75 450;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#212126;stroke-miterlimit:10;}
+	.st1{fill:#212126;}
+	.st2{fill:none;stroke:#212126;stroke-width:2;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#212126;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
+	.st4{clip-path:url(#SVGID_2_);fill:#212126;}
+	.st5{clip-path:url(#SVGID_4_);fill:#212126;}
+	.st6{display:none;}
+	.st7{display:inline;fill:none;stroke:#45E6FF;stroke-miterlimit:10;}
+	.st8{display:inline;opacity:0.7;fill:#FF1D25;enable-background:new    ;}
+	.st9{display:inline;opacity:0.7;fill:#7AC943;enable-background:new    ;}
+	.st10{display:inline;opacity:0.7;fill:#FF931E;enable-background:new    ;}
+	.st11{display:inline;opacity:0.7;fill:#3FA9F5;enable-background:new    ;}
+</style>
+<g id="arrow-right">
+	<line class="st0" x1="5" y1="12.5" x2="18" y2="12.5"/>
+	<polygon class="st1" points="23.7,12.2 17.7,15.6 17.7,9.3 	"/>
+</g>
+<g id="arrow-left">
+	<line class="st0" x1="23" y1="37.5" x2="10" y2="37.5"/>
+	<polygon class="st1" points="4,37.3 10,40.6 10,34.4 	"/>
+</g>
+<g id="arrow-up">
+	<line class="st0" x1="12.5" y1="75" x2="12.5" y2="62"/>
+	<polygon class="st1" points="12.7,55.9 8.8,61.9 16.1,61.9 	"/>
+</g>
+<g id="arrow-down">
+	<line class="st0" x1="12.5" y1="80" x2="12.5" y2="93"/>
+	<polygon class="st1" points="12.4,99.1 16.3,93.1 9,93.1 	"/>
+</g>
+<g id="tab">
+	<line class="st0" x1="20" y1="107.5" x2="10" y2="107.5"/>
+	<polygon class="st1" points="4.1,107.3 10.1,111.2 10.1,103.9 	"/>
+	<line class="st0" x1="5" y1="118.5" x2="15" y2="118.5"/>
+	<polygon class="st1" points="21,118.3 15,122.2 15,114.9 	"/>
+	<line class="st0" x1="3.5" y1="104" x2="3.5" y2="111"/>
+	<line class="st0" x1="21.5" y1="115" x2="21.5" y2="122"/>
+</g>
+<g id="enter">
+	<polyline class="st0" points="11,139.5 20.5,139.5 20.5,133 	"/>
+	<polygon class="st1" points="5.1,139.3 11.1,143.2 11.1,135.9 	"/>
+</g>
+<polygon id="shift" class="st0" points="9.5,163.5 9.5,169.5 15.5,169.5 15.5,163.5 18,163.5 12.2,155.8 6.5,163.5 "/>
+<g id="alt">
+	<path class="st0" d="M3,184.5h4c0.6,0,1.3,0.4,1.6,0.8l3.6,5.3c0.3,0.5,1,0.8,1.6,0.8H21"/>
+	<line class="st0" x1="13" y1="184.5" x2="21" y2="184.5"/>
+</g>
+<g id="backspace">
+	<path class="st0" d="M3.3,288.2c-0.4-0.4-0.4-1,0-1.4l4.7-4.6c0.4-0.4,1.2-0.7,1.7-0.7h11.2c0.5,0,0.6,0.5,0.6,1v10
+		c0,0.5-0.1,1-0.6,1H9.7c-0.6,0-1.3-0.3-1.7-0.7L3.3,288.2z"/>
+	<line class="st0" x1="12" y1="285" x2="17" y2="290"/>
+	<line class="st0" x1="17" y1="285" x2="12" y2="290"/>
+</g>
+<g id="banned">
+	<circle class="st0" cx="13" cy="313" r="6"/>
+	<line class="st0" x1="17" y1="309" x2="8.5" y2="317.5"/>
+</g>
+<g id="carat">
+	<polyline class="st0" points="9,263.5 13,260 17,263.5 	"/>
+</g>
+<g id="meh">
+	<polygon class="st0" points="5.5,338.5 5.5,342.5 9.5,342.5 9.5,338.5 11,338.5 7.2,333.4 3.5,338.5 	"/>
+	<path class="st0" d="M12,332.5h1.8c0.5,0,1.3,0.4,1.6,0.8l1.4,2.2c0.3,0.4,1.1,1,1.6,1H22"/>
+	<line class="st0" x1="18" y1="332.5" x2="22" y2="332.5"/>
+	<polyline class="st0" points="13,342.5 17,339 21,342.5 	"/>
+</g>
+<polyline class="st0" points="6.5,361 6.5,365.5 18.5,365.5 18.5,361 "/>
+<g id="cmd">
+	<path class="st0" d="M16.4,235.3c0.9,0,1.7-0.8,1.7-1.7s-0.8-1.7-1.7-1.7c-0.9,0-1.7,0.8-1.7,1.7v1.7H16.4z"/>
+	<path class="st0" d="M8.5,235.3c-0.9,0-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7s1.7,0.8,1.7,1.7v1.7H8.5z"/>
+	<path class="st0" d="M16.4,239.6c0.9,0,1.7,0.8,1.7,1.7s-0.8,1.7-1.7,1.7c-0.9,0-1.7-0.8-1.7-1.7v-1.7H16.4z"/>
+	<path class="st0" d="M8.5,239.6c-0.9,0-1.7,0.8-1.7,1.7s0.8,1.7,1.7,1.7s1.7-0.8,1.7-1.7v-1.7H8.5z"/>
+	<rect x="10.4" y="235.4" class="st0" width="4.2" height="4.2"/>
+</g>
+<g id="mouse-button">
+	<path class="st0" d="M17.5,416.5c0,2.2-1.8,4-4,4h-2c-2.2,0-4-1.8-4-4v-7c0-2.2,1.8-4,4-4h2c2.2,0,4,1.8,4,4V416.5z"/>
+	<line class="st0" x1="12.5" y1="411" x2="12.5" y2="406"/>
+	<line class="st0" x1="8" y1="410.5" x2="17" y2="410.5"/>
+</g>
+<g id="macro">
+	<circle class="st0" cx="12.5" cy="437.5" r="7.5"/>
+	<line class="st0" x1="10" y1="435" x2="13" y2="439"/>
+	<line class="st0" x1="15" y1="435" x2="12" y2="439"/>
+	<line class="st0" x1="9.5" y1="434" x2="9.5" y2="441"/>
+	<line class="st0" x1="15.5" y1="434" x2="15.5" y2="441"/>
+</g>
+<g id="layer">
+	<polygon id="layer-cap" class="st0" points="12,389 5,385.6 12,383 19,385.6 	"/>
+	<polyline class="st0" points="19,387.9 12,392 5,387.9 	"/>
+	<polyline class="st0" points="19,390.5 12,394.5 5,390.5 	"/>
+</g>
+<g id="mouse-up">
+	<polygon class="st1" points="37.5,7 33,17 37.5,15 42,17 	"/>
+</g>
+<g id="mouse-down">
+	<polygon class="st1" points="37.5,43 42,33 37.5,35 33,33 	"/>
+</g>
+<g id="mouse-left">
+	<polygon class="st1" points="32,62.5 42,67 40,62.5 42,58 	"/>
+</g>
+<g id="mouse-right">
+	<polygon class="st1" points="43,87.5 33,83 35,87.5 33,92 	"/>
+</g>
+<g id="backward">
+	<polyline class="st2" points="37,283.7 32,288 37,292.5 	"/>
+	<line class="st2" x1="43" y1="288" x2="33" y2="288"/>
+</g>
+<g id="forward">
+	<polyline class="st2" points="37,308.7 42,313 37,317.5 	"/>
+	<line class="st2" x1="31" y1="313" x2="41" y2="313"/>
+</g>
+<g id="reload">
+	<polygon class="st1" points="39,337 44,337 44,332 	"/>
+	<path class="st3" d="M41.7,340.1c-1,1.7-2.8,2.9-5,2.9c-3.2,0-5.7-2.6-5.7-5.7c0-3.2,2.6-5.7,5.7-5.7c2.5,0,4.6,1.6,5.4,3.8"/>
+</g>
+<g id="stop_1_">
+	<line class="st3" x1="41" y1="358.9" x2="34" y2="366.1"/>
+	<line class="st3" x1="34" y1="358.9" x2="41" y2="366.1"/>
+</g>
+<polygon class="st1" points="37.5,379.8 39.2,385 44.7,385 40.3,388.3 42,393.6 37.5,390.4 33,393.6 34.7,388.3 30.3,385 35.8,385 
+	"/>
+<g id="home">
+	<polygon class="st1" points="43,412 31,412 31,411 37,405 43,411 	"/>
+	<polygon class="st1" points="32,412 32,418 36,418 36,415 38,415 38,418 42,418 42,412 	"/>
+</g>
+<g id="search">
+	<circle class="st2" cx="61.2" cy="11.2" r="4.2"/>
+	<line class="st0" x1="69" y1="19" x2="64.6" y2="14.6"/>
+</g>
+<g id="win">
+	<rect x="6" y="206" class="st1" width="6" height="6"/>
+	<rect x="13" y="206" class="st1" width="6" height="6"/>
+	<rect x="6" y="213" class="st1" width="6" height="6"/>
+	<rect x="13" y="213" class="st1" width="6" height="6"/>
+</g>
+<g id="media_x5F_backward">
+	<polygon class="st1" points="29.8,112.5 37,116.5 37,108.4 	"/>
+	<polygon class="st1" points="36.8,112.5 44,116.5 44,108.4 	"/>
+</g>
+<polygon id="media_x5F_play" class="st1" points="42,162.5 34,167 34,158 "/>
+<g id="media_x5F_forward">
+	<polygon class="st1" points="44.2,137.5 37,141.5 37,133.4 	"/>
+	<polygon class="st1" points="37.2,137.5 30,141.5 30,133.4 	"/>
+</g>
+<g id="media-volup">
+	<rect x="30" y="210" class="st1" width="3" height="5"/>
+	<rect x="43" y="210" class="st1" width="1" height="5"/>
+	<polygon class="st1" points="37,218 33,215 33,210 37,207 38,207 38,218 	"/>
+	<rect x="41" y="212" class="st1" width="5" height="1"/>
+</g>
+<g id="media-voldown">
+	<rect x="30" y="235" class="st1" width="3" height="5"/>
+	<polygon class="st1" points="37,243 33,240 33,235 37,232 38,232 38,243 	"/>
+	<rect x="41" y="237" class="st1" width="5" height="1"/>
+</g>
+<g id="media_x5F_mute">
+	<g>
+		<g>
+			<defs>
+				<polygon id="SVGID_1_" points="41,266 41,255 31,255 				"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+			</clipPath>
+			<polygon class="st4" points="39,257 35,260 32,260 32,265 35,265 39,268 40,268 40,257 			"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<defs>
+				<polygon id="SVGID_3_" points="41,268 32,268 32,259 				"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			<polygon class="st5" points="39,257 35,260 32,260 32,265 35,265 39,268 40,268 40,257 			"/>
+		</g>
+	</g>
+	<line class="st0" x1="33" y1="257" x2="42" y2="266"/>
+</g>
+<rect id="media_x5F_stop" x="34" y="184" class="st1" width="7" height="7"/>
+<g id="Grid" class="st6">
+	<rect x="-1930.5" y="-6.5" class="st7" width="1200" height="1005"/>
+	<rect class="st8" width="25" height="25"/>
+	<rect y="50" class="st9" width="25" height="25"/>
+	<rect y="75" class="st10" width="25" height="25"/>
+	<rect y="200" class="st8" width="25" height="25"/>
+	<rect y="350" class="st9" width="25" height="25"/>
+	<rect y="375" class="st10" width="25" height="25"/>
+	<rect y="425" class="st11" width="25" height="25"/>
+	<rect y="400" class="st8" width="25" height="25"/>
+	<rect y="125" class="st11" width="25" height="25"/>
+	<rect y="100" class="st8" width="25" height="25"/>
+	<rect y="225" class="st11" width="25" height="25"/>
+	<rect y="325" class="st11" width="25" height="25"/>
+	<rect x="25" class="st9" width="25" height="25"/>
+	<rect x="50" class="st8" width="25" height="25"/>
+	<rect x="25" y="25" class="st10" width="25" height="25"/>
+	<rect x="25" y="50" class="st8" width="25" height="25"/>
+	<rect x="25" y="75" class="st11" width="25" height="25"/>
+	<rect x="25" y="100" class="st9" width="25" height="25"/>
+	<rect x="25" y="125" class="st10" width="25" height="25"/>
+	<rect x="25" y="150" class="st8" width="25" height="25"/>
+	<rect x="25" y="175" class="st11" width="25" height="25"/>
+	<rect x="25" y="200" class="st9" width="25" height="25"/>
+	<rect x="25" y="225" class="st10" width="25" height="25"/>
+	<rect x="25" y="250" class="st8" width="25" height="25"/>
+	<rect x="25" y="275" class="st11" width="25" height="25"/>
+	<rect x="25" y="300" class="st9" width="25" height="25"/>
+	<rect x="25" y="325" class="st10" width="25" height="25"/>
+	<rect x="25" y="350" class="st8" width="25" height="25"/>
+	<rect x="25" y="375" class="st11" width="25" height="25"/>
+	<rect y="250" class="st9" width="25" height="25"/>
+	<rect y="275" class="st10" width="25" height="25"/>
+	<rect y="25" class="st11" width="25" height="25"/>
+	<rect y="150" class="st9" width="25" height="25"/>
+	<rect y="300" class="st8" width="25" height="25"/>
+	<rect y="175" class="st10" width="25" height="25"/>
+</g>
+</svg>
