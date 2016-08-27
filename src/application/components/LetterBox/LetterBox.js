@@ -4,7 +4,11 @@ function LetterBox(opt) {
   };
 
   this.node.document.append(
-    el({ class : 'letterbox_container' })
+    this.node.container = el({ class : 'letterbox_container' })
+  );
+
+  this.target(this.node.container).append(
+    this.node.search = el(Form.Search)
   );
 }
 
@@ -14,12 +18,16 @@ LetterBox.prototype.offset = function () {
 
 LetterBox.prototype.open = function () {
   var offset = this.offset();
+  var self = this;
 
   anime({
     duration : 600,
     targets : this.node.document.node,
     right : [ -offset.width, 0 ],
-    easing : 'easeOutExpo'
+    easing : 'easeOutExpo',
+    complete : function () {
+      self.node.search.focus();
+    }
   });
 };
 
