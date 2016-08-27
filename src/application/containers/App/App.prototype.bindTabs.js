@@ -1,6 +1,6 @@
 App.prototype.bindTabs = function () {
   var self = this;
-  
+
   this.node.tabs.on('tabSelect', function (e) {
     self.node.layers.select(self.node.tabs.indexOf(e.target));
   });
@@ -43,11 +43,12 @@ App.prototype.bindTabs = function () {
   });
 
   this.node.tabs.on('tabEditInput', function (e) {
-    var pos = e.target.select();
-    var match = e.target.value().match(/[a-zA-Z0-9-_]+/g);
+    var input = e.target.node.edit_input;
+    var pos = input.select();
+    var match = input.value().match(/[a-zA-Z0-9-_]+/g);
 
-    e.target.value(match ? match.join('').toUpperCase().substr(0, 5) : '');
-    e.target.select(pos[0], pos[1]);
+    input.value(match ? match.join('').toUpperCase().substr(0, 5) : '');
+    input.select(pos[0], pos[1]);
   });
 
   this.node.tabs.on('tabClose', function (e) {
