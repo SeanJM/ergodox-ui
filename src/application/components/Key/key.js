@@ -25,7 +25,6 @@
       this.node.well = el({ class : 'key_well '}),
       this.node.cap = el({ class : 'key_cap' },
         this.node.hover = el({ class : 'key_hover' }),
-        this.node.selected = el({ class : 'key_select' }),
         this.node.face = el({ class : 'key_face' },
           el({ class : 'key_face_background' }),
           el({ class : 'key_face_plane' })

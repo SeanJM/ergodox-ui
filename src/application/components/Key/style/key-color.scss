@@ -11,15 +11,19 @@
 }
 
 .key--hold-key-tap-key {
-  @include key-color(green);
+  @include key-color(blue);
 }
 
 .key--hold-layer-tap-key {
-  @include key-color(aqua);
+  @include key-color(yellow);
 }
 
 .key--macro {
   @include key-color(mauve);
+}
+
+.key--select {
+  @include key-color(aqua);
 }
 
 .key--transparent {
