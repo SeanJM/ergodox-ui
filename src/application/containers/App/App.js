@@ -8,7 +8,7 @@ function App(opt) {
     document : el({ class : 'app-container' })
   };
 
-  this.node.document.append(
+  this.target(this.node.document).append(
     this.node.workspace = el({ class : 'app_workspace' },
       this.node.toolbar = el(Toolbar,
         this.node.tabs = el(Tabs),
@@ -28,7 +28,7 @@ function App(opt) {
   this.bindLayers();
 
   this.node.layers.load(opt.keyboard.layers);
-  this.node.document.appendTo(app);
+  this.appendTo(app);
 
   _.forEach(opt.keyboard.layers, function (layer, i) {
     self.node.tabs.append(
