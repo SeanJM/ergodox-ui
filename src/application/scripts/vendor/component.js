@@ -305,7 +305,7 @@
     var names = name.split(',')
       .filter(a => a.length)
       .map(a => a.toLowerCase());
-      
+
     var i = 0;
     var n = names.length;
     var index;
@@ -347,6 +347,18 @@
     this.node.document.attr(property, value);
   };
 
+  Component.prototype.fadeIn = function (n) {
+    this.node.document.fadeIn(n);
+  };
+
+  Component.prototype.fadeOut = function (n) {
+    this.node.document.fadeOut(n);
+  };
+
+  Component.prototype.focus = function () {
+    this.node.document.focus();
+  };
+
   Component.extend = function (Constructor) {
     if (!Constructor.prototype.addClass)
       Constructor.prototype.addClass = Component.prototype.addClass;
@@ -378,6 +390,12 @@
       Constructor.prototype.target = Component.prototype.target;
     if (!Constructor.prototype.trigger)
       Constructor.prototype.trigger = Component.prototype.trigger;
+    if (!Constructor.prototype.fadeIn)
+      Constructor.prototype.fadeIn = Component.prototype.fadeIn;
+    if (!Constructor.prototype.fadeOut)
+      Constructor.prototype.fadeOut = Component.prototype.fadeOut;
+    if (!Constructor.prototype.focus)
+      Constructor.prototype.focus = Component.prototype.focus;
   };
 
   if (typeof window === 'object') {
