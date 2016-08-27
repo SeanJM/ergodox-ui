@@ -8,3 +8,14 @@
   border-left : 1px solid color(grey, base);
   background  : color(grey, lightest);
 }
+
+.letterbox_container {
+  height  : 100%;
+  padding : 10px;
+}
+
+.letterbox {
+  .form {
+    height : 100%;
+  }
+}
