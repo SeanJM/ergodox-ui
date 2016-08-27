@@ -20,4 +20,4 @@ Form.prototype.focus = function () {
   this.elements[0].focus();
 };
 
-Form.prototype.appendTo = Component.prototype.appendTo;
+Component.extend(Form);
