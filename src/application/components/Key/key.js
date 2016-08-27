@@ -23,7 +23,7 @@
 
     this.node.document.append(
       this.node.well = el({ class : 'key_well '}),
-        this.node.cap = el({ class : 'key_cap' },
+      this.node.cap = el({ class : 'key_cap' },
         this.node.hover = el({ class : 'key_hover' }),
         this.node.selected = el({ class : 'key_select' }),
         this.node.face = el({ class : 'key_face' },
@@ -32,9 +32,7 @@
         ),
 
         this.node.primary = el({ class : 'key_primary' }),
-        this.node.secondary = el({ class : 'key_secondary' }),
-        this.node.iconPrimary = el(Icon, { class : 'key_icon key_icon-primary' }),
-        this.node.iconSecondary = el(Icon, { class : 'key_icon key_icon-secondary' })
+        this.node.secondary = el({ class : 'key_secondary' })
       )
     );
 

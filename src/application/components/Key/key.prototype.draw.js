@@ -31,9 +31,6 @@ Key.prototype.draw = function () {
     this.node.secondary.text('');
   }
 
-  this.node.iconPrimary.set(this.str_iconPrimary);
-  this.node.iconSecondary.set(this.str_iconSecondary);
-
   if (
     this.str_primary
     &&
@@ -47,11 +44,20 @@ Key.prototype.draw = function () {
   }
 
   if (this.str_iconPrimary) {
+    this.iconPrimary(this.str_iconPrimary);
     size++;
+  } else if (this.node.iconPrimary) {
+    this.node.iconPrimary.remove();
   }
 
   if (this.str_iconSecondary) {
+    this.node.iconSecondary = el(Icon,
+      { class : 'key_icon key_icon-primary' },
+      this.str_iconSecondary
+    );
     size++;
+  } else if (this.node.iconSecondary) {
+    this.node.iconSecondary.remove();
   }
 
   this.setClass();
