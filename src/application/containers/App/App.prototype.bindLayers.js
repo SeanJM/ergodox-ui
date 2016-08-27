@@ -7,14 +7,15 @@ App.prototype.bindLayers = function () {
 
   this.node.layers.on('keyClick', function (e) {
     var width = self.node.letterBox.offset().width;
-    self.node.letterBox.open();
+    if (!self.node.letterBox.isOpen) {
+      self.node.letterBox.open();
 
-    anime({
-      duration : 600,
-      targets : self.node.workspace.node,
-      right : [ 0, width ],
-      easing : 'easeOutExpo'
-    });
-    //self.node.workspace
+      anime({
+        duration : 600,
+        targets : self.node.workspace.node,
+        right : [ 0, width ],
+        easing : 'easeOutExpo'
+      });
+    }
   });
 };

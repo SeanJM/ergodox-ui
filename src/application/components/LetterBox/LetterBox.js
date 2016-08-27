@@ -1,4 +1,6 @@
 function LetterBox(opt) {
+  this.isOpen = false;
+
   this.node = {
     document : el({ class : 'letterbox' })
   };
@@ -19,6 +21,8 @@ LetterBox.prototype.offset = function () {
 LetterBox.prototype.open = function () {
   var offset = this.offset();
   var self = this;
+
+  this.isOpen = true;
 
   anime({
     duration : 600,
