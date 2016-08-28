@@ -55,7 +55,7 @@ KEYCODE.isModifiedKey = function (keyCode) {
 };
 
 KEYCODE.isMouseButton = function (keyCode) {
-  return /^KC_BTN(1|2|3|4|5)$/.test(keyCode);
+  return /^KC_BTN(1|2|3|4|5|6)$/.test(keyCode);
 };
 
 KEYCODE.isEmpty = function (keyCode) {
