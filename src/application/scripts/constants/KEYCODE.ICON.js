@@ -46,6 +46,7 @@ KEYCODE.ICON = {
   'KC_VOLU' : 'media-volume-up',
   'KC_VOLD' : 'media-volume-down',
   'KC_MUTE' : 'media-mute',
+  'KC_MSEL' : 'media-select',
 
   // Web browser
   'KC_WBAK' : 'www-back',
@@ -54,6 +55,12 @@ KEYCODE.ICON = {
   'KC_WSTP' : 'www-stop',
   'KC_WREF' : 'www-refresh',
   'KC_WFAV' : 'www-favorites',
+
+  // Application
+  'KC_MAIL' : 'app-mail',
+  'KC_CALC' : 'app-calc',
+  'KC_MYCM' : 'app-my-computer',
+  'KC_WSCH' : 'app-search',
 
   // Computer controls
   'KC_PWR' : 'computer-power',
