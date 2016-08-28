@@ -9,23 +9,13 @@ const config = JSON.parse(fs.readFileSync('package.json')).gruntBuild;
 
 module.exports = {
   copy : {
-    fonts : config.isProduction
-      ? {}
-      : {
-        expand : true,
-        flatten : true,
-        src : fonts.files,
-        dest : 'bin/'
-      },
-
-    images : config.isProduction
-      ? {}
-      : {
-        expand : true,
-        flatten : true,
-        src : images.files,
-        dest : 'bin/'
-      }
+    fonts : {
+      expand : true,
+      flatten : true,
+      src : fonts.files,
+      dest : 'bin/'
+    },
+    images : images.task.copy
   },
 
   sass : css.task.sass,
@@ -38,18 +28,7 @@ module.exports = {
 
   autoprefixer : css.task.autoprefixer,
 
-  imagemin : {
-    static : {
-      options : {
-        optimizationLevel : 3,
-        svgoPlugins : [{ removeViewBox : false }],
-        use : [],
-      },
-      files : config.isProduction
-        ? images.dest
-        : {}
-    }
-  },
+  imagemin : images.task.imagemin,
 
   watch : config.isProduction
     ? {}
@@ -68,5 +47,9 @@ module.exports = {
       },
       tasks: ['default']
     }
-  }, scripts.task.watch, css.task.watch)
+  },
+    scripts.task.watch,
+    css.task.watch,
+    images.task.watch
+  )
 };
