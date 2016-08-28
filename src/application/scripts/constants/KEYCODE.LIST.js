@@ -1,4 +1,5 @@
 KEYCODE.LIST = [
+  'KC_LT',
   'KC_NO',
   'KC_TRNS', // Transparent
 
@@ -27,8 +28,6 @@ KEYCODE.LIST = [
   'KC_8',
   'KC_9',
   'KC_0',
-
-  'KC_EQL',
 
   // Alphabet
   'KC_A',
@@ -59,13 +58,15 @@ KEYCODE.LIST = [
   'KC_Z',
 
   // Punctuation
+  'KC_EQL',
+  'KC_MINS',
   'KC_BSLS',
   'KC_COMM',
   'KC_DOT',
   'KC_EXLM',
   'KC_GRV',
-  'KC_LBRC',
   'KC_QUOT',
+  'KC_LBRC',
   'KC_RBRC',
   'KC_SCLN',
   'KC_SLSH',
@@ -94,14 +95,12 @@ KEYCODE.LIST = [
   'KC_RGHT',
   'KC_UP',
   'KC_DOWN',
-
-  'KC_MINS',
-
-  // Editing
   'KC_HOME',
   'KC_END',
   'KC_PGUP',
   'KC_PGDN',
+
+  // Editing
   'KC_ESC',
   'KC_TAB',
   'KC_ENT',
@@ -121,19 +120,8 @@ KEYCODE.LIST = [
   'KC_CTL',
   'KC_MEH',
   'KC_ALL',
-  'KC_LT',
-
-  // KC_NO means no actions, a null key
-  'KC_NO',
-
   // I don't know what this means
   'KC_APP',
-
-  // Mouse
-  'KC_MS_U',
-  'KC_MS_D',
-  'KC_MS_L',
-  'KC_MS_R',
 
   // Media
   'KC_MSTP',
@@ -145,7 +133,13 @@ KEYCODE.LIST = [
   'KC_MUTE',
   'KC_WBAK',
   'KC_MSTP',
-  'KC_MSEL',
+  'KC_MSEL', // KC_MEDIA_SELECT
+
+  // Mouse
+  'KC_MS_U',
+  'KC_MS_D',
+  'KC_MS_L',
+  'KC_MS_R',
 
   // Mouse
   'KC_BTN1',
@@ -162,12 +156,12 @@ KEYCODE.LIST = [
   'KC_WSCH', // Search
 
   // Web browser
-  'KC_WHOM',
-  'KC_WBAK',
-  'KC_WFWD',
-  'KC_WSTP',
-  'KC_WREF',
-  'KC_WFAV',
+  'KC_WHOM', // Home
+  'KC_WBAK', // Back
+  'KC_WFWD', // Forward
+  'KC_WSTP', // Stop
+  'KC_WREF', // Refresh
+  'KC_WFAV', // Favorite
 
   // Computer controls
   'KC_PWR',
