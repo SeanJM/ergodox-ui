@@ -6,9 +6,12 @@
 }
 
 .key {
-  position : absolute;
-  width    : 56px;
-  height   : 56px;
+  display     : inline-block;
+  position    : relative;
+  width       : 56px;
+  height      : 56px;
+  user-select : none;
+  cursor      : default;
 }
 
 .key_well {
@@ -82,7 +85,9 @@
 }
 
 .key:active {
-  margin-top : 2px;
+  .key_cap {
+    top : 2px;
+  }
 }
 
 .key_icon,
@@ -109,6 +114,7 @@
   left : 9px;
 }
 
+.input .key .key_icon,
 .key_icon {
   bottom      : 8px;
   left        : 50%;
