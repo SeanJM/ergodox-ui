@@ -95,3 +95,64 @@ el.fn('fadeIn', function () {
 
   anime(opt);
 });
+
+el.fn('slidedown', function () {
+  var self = this;
+  var height;
+
+  this.style.position = 'absolute';
+  this.style.opacity = 0;
+
+  if (this.styles().display === 'none') {
+    this.node.display = '';
+  }
+
+  height = this.offset().height;
+  this.style.position = 'static';
+
+  anime({
+    targets : this.node,
+    height : [ 0, height ],
+    easing : 'easeOutQuad',
+    duration : 200,
+    complete : function () {
+      self.node.style.height = '';
+    }
+  });
+
+  anime({
+    duration : 200,
+    targets : this.node,
+    opacity : [ 1 ],
+    easing : 'linear'
+  });
+});
+
+el.fn('slideup', function () {
+  var height;
+  var self = this;
+
+  this.style.height = '';
+
+  height = this.offset().height;
+
+  this.style.display = 'block';
+
+  anime({
+    duration : 200,
+    targets : this.node,
+    height : [ height, 0 ],
+    easing : 'easeOutQuad',
+    complete : function () {
+      self.style.display = '';
+      self.style.height = '';
+    }
+  });
+
+  anime({
+    duration : 150,
+    targets : this.node,
+    opacity : [ 0 ],
+    easing : 'linear'
+  });
+});

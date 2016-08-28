@@ -359,6 +359,14 @@
     this.node.document.focus();
   };
 
+  Component.prototype.slidedown = function () {
+    this.node.document.slidedown();
+  };
+
+  Component.prototype.slideup = function () {
+    this.node.document.slideup();
+  };
+
   Component.extend = function (Constructor) {
     if (!Constructor.prototype.addClass)
       Constructor.prototype.addClass = Component.prototype.addClass;
@@ -396,6 +404,10 @@
       Constructor.prototype.fadeOut = Component.prototype.fadeOut;
     if (!Constructor.prototype.focus)
       Constructor.prototype.focus = Component.prototype.focus;
+    if (!Constructor.prototype.slidedown)
+      Constructor.prototype.slidedown = Component.prototype.slidedown;
+    if (!Constructor.prototype.slideup)
+      Constructor.prototype.slideup = Component.prototype.slideup;
   };
 
   if (typeof window === 'object') {
