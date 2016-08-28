@@ -2,11 +2,34 @@
   z-index     : 1;
   position    : absolute;
   top         : 0;
-  right       : -300px;
-  width       : 300px;
+  right       : -325px;
+  width       : 325px;
   height      : 100%;
   border-left : 1px solid color(grey, base);
   background  : color(grey, lightest);
+}
+
+.letterbox_trigger {
+  position      : absolute;
+  top           : 3px;
+  left          : -34px;
+  width         : 34px;
+  height        : 33px;
+  border        : 1px solid color(grey, base);
+  border-right  : none;
+  border-radius : 5px 0 0 5px;
+  background    : color(grey, lightest);
+
+  .icon-menu {
+    margin-top  : 3px;
+    margin-left : 4px;
+
+    svg {
+      .cls-3 {
+        fill : color(grey, base);
+      }
+    }
+  }
 }
 
 .letterbox_container {
