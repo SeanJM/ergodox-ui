@@ -1,8 +1,5 @@
-function App(opt) {
-  var self = this;
+function App() {
   var app = el(document.querySelector('#app'));
-
-  this.macros = opt.keyboard.macros;
 
   this.node = {
     document : el({ class : 'app-container' })
@@ -18,27 +15,44 @@ function App(opt) {
       ),
       this.node.status = el(Status),
       this.node.layers = el(Layers)
-    ),
-    this.node.letterBox = el(LetterBox)
+    )
   );
 
   this.node.tabs.node.document.text('');
+}
 
-  this.bindTabs();
-  this.bindLayers();
+App.prototype.setKeyboard = function (keyboard) {
+  var self = this;
 
-  this.node.layers.load(opt.keyboard.layers);
+  this.macros = keyboard.macros;
+  this.node.layers.load(keyboard.layers);
   this.appendTo(app);
 
-  _.forEach(opt.keyboard.layers, function (layer, i) {
+  keyboard.layers.forEach(function (layer, i) {
     self.node.tabs.append(
       el(Tab, { title : layer.name })
       .canEdit()
       .canClose()
     );
   });
+};
 
-  self.node.tabs.select(0);
-}
+App.prototype.loadLetterbox = function () {
+  this.node.document.append(
+    this.node.letterBox = el(LetterBox)
+  );
+};
+
+App.prototype.bind = function () {
+  this.bindTabs();
+  this.bindLayers();
+  this.node.tabs.select(0);
+};
+
+App.prototype.init = function (keyboard) {
+  this.setKeyboard(keyboard);
+  this.loadLetterbox();
+  this.bind();
+};
 
 Component.extend(App);

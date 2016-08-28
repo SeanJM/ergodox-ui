@@ -1,4 +1,4 @@
-ajax.get('bin/icon.svg')
+ajax.get('bin/icon-01.svg')
   .then(function (a) {
     ICON_SVG = function () {
       this.node = {
@@ -7,6 +7,7 @@ ajax.get('bin/icon.svg')
     };
 
     Component.extend(ICON_SVG);
-
-    App.main = el(App, { keyboard : SETTINGS.DEFAULT });
+    App.main.init(SETTINGS.DEFAULT);
   });
+
+App.main = el(App);
