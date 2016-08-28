@@ -3,15 +3,13 @@
   height : 25px;
 
   svg {
-    .st0,
-    .st2,
-    .st3 {
+    .cls-2,
+    .cls-4,
+    .cls-5 {
       stroke : #fff;
     }
 
-    .st1,
-    .st4,
-    .st5 {
+    .cls-3 {
       fill : #fff;
     }
   }
@@ -176,4 +174,24 @@
 .key_icon.icon-www-home svg {
   margin-top  : -400px;
   margin-left : -25px;
+}
+
+.key_icon.icon-app-mail svg {
+  margin-top  : -25px;
+  margin-left : -50px;
+}
+
+.key_icon.icon-app-calc svg {
+  margin-top  : -50px;
+  margin-left : -50px;
+}
+
+.key_icon.icon-app-my-computer svg {
+  margin-top  : -75px;
+  margin-left : -50px;
+}
+
+.key_icon.icon-app-search svg {
+  margin-top  : 0;
+  margin-left : -50px;
 }
