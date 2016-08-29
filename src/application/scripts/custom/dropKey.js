@@ -82,7 +82,7 @@
     });
   }
 
-  Layer.dropKey = function (key, coordinates) {
+  function dropKey(key, coordinates) {
     if (key.dropTarget) {
       if (key.dropTarget.isLocked) {
         dropTargetIsLocked(key, coordinates);
@@ -96,5 +96,7 @@
     } else {
       dropOffMenu(key, coordinates);
     }
-  };
+  }
+
+  window.dropKey = dropKey;
 }());

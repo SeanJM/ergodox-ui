@@ -217,7 +217,7 @@
     ]);
   }
 
-  Layer.moveKey = function(key, keyList) {
+  function setDragKey(key, keyList) {
     var angle;
     var clone;
     var keyOffset;
@@ -365,5 +365,7 @@
         dragend(e);
       }
     });
-  };
+  }
+  
+  window.setDragKey = setDragKey;
 }());
