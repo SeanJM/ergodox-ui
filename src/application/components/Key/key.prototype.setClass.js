@@ -13,9 +13,7 @@
   Key.prototype.setClass = function () {
     var self = this;
 
-    CLEAR_CLASSES.forEach(function (className) {
-      self.node.document.removeClass(className);
-    });
+    self.node.document.removeClass(CLEAR_CLASSES);
 
     if (this.isModifiedKey) {
       this.node.document.addClass('key--modified');
