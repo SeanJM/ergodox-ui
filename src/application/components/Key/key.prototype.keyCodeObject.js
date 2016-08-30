@@ -1,133 +1,218 @@
-Key.prototype.keyCodeObject = function (keyCode) {
+(function () {
   var MATCH_KEYCODE = /^([A-Z0-9_]+)(?:\((?:([A-Z0-9_]+?),|)(?:| )([A-Z0-9_]+?)\)|)$/;
 
-  var args = keyCode
-    .match(MATCH_KEYCODE)
-    .slice(1)
-    .filter(a => a);
+  function getArgs(keyCode) {
+    return keyCode
+      .match(MATCH_KEYCODE)
+      .slice(1)
+      .filter(a => a)
+      .map(function (a, i) {
+        if (a.slice(-2) === '_T' && a.substr(0, 2) !== 'KC') {
+          return 'KC_' + a.slice(0, -2);
+        }
 
-  // Store the keyCode
-  this.keyCode = keyCode;
-  Object.assign(this, KEYCODE.is(keyCode));
+        if (isKeyCode(a) || isLayerName(a)) {
+          return a;
+        }
 
-  this.str_iconPrimary = false;
-  this.str_iconSecondary = false;
-  this.keyTap = false;
-  this.keyHold = false;
-  this.str_primary = false;
-  this.str_secondary = false;
-  this.str_sendPrimary = false; // How the keys are activated (shift, tap, hold)
-  this.str_sendSecondary = false; // How the keys are activated (shift, tap, hold)
+        return 'KC_' + a;
+      });
+  }
 
-  if (args[1]) { // Contains a key or keys inside parens, eg: TG(SYMB)
-    if (this.isMacro) {
-      // Is a Macro, macros are set up in 'keymaps/keymap_default.c'
-      this.keyTap = args[1];
-      this.str_primary = args[1];
-      this.str_iconPrimary = KEYCODE.ICON.M;
-    } else if (this.isMomentLayer) {
-      // MO(layer) -- Activates the layer when held
-      this.keyHold = args[1];
-      this.str_primary = KEYCODE.PRIMARY[args[1]];
+  function getIcon() {
+    if ((
+      this.args.length === 1 && KEYCODE[this.args[0]].icon
+    ) || (
+      this.isLayerToggle
+    )) {
+      return KEYCODE[this.args[0]].icon;
     } else if (this.isHoldModifierTapKey) {
-      // CTL_T(KC_Z) -- is CTL when held, KC_Z when tapped
-      this.keyHold = 'KC_' + args[0].substr(0, args[0].length - 2);
-      this.keyTap = args[1];
-
-      if (args[1] === 'KC_NO') {
-        // when ALL_T(KC_NO) or HYPER_T(KC_NO) are used to simulate modifier keys
-        this.str_primary = KEYCODE.PRIMARY[this.keyHold];
-      } else {
-        if (KEYCODE.PRIMARY[this.keyTap]) {
-          this.str_primary = KEYCODE.PRIMARY[this.keyTap];
-        } else if (KEYCODE.ICON[this.keyTap]) {
-          this.str_iconPrimary = KEYCODE.ICON[this.keyTap];
-        }
-        if (KEYCODE.PRIMARY[this.keyHold]) {
-          this.str_secondary = KEYCODE.PRIMARY[this.keyHold];
-        } else if (KEYCODE.ICON[this.keyHold]) {
-          this.str_iconSecondary = KEYCODE.ICON[this.keyHold];
-        }
-      }
-    } else if (this.isHoldLayerTapKey) {
-      // LT(layer, KC_GRV) -- Switch to layer layer when held, KC_GRV when tapped
-      this.keyHold = args[1];
-      this.keyTap = args[2];
-      this.str_primary = KEYCODE.PRIMARY[this.keyTap];
-      this.str_secondary = args[1];
-    } else if (this.isLayerToggle) {
-      // TG(layer) -- Will toggle the layer while it is tapped, tap again to toggle back
-      this.keyHold = args[1];
-      this.str_primary = args[1];
-      this.str_iconPrimary = KEYCODE.ICON.toggle;
-    } else if (this.isModifiedKey) {
-      // LCTL(KC_1) | LSFT(KC_1) -- The value of the key when the modifier is applied
-      this.keyHold = args[0];
-      this.keyTap = args[1];
-      this.str_primary = (
-        KEYCODE[args[0]]
-        && KEYCODE[args[0]][args[1]]
-      ) ? KEYCODE[args[0]][args[1]]
-        : KEYCODE.PRIMARY['KC_' + args[0]] + ' + ' + KEYCODE.PRIMARY[args[1]];
-      if (KEYCODE.isShift(args[0])) {
-        this.str_iconPrimary = KEYCODE.ICON.KC_LSFT;
-      }
+      return KEYCODE[this.args[1]].icon;
     }
-  } else {
-    // KC_QUOT | KC_EQL -- the normal keys
-    this.keyTap = args[0];
-    this.str_primary = KEYCODE.PRIMARY[args[0]] || false;
-    this.str_secondary = KEYCODE.SFT[args[0]] || false;
 
-    if (this.isMouseButton) {
-      this.str_iconPrimary = KEYCODE.ICON.KC_BTN;
-    } else {
-      this.str_iconPrimary = KEYCODE.ICON[args[0]] || false;
-    }
+    return false;
   }
 
-  // Activation methods
-  if (this.isHoldModifierTapKey) {
-    this.str_sendPrimary = 'Tap';
-    this.str_sendSecondary = 'Hold';
-  } else if (this.isHoldLayerTapKey) {
-    this.str_sendPrimary = 'Tap';
-    this.str_sendSecondary = 'Hold';
-  } else if (this.isMomentLayer) {
-    // Activates layer when held
-    this.str_sendPrimary = 'Tap';
-  } else if (this.isLayerToggle) {
-    this.str_sendPrimary = 'Tap';
-  } else if (this.isModifiedKey) {
+  function getKeyTap() {
+    if (this.args.length === 1) {
+      return this.args[0];
+    }
+
+    if (this.isLayerToggle) {
+      return this.args[1];
+    }
+
+    if (this.isHoldLayerTapKey) {
+      return this.args[2];
+    }
+
+    return this.args[1];
+  }
+
+  function getKeyHold() {
+    if (this.isHoldLayerTapKey) {
+      return this.args[1];
+    }
+
+    if (this.isLayerToggle) {
+      return false;
+    }
+
+    if (this.args.length === 2) {
+      return this.args[0];
+    }
+
+    return false;
+  }
+
+  function getPrimary() {
+    if (this.args.length === 1) {
+      return KEYCODE[this.args[0]].primary;
+    }
+
+    if (this.isLayerToggle) {
+      return this.args[1];
+    }
+
+    if (this.isHoldLayerTapKey) {
+      return KEYCODE[this.args[2]].primary;
+    }
+
+    console.log(this.args);
+    return KEYCODE[this.args[1]].primary;
+  }
+
+  function getSecondary() {
     if (
-      KEYCODE.isModifier(this.keyTap)
-      && KEYCODE.isModifier(this.keyHold)
+      this.args.length === 1
+      && KEYCODE[this.args[0]].shift
     ) {
-      this.str_sendPrimary = 'Hold';
-    } else {
-      this.str_sendPrimary = 'Tap';
+      return KEYCODE[this.args[0]].shift;
     }
-  } else if (KEYCODE.SFT[this.keyTap]) {
-    this.str_sendPrimary = 'Tap';
-    this.str_sendSecondary = 'Shift';
+
+    if (
+      this.args.length === 1
+      || this.isLayerToggle
+    ) {
+      return false;
+    }
+
+    if (this.isHoldLayerTapKey) {
+      return this.args[1];
+    }
+
+    return KEYCODE[this.args[0]].primary;
   }
 
-  // KC_LEFT, KC_BSPC, KC_SPC
-  if (
-    !this.str_primary
-    && KEYCODE.LONG_NAME[keyCode]
-  ) {
-    this.str_sendPrimary = 'Tap';
+  function getSendPrimary(args) {
+    return 'Press';
   }
 
-  // KC_DELT, KC_LSFT, KC_LGUI, KC_PGUP etc...
-  if (
-    this.str_primary
-    && !this.str_secondary
-    && KEYCODE.PRIMARY[keyCode]
-  ) {
-    this.str_sendPrimary = 'Tap';
+  function getSendSecondary(args) {
+    if (
+      this.args.length === 1
+      && KEYCODE[this.args[0]].shift
+    ) {
+      return 'Shift';
+    }
+    return 'Hold';
   }
 
-  this.setLongName();
-};
+  Key.prototype.keyCodeObject = function (keyCode) {
+    var args = getArgs(keyCode);
+
+    if (isEmpty(keyCode)) {
+      this.isEmpty = true;
+    }
+
+    if (isFnKey(keyCode)) {
+      this.isFnKey = true;
+    }
+
+    if (isHoldLayerTapKey(keyCode)) {
+      this.isHoldLayerTapKey = true;
+    }
+
+    if (isHoldModifierTapKey(keyCode)) {
+      this.isHoldModifierTapKey = true;
+    }
+
+    if (isHyper(keyCode)) {
+      this.isHyper = true;
+    }
+
+    if (isLayerSignal(keyCode)) {
+      this.isLayerSignal = true;
+    }
+
+    if (isLayerToggle(keyCode)) {
+      this.isLayerToggle = true;
+    }
+
+    if (isLetter(keyCode)) {
+      this.isLetter = true;
+    }
+
+    if (isLocked(keyCode)) {
+      this.isLocked = true;
+    }
+
+    if (isMacro(keyCode)) {
+      this.isMacro = true;
+    }
+
+    if (isMedia(keyCode)) {
+      this.isMedia = true;
+    }
+
+    if (isMeh(keyCode)) {
+      this.isMeh = true;
+    }
+
+    if (isModifiedKey(keyCode)) {
+      this.isModifiedKey = true;
+    }
+
+    if (isCommand(keyCode)) {
+      this.isCommand = true;
+    }
+
+    if (isMomentLayer(keyCode)) {
+      this.isMomentLayer = true;
+    }
+
+    if (isMouseButton(keyCode)) {
+      this.isMouseButton = true;
+    }
+
+    if (isNumber(keyCode)) {
+      this.isNumber = true;
+    }
+
+    if (isShift(keyCode)) {
+      this.isShift = true;
+    }
+
+    if (isTransparent(keyCode)) {
+      this.isTransparent = true;
+    }
+
+    if (isWeb(keyCode)) {
+      this.isWeb = true;
+    }
+
+    this.keyCode = keyCode;
+    this.args = args;
+
+    this.str_icon = getIcon.call(this);
+    this.keyTap = getKeyTap.call(this);
+    this.keyHold = getKeyHold.call(this);
+
+    this.str_primary = getPrimary.call(this);
+    this.str_secondary = getSecondary.call(this);
+    this.str_sendPrimary = getSendPrimary.call(this); // How the keys are activated (shift, tap, hold)
+    this.str_sendSecondary = getSendSecondary.call(this); // How the keys are activated (shift, tap, hold)
+
+    this.setLongName();
+  };
+}());
