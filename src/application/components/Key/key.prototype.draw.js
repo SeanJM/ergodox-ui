@@ -1,65 +1,74 @@
-Key.prototype.draw = function () {
-  var EXCLUDE_PRIMARY = [
-    'KC_BSPC',
-    'KC_DOWN',
-    'KC_LEFT',
-    'KC_RGHT',
-    'KC_SPC',
-    'KC_UP',
-  ];
+(function () {
+  function isUpperCase(self) {
+    if (isLetter(self.keyCode)) {
+      return true;
+    } else if (
+      self.isHoldModifierTapKey
+      && isLetter(self.args[1])
+    ) {
+      return true;
+    }
+    return false;
+  }
 
-  var size = 0;
+  function isStrPrimary(self) {
+    if (self.isMedia) {
+      return false;
+    } else if (self.isWeb) {
+      return false;
+    } else if (
+      self.isHoldModifierTapKey
+      && (isMedia(self.args[1]) || isWeb(self.args[1]))
+    ) {
+      return false;
+    }
 
-  this.node.document.node.className = this.node.document.node.className
-    .replace(/key--size-[0-9]/, '')
-    .replace(/\s+/, ' ');
-
-  // Primary text
-  if (this.str_primary && EXCLUDE_PRIMARY.indexOf(this.keyCode) === -1) {
-    this.node.primary.text(
-      this.isLetter
-        ? this.str_primary.toUpperCase()
-        : this.str_primary.replace(/\n/g, '<br/>')
+    return (
+      self.str_primary && !self.isMedia
+    ) && !(
+      self.isModifiedKey
+      && isCommand(self.args[1])
     );
-  } else {
-    this.node.primary.text('');
-  }
-  // Secondary text
-  if (this.str_secondary && !this.isLetter) {
-    this.node.secondary.text(this.str_secondary.replace(/\n/g, '<br/>'));
-  } else {
-    this.node.secondary.text('');
   }
 
-  if (
-    this.str_primary
-    &&
-    EXCLUDE_PRIMARY.indexOf(this.keyCode) === -1
-  ) {
-    size++;
+  function setPrimaryText() {
+    // Primary text
+    if (isUpperCase(this)) {
+      this.node.primary.text(this.str_primary.toUpperCase());
+    } else if (
+      (this.isHyper || this.isMeh)
+      && isEmpty(this.args[1])
+    ) {
+      this.node.primary.text(this.str_secondary);
+    } else if (isStrPrimary(this)) {
+      this.node.primary.text(this.str_primary);
+    } else if (this.isModifiedKey && isCommand(this.args[1])) {
+      this.node.primary.text(`${this.str_primary} + ${this.str_secondary}`);
+    } else {
+      this.node.primary.text('');
+    }
   }
 
-  if (this.str_secondary) {
-    size++;
+  function setSecondaryText() {
+    // Secondary text
+    if (
+      this.str_secondary
+      && !this.isLetter
+      && !this.isHyper
+      && !this.isMeh
+      && !(this.isModifiedKey && isCommand(this.args[1]))
+    ) {
+      this.node.secondary.text(this.str_secondary.replace(/\n/g, '<br/>'));
+    } else {
+      this.node.secondary.text('');
+    }
   }
 
-  if (this.str_iconPrimary) {
-    this.iconPrimary(this.str_iconPrimary);
-    size++;
-  } else if (this.node.iconPrimary) {
-    this.node.iconPrimary.remove();
-  }
+  Key.prototype.draw = function () {
+    setPrimaryText.call(this);
+    setSecondaryText.call(this);
 
-  if (this.str_iconSecondary) {
-    this.node.iconSecondary = el(Icon,
-      { class : 'key_icon key_icon-primary' },
-      this.str_iconSecondary
-    );
-    size++;
-  } else if (this.node.iconSecondary) {
-    this.node.iconSecondary.remove();
-  }
-
-  this.setClass();
-  this.node.document.addClass('key--size-' + size);
-};
+    this.icon(this.str_icon);
+    this.setClass();
+  };
+}());
