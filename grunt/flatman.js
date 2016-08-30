@@ -16,26 +16,30 @@ module.exports = {
   task : function () {
     const pages = m('src/flatman/pages', /\.js$/).map(a => '../' + a);
 
-    pages.forEach(function (file) {
-      var page = require(file);
+    try {
+      pages.forEach(function (file) {
+        var page = require(file);
 
-      if (typeof page === 'undefined') {
-        console.log('Cannot generate: \'' + file + '\', is it using \'module.exports\'?');
-      }
+        if (typeof page === 'undefined') {
+          console.log('Cannot generate: \'' + file + '\', is it using \'module.exports\'?');
+        }
 
-      for (var k in scripts.dest) {
+        for (var k in scripts.dest) {
+          try {
+            fs.statSync(scripts.dest[k]);
+            page.script(scripts.dest[k]);
+          } catch (e) {}
+        }
+
         try {
-          fs.statSync(scripts.dest[k]);
-          page.script(scripts.dest[k]);
+          fs.statSync(css.files.dest);
+          page.css(css.files.dest);
         } catch (e) {}
-      }
 
-      try {
-        fs.statSync(css.files.dest);
-        page.css(css.files.dest);
-      } catch (e) {}
-
-      page.write();
-    });
+        page.write();
+      });
+    } catch(e) {
+      console.log('flatman error: ' + e);
+    }
   }
 };

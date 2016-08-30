@@ -51,7 +51,7 @@ let src = {
 let dest = {};
 
 if (config.bundle) {
-  dest = 'bin/' + config.bundle;
+  dest = 'bin/' + config.bundle + '.css';
 } else {
   dest = 'bin/bundle.css';
 }

@@ -30,7 +30,8 @@ m('bin', /\.css\.map$/).forEach(function (f) {
 });
 
 m('bin', /\.(png|svg|jpg)$/).forEach(function (f) {
-  if (imageFiles.indexOf(f) === -1) {
+  var lowres = f.replace(/.lowres/, '');
+  if (imageFiles.indexOf(f) === -1 && imageFiles.indexOf(lowres) === -1) {
     fs.unlink(f);
   }
 });
