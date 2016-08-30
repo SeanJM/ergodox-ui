@@ -10,6 +10,10 @@ function Icon() {
   );
 }
 
+Icon.prototype.remove = function () {
+  this.node.document.remove();
+};
+
 Icon.prototype.text = function (str_value) {
   var className = this.node.document.node.className;
 
