@@ -4,8 +4,8 @@
   right         : 0;
   left          : 0;
   height        : 40px;
-  border-bottom : 1px solid color(grey, dark);
-  background    : color(grey, lighter);
+  border-bottom : 1px solid color(grey, base);
+  background    : color(grey, lightest);
 
   .tab_add {
     display       : inline-block;

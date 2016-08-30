@@ -5,9 +5,8 @@
   top        : -1px;
   width      : 22px;
   height     : 29px;
-  border     : 1px solid color(grey, dark);
-  background : color(grey, lighter);
-  box-shadow : 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  border     : 1px solid color(grey, base);
+  background : color(grey, lightest);
 }
 
 .tab::before {
@@ -33,10 +32,9 @@
   height        : 30px;
   margin-top    : 1px;
   padding       : 0px 15px;
-  border        : 1px solid color(grey, dark);
+  border        : 1px solid color(grey, base);
   border-bottom : 0;
-  background    : color(grey, lighter);
-  box-shadow    : 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  background    : color(grey, lightest);
   text-align    : center;
   user-select   : none;
   cursor        : default;
@@ -59,17 +57,15 @@
   z-index    : 2;
   height     : 31px;
   margin-top : 1px;
-  border-top : 1px solid color(grey, dark);
+  border-top : 1px solid color(grey, base);
   background : #fff;
-  box-shadow : 0 1px 0 rgba(255, 255, 255, 0.4) inset;
 }
 
 .tab--select::after,
 .tab--select::before {
   height       : 30px;
-  border-color : color(grey, dark);
+  border-color : color(grey, base);
   background   : #fff;
-  box-shadow   : 0 1px 0 rgba(255, 255, 255, 0.4) inset;
 }
 
 .tab + .tab {
@@ -129,8 +125,20 @@
 
     .button_text {
       opacity          : 0.9;
-      background-image : linear-gradient(45deg, transparent 42%, #fff 42%, #fff 58%, transparent 58%),
-                         linear-gradient(-45deg, transparent 42%, #fff 42%, #fff 58%, transparent 58%);
+      background-image : linear-gradient(
+                           45deg,
+                           transparent 42%,
+                           #fff 42%,
+                           #fff 58%,
+                           transparent 58%
+                         ),
+                         linear-gradient(
+                           -45deg,
+                           transparent 42%,
+                           #fff 42%,
+                           #fff 58%,
+                           transparent 58%
+                         );
     }
   }
 
@@ -144,8 +152,20 @@
     margin-left      : -4px;
     border-radius    : 50%;
     background       : transparent;
-    background-image : linear-gradient(45deg, transparent 42%, color(grey, base) 42%, color(grey, base) 58%, transparent 58%),
-                       linear-gradient(-45deg, transparent 42%, color(grey, base) 42%, color(grey, base) 58%, transparent 58%);
+    background-image : linear-gradient(
+                         45deg,
+                         transparent 42%,
+                         color(grey, base) 42%,
+                         color(grey, base) 58%,
+                         transparent 58%
+                       ),
+                       linear-gradient(
+                         -45deg,
+                         transparent 42%,
+                         color(grey, base) 42%,
+                         color(grey, base) 58%,
+                         transparent 58%
+                       );
   }
 }
 
@@ -154,14 +174,38 @@
     &:hover {
       .button_text {
         opacity          : 0.9;
-        background-image : linear-gradient(45deg, transparent 42%, #fff 42%, #fff 58%, transparent 58%),
-                           linear-gradient(-45deg, transparent 42%, #fff 42%, #fff 58%, transparent 58%);
+        background-image : linear-gradient(
+                             45deg,
+                             transparent 42%,
+                             #fff 42%,
+                             #fff 58%,
+                             transparent 58%
+                           ),
+                           linear-gradient(
+                             -45deg,
+                             transparent 42%,
+                             #fff 42%,
+                             #fff 58%,
+                             transparent 58%
+                           );
       }
     }
 
     .button_text {
-      background-image : linear-gradient(45deg, transparent 42%, color(grey, dark) 42%, color(grey, dark) 58%, transparent 58%),
-                         linear-gradient(-45deg, transparent 42%, color(grey, dark) 42%, color(grey, dark) 58%, transparent 58%);
+      background-image : linear-gradient(
+                           45deg,
+                           transparent 42%,
+                           color(grey, dark) 42%,
+                           color(grey, dark) 58%,
+                           transparent 58%
+                         ),
+                         linear-gradient(
+                           -45deg,
+                           transparent 42%,
+                           color(grey, dark) 42%,
+                           color(grey, dark) 58%,
+                           transparent 58%
+                         );
     }
   }
 }
