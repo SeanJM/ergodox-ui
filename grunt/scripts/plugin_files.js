@@ -9,6 +9,7 @@ function notGrunt(file) {
 let src = {
   vendor : m('src/vendor/', /\.js$/).filter(notGrunt),
   constants : m('src/constants/', /\.js$/).filter(notGrunt),
+  predicates : m('src/predicates/', /\.js$/).filter(notGrunt),
   common : m('src/common/', /\.js$/).filter(notGrunt),
   containers : m('src/containers/', /\.js$/).filter(notGrunt),
   components : m('src/components/', /\.js$/).filter(notGrunt),
@@ -37,8 +38,9 @@ module.exports = {
   src : src,
   dest : dest,
   list : [].concat(
-    src.constants,
     src.vendor,
+    src.constants,
+    src.predicates,
     src.custom,
     src.common,
     src.containers,
