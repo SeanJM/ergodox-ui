@@ -31,7 +31,7 @@
       this.node.document.addClass('key--default');
     }
 
-    if (this.isEmpty) {
+    if (this.isTransparent) {
       this.node.document.addClass('key--transparent');
     }
   };
