@@ -15,7 +15,7 @@ function LetterBox(opt) {
   );
 
   this.target(this.node.container).append(
-    this.node.search = el(Form.Search)
+    this.node.search = el(Form.SearchKey)
   );
 
   this.node.trigger.on('click', function () {
