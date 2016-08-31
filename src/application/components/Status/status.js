@@ -36,10 +36,10 @@ function Status () {
   );
 }
 
-Status.prototype.value = function (a) {
-  this.node.primary.value(a.str_sendPrimary, a.str_primary);
-  this.node.secondary.value(a.str_sendSecondary, a.str_secondary);
-  this.node.longName.text(a.str_longName);
+Status.prototype.value = function (key) {
+  this.node.primary.value(key.str_sendPrimary, key.str_primary);
+  this.node.secondary.value(key.str_sendSecondary, key.str_secondary);
+  this.node.longName.text(key.name);
 };
 
 Component.extend(Status);
