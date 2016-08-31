@@ -78,7 +78,6 @@
       return KEYCODE[this.args[2]].primary;
     }
 
-    console.log(this.args);
     return KEYCODE[this.args[1]].primary;
   }
 
@@ -199,6 +198,10 @@
 
     if (isWeb(keyCode)) {
       this.isWeb = true;
+    }
+
+    if (isNavigation(keyCode)) {
+      this.isNavigation = true;
     }
 
     this.keyCode = keyCode;
