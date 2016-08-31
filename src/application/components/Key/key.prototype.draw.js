@@ -1,4 +1,15 @@
 (function () {
+  var CLEAR_CLASSES = [
+    'key--modified',
+    'key--hold-key-tap-key',
+    'key--hold-layer-tap-key',
+    'key--layer-toggle',
+    'key--macro',
+    'key--locked',
+    'key--transparent',
+    'key--default',
+  ];
+
   function isUpperCase(self) {
     if (isLetter(self.keyCode)) {
       return true;
@@ -15,6 +26,8 @@
     if (self.isMedia) {
       return false;
     } else if (self.isWeb) {
+      return false;
+    } else if (self.isNavigation && self.str_icon) {
       return false;
     } else if (
       self.isHoldModifierTapKey
@@ -69,6 +82,25 @@
     setSecondaryText.call(this);
 
     this.icon(this.str_icon);
-    this.setClass();
+
+    this.node.document.removeClass(CLEAR_CLASSES);
+
+    if (this.isModifiedKey) {
+      this.node.document.addClass('key--modified');
+    } else if (this.isHoldModifierTapKey) {
+      this.node.document.addClass('key--hold-key-tap-key');
+    } else if (this.isHoldLayerTapKey) {
+      this.node.document.addClass('key--hold-layer-tap-key');
+    } else if (this.isLayerToggle) {
+      this.node.document.addClass('key--layer-toggle');
+    } else if (this.isMacro) {
+      this.node.document.addClass('key--macro');
+    } else {
+      this.node.document.addClass('key--default');
+    }
+
+    if (this.isTransparent) {
+      this.node.document.addClass('key--transparent');
+    }
   };
 }());
