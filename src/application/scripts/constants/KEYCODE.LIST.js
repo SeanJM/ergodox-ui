@@ -498,27 +498,31 @@ KEYCODE.LIST = [{
   keyCode : 'KC_LEFT',
   type : 'navigation',
   name : 'left',
-  icon : 'left'
+  icon : 'left',
+  primary : 'Left'
 }, {
   keyCode : 'KC_RGHT',
   type : 'navigation',
   name : 'right',
-  icon : 'right'
+  icon : 'right',
+  primary : 'Right'
 }, {
   keyCode : 'KC_UP',
   type : 'navigation',
   name : 'up',
-  icon : 'up'
+  icon : 'up',
+  primary : 'Up'
 }, {
   keyCode : 'KC_DOWN',
   type : 'navigation',
   name : 'down',
-  icon : 'down'
+  icon : 'down',
+  primary : 'Down'
 }, {
   keyCode : 'KC_HOME',
   type : 'navigation',
   name : 'home',
-  icon : 'home'
+  primary : 'Home'
 }, {
   keyCode : 'KC_END',
   type : 'navigation',
@@ -567,77 +571,80 @@ KEYCODE.LIST = [{
   type : 'editing',
   name : 'space',
   icon : 'space'
-},
+}
 // Command
-{
+, {
   keyCode : 'KC_LSFT',
   type : 'command',
   name : 'left shift',
   primary : 'Shift',
-  icon : 'shift'
+  icon : 'command-shift'
 }, {
   keyCode : 'KC_RSFT',
   type : 'command',
   name : 'right shift',
   primary : 'Shift',
-  icon : 'shift'
+  icon : 'command-shift'
 }, {
   keyCode : 'KC_ALT',
   type : 'command',
   name : 'alt',
   primary : 'Alt',
-  icon : 'alt'
+  icon : 'command-alt'
 }, {
   keyCode : 'KC_LALT',
   type : 'command',
   name : 'left alt',
   primary : 'Alt',
-  icon : 'alt'
+  icon : 'command-alt'
 }, {
   keyCode : 'KC_RALT',
   type : 'command',
   name : 'right alt',
   primary : 'Alt',
-  icon : 'alt'
+  icon : 'command-alt'
 }, {
   keyCode : 'KC_GUI',
   type : 'command',
   name : 'menu',
-  icon : 'gui'
+  primary : 'GUI',
+  icon : 'command-gui'
 }, {
   keyCode : 'KC_LGUI',
   type : 'command',
   name : 'left menu',
-  icon : 'gui'
+  primary : 'GUI',
+  icon : 'command-gui'
 }, {
   keyCode : 'KC_RGUI',
   type : 'command',
   name : 'right menu',
-  icon : 'gui'
+  primary : 'GUI',
+  icon : 'command-gui'
 }, {
   keyCode : 'KC_CTL',
   type : 'command',
   name : 'control',
   primary : 'Ctrl',
-  icon : 'ctrl'
+  icon : 'command-ctrl'
 }, {
   keyCode : 'KC_MEH',
   type : 'command',
   name : 'ctrl + alt + shift',
   primary : 'MEH',
-  icon : 'meh'
+  icon : 'command-meh'
 }, {
   keyCode : 'KC_HYPR',
   type : 'command',
   name : 'ctrl + alt + shift + ' + (IS_MACINTOSH ? 'command' : 'windows key'),
   primary : 'Hyper',
-  icon : 'hyper'
+  icon : 'command-hyper'
 }, {
   keyCode : 'KC_ALL',
   type : 'command',
   name : 'ctrl + alt + shift + ' + (IS_MACINTOSH ? 'command' : 'windows key'),
   primary : 'Hyper',
-  icon : 'hyper'
+  icon : 'command-hyper'
 }
 // Media
 , {
@@ -813,24 +820,24 @@ KEYCODE.LIST = [{
   icon : 'computer-wake'
 }];
 
-KEYCODE.SFT = KEYCODE.LIST
-  .filter(a => /SFT$/.test(a.keyCode))
-  .map(a => a.keyCode);
+KEYCODE.SFT = [];
+KEYCODE.MOUSE_BUTTON = [];
 
-KEYCODE.COMMAND = KEYCODE.LIST
-  .filter(a => a.type === 'command')
-  .map(a => a.keyCode);
+KEYCODE.LIST.forEach(function (a) {
+  var cat = a.type.toUpperCase();
+  var kc = a.keyCode;
 
-KEYCODE.MEDIA = KEYCODE.LIST
-  .filter(a => a.type === 'media')
-  .map(a => a.keyCode);
+  if (typeof KEYCODE[cat] === 'undefined') {
+    KEYCODE[cat] = [];
+  }
 
-KEYCODE.WEB = KEYCODE.LIST
-  .filter(a => a.type === 'web')
-  .map(a => a.keyCode);
+  KEYCODE[cat].push(kc);
 
-KEYCODE.MOUSE_BUTTON = KEYCODE.LIST
-  .filter(a => /BTN[0-9]$/.test(a.keyCode.includes))
-  .map(a => a.keyCode);
+  if (/SFT$/.test(kc)) {
+    KEYCODE.SFT.push(a);
+  } else if (/^KC_BTN/.test(kc)) {
+    KEYCODE.MOUSE_BUTTON.push(kc);
+  }
 
-KEYCODE.LIST.forEach(a => KEYCODE[a.keyCode] = a);
+  KEYCODE[a.keyCode] = a;
+});
