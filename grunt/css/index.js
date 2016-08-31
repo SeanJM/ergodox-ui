@@ -8,8 +8,10 @@ const files = require('./files');
 let task = {
   autoprefixer : {
     options : {
-      browsers : ['last 3 version'],
+      browsers : ['last 4 version'],
       map : false,
+    },
+    files : {
       src : files.dest,
       dest : files.dest
     }

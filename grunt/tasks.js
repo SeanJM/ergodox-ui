@@ -17,7 +17,8 @@ if (scripts.list.length) {
 }
 
 if (css.files.list.length) {
-  tasks.push('sass', 'autoprefixer');
+  tasks.push('sass');
+  tasks.push('autoprefixer');
   if (config.isProduction) {
     tasks.push('cssmin');
   }
