@@ -18,6 +18,7 @@ function App() {
     )
   );
 
+  this.layers = this.node.layers.elements;
   this.node.tabs.node.document.text('');
 }
 
