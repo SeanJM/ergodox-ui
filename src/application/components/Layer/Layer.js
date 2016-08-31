@@ -1,8 +1,4 @@
 function Layer(opt) {
-  var os = /Macintosh/.test(window.navigator.userAgent)
-  ? 'mac'
-  : 'win';
-
   var self = this;
 
   this.name = opt.name;
@@ -10,7 +6,7 @@ function Layer(opt) {
   this.selected = false;
 
   this.node = {
-    document : el({ class : 'layer layer--' + os })
+    document : el({ class : 'layer' })
   };
 }
 
@@ -43,7 +39,7 @@ Layer.prototype.keys = function (keys) {
     self.keyList[i].addClass('key-' + i);
     self.node.document.append(self.keyList[i]);
 
-    Layer.moveKey(self.keyList[i], self.keyList);
+    setDragKey(self.keyList[i], self.keyList);
   });
 };
 

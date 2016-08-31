@@ -345,7 +345,7 @@
         clone = undefined;
       }
 
-      Layer.dropKey(key, { x : e.pageX, y : e.pageY });
+      dropKey(key, { x : e.pageX, y : e.pageY });
     }
 
     key.on('dragstart', function (e) {
@@ -366,6 +366,6 @@
       }
     });
   }
-  
+
   window.setDragKey = setDragKey;
 }());
