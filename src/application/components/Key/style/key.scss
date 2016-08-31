@@ -123,24 +123,25 @@
   margin-left : -13px;
 }
 
-.key--size-1 .key_icon {
+.key--has-icon .key_icon {
   top        : 50%;
   bottom     : auto;
   margin-top : -13px;
 }
 
-.key--size-2 .key_icon-primary {
-  top    : 6px;
-  right  : 8px;
-  bottom : auto;
-  left   : auto;
+.key--has-icon.key--has-primary-text .key_icon {
+  top        : 5px;
+  right      : 8px;
+  bottom     : auto;
+  left       : auto;
+  margin-top : 0;
 }
 
-.key--size-2 .key_icon-secondary {
-  top    : auto;
-  right  : auto;
-  bottom : 6px;
-  left   : 20px;
+.key--has-icon.key--has-secondary-text .key_icon {
+  top        : auto;
+  bottom     : 8px;
+  left       : 17px;
+  margin-top : 0;
 }
 
 .key--hold-key-tap-key .key_secondary,
