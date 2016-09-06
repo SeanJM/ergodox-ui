@@ -2,7 +2,9 @@ App.prototype.bindTabs = function () {
   var self = this;
 
   this.node.tabs.on('tabSelect', function (e) {
-    self.node.layers.select(self.node.tabs.indexOf(e.target));
+    var index = self.node.tabs.indexOf(e.target);
+    self.node.layers.select(index);
+    self.node.letterBox.select(self.node.layers.elements[index]);
   });
 
   this.node.tabs.on('tabEditEnd', function (e) {
