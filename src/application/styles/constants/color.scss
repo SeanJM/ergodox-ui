@@ -67,7 +67,7 @@ $COLOR  : (
     base : $blue,
     light : lighten($blue, 13%),
     lighter : lighten($blue, 22%),
-    lightest : adjust-hue(lighten($blue, 35%), -10deg),
+    lightest : adjust-hue(lighten($blue, 37%), -10deg),
     dark : darken($blue, 12%),
     darker : darken($blue, 20%),
     darkest : adjust-hue(darken($blue, 28%), 10deg),
