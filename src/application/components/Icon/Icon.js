@@ -6,12 +6,16 @@ function Icon() {
   };
 
   this.node.document.append(
-    this.node.img = el(ICON_SVG)
+    this.node.img = el(ICON_KEYS)
   );
 }
 
 Icon.prototype.remove = function () {
   this.node.document.remove();
+};
+
+Icon.prototype.large = function () {
+  this.node.document.addClass('icon-large');
 };
 
 Icon.prototype.text = function (str_value) {
