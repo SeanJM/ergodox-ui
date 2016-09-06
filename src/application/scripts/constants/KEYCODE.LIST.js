@@ -834,7 +834,7 @@ KEYCODE.LIST.forEach(function (a) {
   KEYCODE[cat].push(kc);
 
   if (/SFT$/.test(kc)) {
-    KEYCODE.SFT.push(a);
+    KEYCODE.SFT.push(kc);
   } else if (/^KC_BTN/.test(kc)) {
     KEYCODE.MOUSE_BUTTON.push(kc);
   }
