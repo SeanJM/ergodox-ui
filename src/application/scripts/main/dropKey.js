@@ -1,8 +1,8 @@
 (function () {
   function menu(opt) {
     var contextMenu = el(ContextMenu);
-
-    console.log(opt.key);
+    var targetCode = opt.key.dropTarget.keyCode;
+    console.log(KEYCODE[opt.key.dropTarget.keyCode]);
 
     opt.key.lightOn();
 
