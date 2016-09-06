@@ -17,6 +17,7 @@ let src = {
   shared_collections : m('src/shared/scripts/collections/', /\.js$/).filter(notGrunt),
   shared_main : m('src/shared/scripts/main/', /\.js$/).filter(notGrunt),
   shared_init : m('src/shared/scripts/init/', /\.js$/).filter(notGrunt),
+  shared_exports : m('src/shared/scripts/exports/', /\.js$/).filter(notGrunt),
 
   vendor : m('src/application/scripts/vendor/', /\.js$/).filter(notGrunt),
   constants : m('src/application/scripts/constants/', /\.js$/).filter(notGrunt),
@@ -26,7 +27,8 @@ let src = {
   containers : m('src/application/containers/', /\.js$/).filter(notGrunt),
   collections : m('src/application/collections/', /\.js$/).filter(notGrunt),
   main : m('src/application/scripts/main/', /\.js$/).filter(notGrunt),
-  init : m('src/application/scripts/init/', /\.js$/).filter(notGrunt)
+  init : m('src/application/scripts/init/', /\.js$/).filter(notGrunt),
+  exports : m('src/application/scripts/exports/', /\.js$/).filter(notGrunt)
 };
 
 let dest = {
@@ -63,6 +65,7 @@ module.exports = {
     src.shared_collections,
     src.shared_main,
     src.shared_init,
+    src.shared_exports,
 
     src.constants,
     src.predicates,
@@ -72,6 +75,7 @@ module.exports = {
     src.containers,
     src.collections,
     src.main,
-    src.init
+    src.init,
+    src.exports
   )
 };

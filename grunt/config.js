@@ -1,5 +1,6 @@
 const fs = require('fs');
 const flatman = require('./flatman');
+const readme = require('./readme');
 const scripts = require('./scripts');
 const css = require('./css');
 const images = require('./images');
@@ -37,6 +38,11 @@ module.exports = {
     flatman : {
       files : flatman.glob,
       tasks : ['flatman']
+    },
+
+    readme : {
+      files : readme.glob,
+      tasks : ['readme']
     },
 
     // Config and Environment

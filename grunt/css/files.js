@@ -42,9 +42,9 @@ let src = {
   functions : list.concat(m('src/application/styles/functions', /\.scss$/).sort(byType)),
   mixins : list.concat(m('src/application/styles/mixins', /\.scss$/).sort(byType)),
   placeholders : list.concat(m('src/application/styles/placeholders', /\.scss$/).sort(byType)),
-  components : list.concat(m('src/application/components/', /\.scss$/).sort(byType)),
-  containers : list.concat(m('src/application/containers/', /\.scss$/).sort(byType)),
-  collections : list.concat(m('src/application/collections/', /\.scss$/).sort(byType)),
+  components : list.concat(m('src/application/styles/components/', /\.scss$/).sort(byType)),
+  containers : list.concat(m('src/application/styles/containers/', /\.scss$/).sort(byType)),
+  collections : list.concat(m('src/application/styles/collections/', /\.scss$/).sort(byType)),
   custom : list.concat(m('src/application/styles/custom', /\.scss$/).sort(byType)),
 };
 

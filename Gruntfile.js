@@ -1,6 +1,9 @@
 const flatman = require('./grunt/flatman');
 const tasks = require('./grunt/tasks');
 const config = require('./grunt/config');
+const readme = require('./grunt/readme');
+
+require('./grunt/setup');
 
 module.exports = function(grunt) {
   // Project configuration.
@@ -16,6 +19,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('flatman', flatman.task);
+  grunt.registerTask('flatman', function () {
+    flatman.task(this.async());
+  });
+
+  grunt.registerTask('readme', function () {
+    readme.task(this.async());
+  });
+
   grunt.registerTask('default', tasks);
 };

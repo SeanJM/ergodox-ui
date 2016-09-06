@@ -40,6 +40,10 @@ tasks.push(
   'flatman'
 );
 
+tasks.push(
+  'readme'
+);
+
 if (!config.isProduction) {
   tasks.push('watch');
 }

@@ -17,6 +17,7 @@ let src = {
   collections : m('src/collections/', /\.js$/).filter(notGrunt),
   main : m('src/main/', /\.js$/).filter(notGrunt),
   init : m('src/init/', /\.js$/).filter(notGrunt),
+  exports : m('src/exports/', /\.js$/).filter(notGrunt),
 };
 
 let dest = {
@@ -47,6 +48,7 @@ module.exports = {
     src.components,
     src.collections,
     src.main,
-    src.init
+    src.init,
+    src.exports
   )
 };
