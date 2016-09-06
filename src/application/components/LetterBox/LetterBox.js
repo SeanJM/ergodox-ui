@@ -73,11 +73,7 @@ LetterBox.prototype.close = function () {
 
 LetterBox.prototype.select = function (layer) {
   this.node.search.keyList.forEach(function (key) {
-    setDragKey({
-      key : key,
-      keyList : layer.keyList,
-      onDone : function () {}
-    });
+    setDragKey(key, layer.keyList);
   });
 };
 

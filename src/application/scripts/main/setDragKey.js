@@ -44,7 +44,7 @@
     ctx.stroke();
   }
 
-  function keyHover(opt) {
+  function keyHover(key, keyList) {
     var mousemove;
     var mouseup;
 
@@ -53,7 +53,7 @@
     var leftest;
     var rightest;
 
-    opt.keyList.forEach(function (key) {
+    keyList.forEach(function (key) {
       var angle = key.node.document.matrixRotation();
       var targetOffset = key.node.document.offset();
       var styles = key.node.document.styles();
@@ -118,7 +118,7 @@
       var point;
       var hObj;
 
-      opt.key.dropTarget = false;
+      key.dropTarget = false;
 
       for (var k in hoverPoints) {
         if (e.pageX < k) {
@@ -129,7 +129,7 @@
             hObj.key.lightOff();
 
             if (inRect(point, hObj.rotatedOffset)) {
-              opt.key.dropTarget = hObj.key;
+              key.dropTarget = hObj.key;
               hObj.key.lightOn();
             }
           }
@@ -224,7 +224,7 @@
       onDone : [ Function ]
     }
   */
-  function setDragKey(opt) {
+  function setDragKey(key, keyList) {
     var angle;
     var clone;
     var keyOffset;
@@ -269,7 +269,7 @@
       keyOffset.top = top + 2;
       keyOffset.bottom = bottom - 2;
 
-      clone = opt.key.clone();
+      clone = key.clone();
 
       clone.removeClass('key--giant');
       clone.removeClass('key--tall');
@@ -291,7 +291,10 @@
       canvas.appendTo('body');
 
       cloneOffset = clone.node.document.offset();
-      clone.node.document.style.transform = 'translate(' + (e.pageX - (cloneOffset.width / 2)) + 'px, ' + (e.pageY - (cloneOffset.height / 2)) + 'px)';
+      clone.node.document.style.transform = 'translate(' +
+        (e.pageX - (cloneOffset.width / 2)) + 'px, ' +
+        (e.pageY - (cloneOffset.height / 2)) + 'px' +
+      ')';
       drawLink(ctx, keyOffset, cloneOffset, e);
     }
 
@@ -309,14 +312,18 @@
 
     function dragmove(e) {
       // Calculate the rotated distance around a pivot of 0 -- the starting point
-      var distance = rotatePoint([0, 0], [e.distanceX, e.distanceY], angle);
+      var distance = rotatePoint(
+        [ 0, 0 ],
+        [ e.distanceX, e.distanceY ],
+        angle
+      );
 
       if (
         (Math.abs(e.distanceX) > 35 || Math.abs(e.distanceY) > 35)
         && !clone
       ) {
         anime({
-          targets : opt.key.node.cap.node,
+          targets : key.node.cap.node,
           translateX : [
             (distance.x * Math.pow(dragDecay, Math.abs(distance.x))),
             0
@@ -330,7 +337,7 @@
         });
 
         drawClone(e);
-        keyHover(opt);
+        keyHover(key, keyList);
       } else if (clone) {
         ctx.clearRect(0, 0, canvas.node.width, canvas.node.height);
         drawLink(ctx, keyOffset, cloneOffset, e);
@@ -341,7 +348,7 @@
         ')';
 
       } else {
-        opt.key.node.cap.style.transform = '' +
+        key.node.cap.style.transform = '' +
         'translate(' +
           (distance.x * Math.pow(dragDecay, Math.abs(distance.x))) + 'px' +
         ')' +
@@ -363,28 +370,28 @@
         clone = undefined;
       }
 
-      dropKey({
-        key : opt.key,
+      dropKey(key, {
         x : e.pageX,
-        y : e.pageY,
-        onDone : opt.onDone
+        y : e.pageY
       });
     }
 
-    opt.key.on('dragstart', function (e) {
-      if (!opt.key.isLocked) {
+    key.off('dragstart, dragmove, dragend');
+
+    key.on('dragstart', function (e) {
+      if (!key.isLocked) {
         dragstart(e);
       }
     });
 
-    opt.key.on('dragmove', function (e) {
-      if (!opt.key.isLocked) {
+    key.on('dragmove', function (e) {
+      if (!key.isLocked) {
         dragmove(e);
       }
     });
 
-    opt.key.on('dragend', function (e) {
-      if (!opt.key.isLocked) {
+    key.on('dragend', function (e) {
+      if (!key.isLocked) {
         dragend(e);
       }
     });

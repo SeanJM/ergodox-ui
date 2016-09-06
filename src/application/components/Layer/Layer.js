@@ -39,11 +39,7 @@ Layer.prototype.keys = function (keys) {
     self.keyList[i].addClass('key-' + i);
     self.node.document.append(self.keyList[i]);
 
-    setDragKey({
-      key : self.keyList[i],
-      keyList : self.keyList,
-      onDone : function () {}
-    });
+    setDragKey(self.keyList[i], self.keyList);
   });
 };
 
