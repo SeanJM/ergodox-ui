@@ -13,7 +13,7 @@ function Layer(opt) {
 Layer.prototype.keys = function (keys) {
   var self = this;
 
-  _.forEach(keys, function (keyCode, i) {
+  keys.forEach(function (keyCode, i) {
     // Outside keys
     self.keyList[i] = el(Key, {
       keyCode : keyCode,
@@ -39,7 +39,11 @@ Layer.prototype.keys = function (keys) {
     self.keyList[i].addClass('key-' + i);
     self.node.document.append(self.keyList[i]);
 
-    setDragKey(self.keyList[i], self.keyList);
+    setDragKey({
+      key : self.keyList[i],
+      keyList : self.keyList,
+      onDone : function () {}
+    });
   });
 };
 

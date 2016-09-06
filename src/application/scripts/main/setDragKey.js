@@ -44,7 +44,7 @@
     ctx.stroke();
   }
 
-  function keyHover(key, keyList) {
+  function keyHover(opt) {
     var mousemove;
     var mouseup;
 
@@ -53,7 +53,7 @@
     var leftest;
     var rightest;
 
-    keyList.forEach(function (key) {
+    opt.keyList.forEach(function (key) {
       var angle = key.node.document.matrixRotation();
       var targetOffset = key.node.document.offset();
       var styles = key.node.document.styles();
@@ -69,10 +69,10 @@
       var bottom = pivot[1] + (parseInt(styles.height, 10) / 2);
 
       var points = [
-        rotatePoint(pivot, [left, top], angle),
-        rotatePoint(pivot, [right, top], angle),
-        rotatePoint(pivot, [right, bottom], angle),
-        rotatePoint(pivot, [left, bottom], angle)
+        rotatePoint(pivot, [ left, top ], angle),
+        rotatePoint(pivot, [ right, top ], angle),
+        rotatePoint(pivot, [ right, bottom ], angle),
+        rotatePoint(pivot, [ left, bottom ], angle)
       ];
 
       var opt = {
@@ -118,7 +118,7 @@
       var point;
       var hObj;
 
-      key.dropTarget = false;
+      opt.key.dropTarget = false;
 
       for (var k in hoverPoints) {
         if (e.pageX < k) {
@@ -129,7 +129,7 @@
             hObj.key.lightOff();
 
             if (inRect(point, hObj.rotatedOffset)) {
-              key.dropTarget = hObj.key;
+              opt.key.dropTarget = hObj.key;
               hObj.key.lightOn();
             }
           }
@@ -217,7 +217,14 @@
     ]);
   }
 
-  function setDragKey(key, keyList) {
+  /*
+    opt = {
+      key : [ Constructor Key ],
+      keyList : [ list of Constructor Key ],
+      onDone : [ Function ]
+    }
+  */
+  function setDragKey(opt) {
     var angle;
     var clone;
     var keyOffset;
@@ -249,10 +256,10 @@
       var right = pivot[0] + (width / 2) - 1;
 
       keyOffset = [
-        rotatePoint(pivot, [left, top], angle * -1),
-        rotatePoint(pivot, [right, top], angle * -1),
-        rotatePoint(pivot, [left, bottom], angle * -1),
-        rotatePoint(pivot, [right, bottom], angle * -1)
+        rotatePoint(pivot, [ left, top ], angle * -1),
+        rotatePoint(pivot, [ right, top ], angle * -1),
+        rotatePoint(pivot, [ left, bottom ], angle * -1),
+        rotatePoint(pivot, [ right, bottom ], angle * -1)
       ];
 
       keyOffset.width = width - 2;
@@ -262,7 +269,7 @@
       keyOffset.top = top + 2;
       keyOffset.bottom = bottom - 2;
 
-      clone = key.clone();
+      clone = opt.key.clone();
 
       clone.removeClass('key--giant');
       clone.removeClass('key--tall');
@@ -309,7 +316,7 @@
         && !clone
       ) {
         anime({
-          targets : key.node.cap.node,
+          targets : opt.key.node.cap.node,
           translateX : [
             (distance.x * Math.pow(dragDecay, Math.abs(distance.x))),
             0
@@ -323,13 +330,24 @@
         });
 
         drawClone(e);
-        keyHover(key, keyList);
+        keyHover(opt);
       } else if (clone) {
         ctx.clearRect(0, 0, canvas.node.width, canvas.node.height);
         drawLink(ctx, keyOffset, cloneOffset, e);
-        clone.node.document.style.transform = 'translate(' + (e.pageX - (cloneOffset.width / 2)) + 'px, ' + (e.pageY - (cloneOffset.height / 2)) + 'px)';
+
+        clone.node.document.style.transform = 'translate(' +
+          (e.pageX - (cloneOffset.width / 2)) + 'px, ' +
+          (e.pageY - (cloneOffset.height / 2)) + 'px' +
+        ')';
+
       } else {
-        key.node.cap.style.transform = 'translate(' + (distance.x * Math.pow(dragDecay, Math.abs(distance.x))) + 'px) translateY(' + (distance.y * Math.pow(dragDecay, Math.abs(distance.y))) + 'px)';
+        opt.key.node.cap.style.transform = '' +
+        'translate(' +
+          (distance.x * Math.pow(dragDecay, Math.abs(distance.x))) + 'px' +
+        ')' +
+        'translateY(' +
+          (distance.y * Math.pow(dragDecay, Math.abs(distance.y))) + 'px' +
+        ')';
       }
     }
 
@@ -345,23 +363,28 @@
         clone = undefined;
       }
 
-      dropKey(key, { x : e.pageX, y : e.pageY });
+      dropKey({
+        key : opt.key,
+        x : e.pageX,
+        y : e.pageY,
+        onDone : opt.onDone
+      });
     }
 
-    key.on('dragstart', function (e) {
-      if (!key.isLocked) {
+    opt.key.on('dragstart', function (e) {
+      if (!opt.key.isLocked) {
         dragstart(e);
       }
     });
 
-    key.on('dragmove', function (e) {
-      if (!key.isLocked) {
+    opt.key.on('dragmove', function (e) {
+      if (!opt.key.isLocked) {
         dragmove(e);
       }
     });
 
-    key.on('dragend', function (e) {
-      if (!key.isLocked) {
+    opt.key.on('dragend', function (e) {
+      if (!opt.key.isLocked) {
         dragend(e);
       }
     });
