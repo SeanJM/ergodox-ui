@@ -67,7 +67,7 @@
     });
 
     this.node.document.on('mouseenter', function () {
-      //console.log(self);
+      console.log(self);
     });
 
     this.isImmutable = opt.isImmutable || false; // Prevent the key from being changed
