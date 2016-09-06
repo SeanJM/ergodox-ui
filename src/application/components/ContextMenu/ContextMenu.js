@@ -50,6 +50,7 @@ ContextMenu.prototype.append = function () {
   for (; i < n; i++) {
     if (arguments[i].node.tagName === 'DIV') {
       arguments[i].addClass('context-menu_item');
+      arguments[i].html(arguments[i].text());
     }
     this.elements.push(arguments[i]);
     this.node.content.append(arguments[i]);
