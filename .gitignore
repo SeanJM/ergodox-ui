@@ -2,3 +2,4 @@ bin/
 .sass-cache/
 node_modules/
 *.swp
+.DS_STORE
