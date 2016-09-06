@@ -53,10 +53,21 @@
       && isEmpty(this.args[1])
     ) {
       this.node.primary.text(this.str_secondary);
+    } else if (
+      this.isModifiedKey
+      && isCommand(this.args[1])
+    ) {
+      this.node.primary.text(
+        `${this.str_primary} + ${this.str_secondary}`
+      );
+    } else if (
+      this.isModifiedKey
+      && isShift(this.args[0])
+      && KEYCODE[this.args[1]].shift
+    ) {
+      this.node.primary.text(KEYCODE[this.args[1]].shift);
     } else if (isStrPrimary(this)) {
       this.node.primary.text(this.str_primary);
-    } else if (this.isModifiedKey && isCommand(this.args[1])) {
-      this.node.primary.text(`${this.str_primary} + ${this.str_secondary}`);
     } else {
       this.node.primary.text('');
     }
@@ -70,18 +81,28 @@
       && !this.isHyper
       && !this.isMeh
       && !(this.isModifiedKey && isCommand(this.args[1]))
+      && !(this.isModifiedKey && isShift(this.args[0]))
     ) {
-      this.node.secondary.text(this.str_secondary.replace(/\n/g, '<br/>'));
+      this.node.secondary.text(
+        this.str_secondary.replace(/\n/g, '<br/>')
+      );
     } else {
       this.node.secondary.text('');
+    }
+  }
+
+  function setIcon() {
+    if (this.str_icon) {
+      this.icon(this.str_icon);
+    } else if (this.isModifiedKey && isShift(this.args[0])) {
+      this.icon(KEYCODE.KC_LSFT.icon);
     }
   }
 
   Key.prototype.draw = function () {
     setPrimaryText.call(this);
     setSecondaryText.call(this);
-
-    this.icon(this.str_icon);
+    setIcon.call(this);
 
     this.node.document.removeClass(CLEAR_CLASSES);
 
