@@ -179,14 +179,12 @@
     for (; i < n; i++) {
       x = names[i].trim();
 
-      if (typeof this._subscriber_[x] === 'undefined') {
-        throw 'There are no subscribers for \'' + x + '\'';
-      }
+      if (typeof this._subscriber_[x] !== 'undefined') {
+        indexOf = this._subscriber_[x].indexOf(callback);
 
-      indexOf = this._subscriber_[x].indexOf(callback);
-
-      if (indexOf !== -1) {
-        this._subscriber_[x].slice(indexOf, 1);
+        if (indexOf !== -1) {
+          this._subscriber_[x].slice(indexOf, 1);
+        }
       }
     }
 
