@@ -2,8 +2,8 @@
   function Key(opt) {
     var self = this;
 
-    if (!opt || !opt.keyCode) {
-      throw 'New \'Key\' component must have a \'keyCode\' as an option';
+    if (!opt || !opt.code) {
+      throw 'New \'Key\' component must have a \'code\' as an option';
     }
 
     // Key node
@@ -70,7 +70,7 @@
       console.log(self);
     });
 
-    this.keyCodeObject(opt.keyCode);
+    this.codeObject(opt.code);
     this.draw();
     this.style = this.node.document.style;
   }

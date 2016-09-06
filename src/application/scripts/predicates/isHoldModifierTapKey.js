@@ -1,4 +1,4 @@
 // CTL_T(KC_Z)
-function isHoldModifierTapKey(keyCode) {
-  return /_T\(/.test(keyCode);
+function isHoldModifierTapKey(code) {
+  return /_T\(/.test(code);
 }

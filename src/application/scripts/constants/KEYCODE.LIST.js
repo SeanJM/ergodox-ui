@@ -1,180 +1,180 @@
 KEYCODE.LIST = [{
-  keyCode : 'KC_FN1',
+  code : 'KC_FN1',
   type : 'special',
   name : 'Function 1',
   primary : 'FN1'
 }, {
-  keyCode : 'KC_FN2',
+  code : 'KC_FN2',
   type : 'special',
   name : 'Function 2',
   primary : 'FN2'
 }, {
-  keyCode : 'KC_FN3',
+  code : 'KC_FN3',
   type : 'special',
   name : 'Function 3',
   primary : 'FN3'
 }, {
-  keyCode : 'KC_FN4',
+  code : 'KC_FN4',
   type : 'special',
   name : 'Function 4',
   primary : 'FN4'
 }, {
-  keyCode : 'KC_FN5',
+  code : 'KC_FN5',
   type : 'special',
   name : 'Function 5',
   primary : 'FN5'
 }, {
-  keyCode : 'KC_APP',
+  code : 'KC_APP',
   type : 'special',
   name : 'application',
   primary : 'App'
 }, {
-  keyCode : 'KC_LT',
+  code : 'KC_LT',
   type : 'special',
   name : 'layer toggle',
   primary : 'LT',
   icon : 'toggle'
 }, {
-  keyCode : 'KC_TG',
+  code : 'KC_TG',
   type : 'special',
   name : 'layer switch',
   primary : 'TG',
   icon : 'toggle'
 }, {
-  keyCode : 'KC_NO',
+  code : 'KC_NO',
   type : 'special',
   name : 'nothing',
   primary : false
 }, {
-  keyCode : 'KC_TRNS', // Transparent
+  code : 'KC_TRNS', // Transparent
   type : 'special',
   name : 'transparent',
   primary : undefined
 }, {
-  keyCode : 'KC_M', // Transparent
+  code : 'KC_M', // Transparent
   type : 'special',
   name : 'Macro',
   icon : 'macro'
 }
 // Function keys
 , {
-  keyCode : 'KC_F1',
+  code : 'KC_F1',
   type : 'function',
   name : 'F1',
   primary : 'F1'
 }, {
-  keyCode : 'KC_F2',
+  code : 'KC_F2',
   type : 'function',
   name : 'F2',
   primary : 'F2'
 }, {
-  keyCode : 'KC_F3',
+  code : 'KC_F3',
   type : 'function',
   name : 'F3',
   primary : 'F3'
 }, {
-  keyCode : 'KC_F4',
+  code : 'KC_F4',
   type : 'function',
   name : 'F4',
   primary : 'F4'
 }, {
-  keyCode : 'KC_F5',
+  code : 'KC_F5',
   type : 'function',
   name : 'F5',
   primary : 'F5'
 }, {
-  keyCode : 'KC_F6',
+  code : 'KC_F6',
   type : 'function',
   name : 'F6',
   primary : 'F6'
 }, {
-  keyCode : 'KC_F7',
+  code : 'KC_F7',
   type : 'function',
   name : 'F7',
   primary : 'F7'
 }, {
-  keyCode : 'KC_F8',
+  code : 'KC_F8',
   type : 'function',
   name : 'F8',
   primary : 'F8'
 }, {
-  keyCode : 'KC_F9',
+  code : 'KC_F9',
   type : 'function',
   name : 'F9',
   primary : 'F9'
 }, {
-  keyCode : 'KC_F10',
+  code : 'KC_F10',
   type : 'function',
   name : 'F10',
   primary : 'F10'
 }, {
-  keyCode : 'KC_F11',
+  code : 'KC_F11',
   type : 'function',
   name : 'F11',
   primary : 'F11'
 }, {
-  keyCode : 'KC_F12',
+  code : 'KC_F12',
   type : 'function',
   name : 'F12',
   primary : 'F12'
 }
 // Numbers
 , {
-  keyCode : 'KC_1',
+  code : 'KC_1',
   type : 'number',
   name : '1 and !',
   primary : '1',
   shift : '!'
 }, {
-  keyCode : 'KC_2',
+  code : 'KC_2',
   type : 'number',
   name : '2 and @',
   primary : '2',
   shift : '@'
 }, {
-  keyCode : 'KC_3',
+  code : 'KC_3',
   type : 'number',
   name : '3 and #',
   primary : '3',
   shift : '#'
 }, {
-  keyCode : 'KC_4',
+  code : 'KC_4',
   type : 'number',
   name : '4 and $',
   primary : '4',
   shift : '$'
 }, {
-  keyCode : 'KC_5',
+  code : 'KC_5',
   type : 'number',
   name : '5 and %',
   primary : '5',
   shift : '%'
 }, {
-  keyCode : 'KC_6',
+  code : 'KC_6',
   type : 'number',
   name : '6 and ^',
   primary : '6',
   shift : '^'
 }, {
-  keyCode : 'KC_7',
+  code : 'KC_7',
   type : 'number',
   name : '7 and &',
   primary : '7',
   shift : '&'
 }, {
-  keyCode : 'KC_8',
+  code : 'KC_8',
   type : 'number',
   name : '8 and *',
   primary : '8',
   shift : '*'
 }, {
-  keyCode : 'KC_9',
+  code : 'KC_9',
   type : 'number',
   name : '9 and (',
   primary : '9',
   shift : '('
 }, {
-  keyCode : 'KC_0',
+  code : 'KC_0',
   type : 'number',
   name : '0 and )',
   primary : '0',
@@ -182,157 +182,157 @@ KEYCODE.LIST = [{
 }
 // Alphabet
 , {
-  keyCode : 'KC_A',
+  code : 'KC_A',
   type : 'letter',
   name : 'a and A',
   primary : 'a',
   shift : 'A'
 }, {
-  keyCode : 'KC_B',
+  code : 'KC_B',
   type : 'letter',
   name : 'b and B',
   primary : 'b',
   shift : 'B'
 }, {
-  keyCode : 'KC_C',
+  code : 'KC_C',
   type : 'letter',
   name : 'c and C',
   primary : 'c',
   shift : 'C'
 }, {
-  keyCode : 'KC_D',
+  code : 'KC_D',
   type : 'letter',
   name : 'd and D',
   primary : 'd',
   shift : 'D'
 }, {
-  keyCode : 'KC_E',
+  code : 'KC_E',
   type : 'letter',
   name : 'e and E',
   primary : 'e',
   shift : 'E'
 }, {
-  keyCode : 'KC_F',
+  code : 'KC_F',
   type : 'letter',
   name : 'f and F',
   primary : 'f',
   shift : 'F'
 }, {
-  keyCode : 'KC_G',
+  code : 'KC_G',
   type : 'letter',
   name : 'g and G',
   primary : 'g',
   shift : 'G'
 }, {
-  keyCode : 'KC_H',
+  code : 'KC_H',
   type : 'letter',
   name : 'h and H',
   primary : 'h',
   shift : 'H'
 }, {
-  keyCode : 'KC_I',
+  code : 'KC_I',
   type : 'letter',
   name : 'i and I',
   primary : 'i',
   shift : 'I'
 }, {
-  keyCode : 'KC_J',
+  code : 'KC_J',
   type : 'letter',
   name : 'j and J',
   primary : 'j',
   shift : 'J'
 }, {
-  keyCode : 'KC_K',
+  code : 'KC_K',
   type : 'letter',
   name : 'k and K',
   primary : 'k',
   shift : 'K'
 }, {
-  keyCode : 'KC_L',
+  code : 'KC_L',
   type : 'letter',
   name : 'l and L',
   primary : 'l',
   shift : 'L'
 }, {
-  keyCode : 'KC_M',
+  code : 'KC_M',
   type : 'letter',
   name : 'm and M',
   primary : 'm',
   shift : 'M'
 }, {
-  keyCode : 'KC_N',
+  code : 'KC_N',
   type : 'letter',
   name : 'n and N',
   primary : 'n',
   shift : 'N'
 }, {
-  keyCode : 'KC_O',
+  code : 'KC_O',
   type : 'letter',
   name : 'o and O',
   primary : 'o',
   shift : 'O'
 }, {
-  keyCode : 'KC_P',
+  code : 'KC_P',
   type : 'letter',
   name : 'p and P',
   primary : 'p',
   shift : 'P'
 }, {
-  keyCode : 'KC_Q',
+  code : 'KC_Q',
   type : 'letter',
   name : 'q and Q',
   primary : 'q',
   shift : 'Q'
 }, {
-  keyCode : 'KC_R',
+  code : 'KC_R',
   type : 'letter',
   name : 'r and R',
   primary : 'r',
   shift : 'R'
 }, {
-  keyCode : 'KC_S',
+  code : 'KC_S',
   type : 'letter',
   name : 's and S',
   primary : 's',
   shift : 'S'
 }, {
-  keyCode : 'KC_T',
+  code : 'KC_T',
   type : 'letter',
   name : 't and T',
   primary : 't',
   shift : 'T'
 }, {
-  keyCode : 'KC_U',
+  code : 'KC_U',
   type : 'letter',
   name : 'u and U',
   primary : 'u',
   shift : 'U'
 }, {
-  keyCode : 'KC_V',
+  code : 'KC_V',
   type : 'letter',
   name : 'v and V',
   primary : 'v',
   shift : 'V'
 }, {
-  keyCode : 'KC_W',
+  code : 'KC_W',
   type : 'letter',
   name : 'w and W',
   primary : 'w',
   shift : 'W'
 }, {
-  keyCode : 'KC_X',
+  code : 'KC_X',
   type : 'letter',
   name : 'x and X',
   primary : 'x',
   shift : 'X'
 }, {
-  keyCode : 'KC_Y',
+  code : 'KC_Y',
   type : 'letter',
   name : 'y and Y',
   primary : 'y',
   shift : 'Y'
 }, {
-  keyCode : 'KC_Z',
+  code : 'KC_Z',
   type : 'letter',
   name : 'z and Z',
   primary : 'z',
@@ -340,67 +340,67 @@ KEYCODE.LIST = [{
 }
 // Punctuation
 , {
-  keyCode : 'KC_EQL',
+  code : 'KC_EQL',
   type : 'punctuation',
   name : '= and +',
   primary : '=',
   shift : '+'
 }, {
-  keyCode : 'KC_MINS',
+  code : 'KC_MINS',
   type : 'punctuation',
   name : '- and _',
   primary : '-',
   shift : '_'
 }, {
-  keyCode : 'KC_BSLS',
+  code : 'KC_BSLS',
   type : 'punctuation',
   name : '\\ and |',
   primary : '\\',
   shift : '|'
 }, {
-  keyCode : 'KC_COMM',
+  code : 'KC_COMM',
   type : 'punctuation',
   name : ', and <',
   primary : ',',
   shift : '<'
 }, {
-  keyCode : 'KC_DOT',
+  code : 'KC_DOT',
   type : 'punctuation',
   name : '. and >',
   primary : '.',
   shift : '>'
 }, {
-  keyCode : 'KC_GRV',
+  code : 'KC_GRV',
   type : 'punctuation',
   name : '` and ~',
   primary : '`',
   shift : '~'
 }, {
-  keyCode : 'KC_QUOT',
+  code : 'KC_QUOT',
   type : 'punctuation',
   name : '\' and "',
   primary : '\'',
   shift : '"'
 }, {
-  keyCode : 'KC_LBRC',
+  code : 'KC_LBRC',
   type : 'punctuation',
   name : '[ and {',
   primary : '[',
   shift : '{'
 }, {
-  keyCode : 'KC_RBRC',
+  code : 'KC_RBRC',
   type : 'punctuation',
   name : '] and }',
   primary : ']',
   shift : '}'
 }, {
-  keyCode : 'KC_SCLN',
+  code : 'KC_SCLN',
   type : 'punctuation',
   name : '; and :',
   primary : ';',
   shift : ':'
 }, {
-  keyCode : 'KC_SLSH',
+  code : 'KC_SLSH',
   type : 'punctuation',
   name : '/ and ?',
   primary : '/',
@@ -408,239 +408,239 @@ KEYCODE.LIST = [{
 }
 // Quantum Common
 , {
-  keyCode : 'KC_AMPR',
+  code : 'KC_AMPR',
   type : 'quantum',
   name : '&',
   primary : '&'
 }, {
-  keyCode : 'KC_ASTR',
+  code : 'KC_ASTR',
   type : 'quantum',
   name : '*',
   primary : '*'
 }, {
-  keyCode : 'KC_AT',
+  code : 'KC_AT',
   type : 'quantum',
   name : '@',
   primary : '@'
 }, {
-  keyCode : 'KC_CIRC',
+  code : 'KC_CIRC',
   type : 'quantum',
   name : '^',
   primary : '^'
 }, {
-  keyCode : 'KC_COLN',
+  code : 'KC_COLN',
   type : 'quantum',
   name : ':',
   primary : ':'
 }, {
-  keyCode : 'KC_DLR',
+  code : 'KC_DLR',
   type : 'quantum',
   name : '$',
   primary : '$'
 }, {
-  keyCode : 'KC_EXLM',
+  code : 'KC_EXLM',
   type : 'quantum',
   name : '!',
   primary : '!'
 }, {
-  keyCode : 'KC_HASH',
+  code : 'KC_HASH',
   type : 'quantum',
   name : '#',
   primary : '#'
 }, {
-  keyCode : 'KC_LCBR',
+  code : 'KC_LCBR',
   type : 'quantum',
   name : '{',
   primary : '{'
 }, {
-  keyCode : 'KC_LPRN',
+  code : 'KC_LPRN',
   type : 'quantum',
   name : '(',
   primary : '('
 }, {
-  keyCode : 'KC_PERC',
+  code : 'KC_PERC',
   type : 'quantum',
   name : '%',
   primary : '%'
 }, {
-  keyCode : 'KC_PIPE',
+  code : 'KC_PIPE',
   type : 'quantum',
   name : '|',
   primary : '|'
 }, {
-  keyCode : 'KC_PLUS',
+  code : 'KC_PLUS',
   type : 'quantum',
   name : '+',
   primary : '+'
 }, {
-  keyCode : 'KC_RCBR',
+  code : 'KC_RCBR',
   type : 'quantum',
   name : '}',
   primary : '}'
 }, {
-  keyCode : 'KC_RPRN',
+  code : 'KC_RPRN',
   type : 'quantum',
   name : ')',
   primary : ')'
 }, {
-  keyCode : 'KC_TILD',
+  code : 'KC_TILD',
   type : 'quantum',
   name : '~',
   primary : '~'
 }, {
-  keyCode : 'KC_UNDS',
+  code : 'KC_UNDS',
   type : 'quantum',
   name : '_',
   primary : '_'
 }
 // Navigation
 , {
-  keyCode : 'KC_LEFT',
+  code : 'KC_LEFT',
   type : 'navigation',
   name : 'left',
   icon : 'left',
   primary : 'Left'
 }, {
-  keyCode : 'KC_RGHT',
+  code : 'KC_RGHT',
   type : 'navigation',
   name : 'right',
   icon : 'right',
   primary : 'Right'
 }, {
-  keyCode : 'KC_UP',
+  code : 'KC_UP',
   type : 'navigation',
   name : 'up',
   icon : 'up',
   primary : 'Up'
 }, {
-  keyCode : 'KC_DOWN',
+  code : 'KC_DOWN',
   type : 'navigation',
   name : 'down',
   icon : 'down',
   primary : 'Down'
 }, {
-  keyCode : 'KC_HOME',
+  code : 'KC_HOME',
   type : 'navigation',
   name : 'home',
   primary : 'Home'
 }, {
-  keyCode : 'KC_END',
+  code : 'KC_END',
   type : 'navigation',
   name : 'end',
   primary : 'End'
 }, {
-  keyCode : 'KC_PGUP',
+  code : 'KC_PGUP',
   type : 'navigation',
   name : 'Page Up',
   primary : 'PgUp'
 }, {
-  keyCode : 'KC_PGDN',
+  code : 'KC_PGDN',
   type : 'navigation',
   name : 'Page Down',
   primary : 'PgDn'
 }
 // Editing
 , {
-  keyCode : 'KC_ESC',
+  code : 'KC_ESC',
   type : 'editing',
   name : 'escape',
   primary : 'Esc'
 }, {
-  keyCode : 'KC_TAB',
+  code : 'KC_TAB',
   type : 'editing',
   name : 'tab',
   icon : 'tab',
   primary : 'Tab'
 }, {
-  keyCode : 'KC_ENT',
+  code : 'KC_ENT',
   type : 'editing',
   name : 'enter',
   icon : 'enter'
 }, {
-  keyCode : 'KC_BSPC',
+  code : 'KC_BSPC',
   type : 'editing',
   name : 'backspace',
   icon : 'backspace'
 }, {
-  keyCode : 'KC_DELT',
+  code : 'KC_DELT',
   type : 'editing',
   name : 'delete',
   primary : 'Del'
 }, {
-  keyCode : 'KC_SPC',
+  code : 'KC_SPC',
   type : 'editing',
   name : 'space',
   icon : 'space'
 }
 // Command
 , {
-  keyCode : 'KC_LSFT',
+  code : 'KC_LSFT',
   type : 'command',
   name : 'left shift',
   primary : 'Shift',
   icon : 'command-shift'
 }, {
-  keyCode : 'KC_RSFT',
+  code : 'KC_RSFT',
   type : 'command',
   name : 'right shift',
   primary : 'Shift',
   icon : 'command-shift'
 }, {
-  keyCode : 'KC_ALT',
+  code : 'KC_ALT',
   type : 'command',
   name : 'alt',
   primary : 'Alt',
   icon : 'command-alt'
 }, {
-  keyCode : 'KC_LALT',
+  code : 'KC_LALT',
   type : 'command',
   name : 'left alt',
   primary : 'Alt',
   icon : 'command-alt'
 }, {
-  keyCode : 'KC_RALT',
+  code : 'KC_RALT',
   type : 'command',
   name : 'right alt',
   primary : 'Alt',
   icon : 'command-alt'
 }, {
-  keyCode : 'KC_GUI',
+  code : 'KC_GUI',
   type : 'command',
   name : 'menu',
   primary : 'GUI',
   icon : 'command-gui'
 }, {
-  keyCode : 'KC_LGUI',
+  code : 'KC_LGUI',
   type : 'command',
   name : 'left menu',
   primary : 'GUI',
   icon : 'command-gui'
 }, {
-  keyCode : 'KC_RGUI',
+  code : 'KC_RGUI',
   type : 'command',
   name : 'right menu',
   primary : 'GUI',
   icon : 'command-gui'
 }, {
-  keyCode : 'KC_CTL',
+  code : 'KC_CTL',
   type : 'command',
   name : 'control',
   primary : 'Ctrl',
   icon : 'command-ctrl'
 }, {
-  keyCode : 'KC_MEH',
+  code : 'KC_MEH',
   type : 'command',
   name : 'ctrl + alt + shift',
   primary : 'MEH',
   icon : 'command-meh'
 }, {
-  keyCode : 'KC_HYPR',
+  code : 'KC_HYPR',
   type : 'command',
   name : 'ctrl + alt + shift + ' + (IS_MACINTOSH ? 'command' : 'windows key'),
   primary : 'Hyper',
   icon : 'command-hyper'
 }, {
-  keyCode : 'KC_ALL',
+  code : 'KC_ALL',
   type : 'command',
   name : 'ctrl + alt + shift + ' + (IS_MACINTOSH ? 'command' : 'windows key'),
   primary : 'Hyper',
@@ -648,49 +648,49 @@ KEYCODE.LIST = [{
 }
 // Media
 , {
-  keyCode : 'KC_MSTP',
+  code : 'KC_MSTP',
   type : 'media',
   name : 'stop',
   icon : 'media-stop',
   primary : 'Stop'
 }, {
-  keyCode : 'KC_MPLY',
+  code : 'KC_MPLY',
   type : 'media',
   name : 'play',
   icon : 'media-play',
   primary : 'Play'
 }, {
-  keyCode : 'KC_MPRV',
+  code : 'KC_MPRV',
   type : 'media',
   name : 'previous',
   icon : 'media-previous',
   primary : 'Previous'
 }, {
-  keyCode : 'KC_MNXT',
+  code : 'KC_MNXT',
   type : 'media',
   name : 'next',
   icon : 'media-next',
   primary : 'Next'
 }, {
-  keyCode : 'KC_VOLU',
+  code : 'KC_VOLU',
   type : 'media',
   name : 'increase volume',
   icon : 'media-volume-up',
   primary : 'VlUp +'
 }, {
-  keyCode : 'KC_VOLD',
+  code : 'KC_VOLD',
   type : 'media',
   name : 'decrease volum',
   icon : 'media-volume-down',
   primary : 'VlDn'
 }, {
-  keyCode : 'KC_MUTE',
+  code : 'KC_MUTE',
   type : 'media',
   name : 'mute',
   icon : 'media-mute',
   primary : 'Mute'
 }, {
-  keyCode : 'KC_MSEL',
+  code : 'KC_MSEL',
   type : 'media',
   name : 'select media',
   icon : 'media-select',
@@ -698,123 +698,123 @@ KEYCODE.LIST = [{
 }
 // Mouse
 , {
-  keyCode : 'KC_MS_U',
+  code : 'KC_MS_U',
   type : 'mouse',
   name : 'mouse up',
   icon : 'mouse-up'
 }, {
-  keyCode : 'KC_MS_D',
+  code : 'KC_MS_D',
   type : 'mouse',
   name : 'mouse down',
   icon : 'mouse-down'
 }, {
-  keyCode : 'KC_MS_L',
+  code : 'KC_MS_L',
   type : 'mouse',
   name : 'mouse left',
   icon : 'mouse-left'
 }, {
-  keyCode : 'KC_MS_R',
+  code : 'KC_MS_R',
   type : 'mouse',
   name : 'mouse right',
   icon : 'mouse-right'
 }, {
-  keyCode : 'KC_BTN1',
+  code : 'KC_BTN1',
   type : 'mouse',
   name : 'mouse button 1',
   icon : 'mouse-button'
 }, {
-  keyCode : 'KC_BTN2',
+  code : 'KC_BTN2',
   type : 'mouse',
   name : 'mouse button 2',
   icon : 'mouse-button'
 }, {
-  keyCode : 'KC_BTN3',
+  code : 'KC_BTN3',
   type : 'mouse',
   name : 'mouse button 3',
   icon : 'mouse-button'
 }, {
-  keyCode : 'KC_BTN4',
+  code : 'KC_BTN4',
   type : 'mouse',
   name : 'mouse button 4',
   icon : 'mouse-button'
 }, {
-  keyCode : 'KC_BTN5',
+  code : 'KC_BTN5',
   type : 'mouse',
   name : 'mouse button 5',
   icon : 'mouse-button'
 }, {
-  keyCode : 'KC_BTN6',
+  code : 'KC_BTN6',
   type : 'mouse',
   name : 'mouse button 6',
   icon : 'mouse-button'
 }
 // Applications
 , {
-  keyCode : 'KC_MAIL', // Email Client
+  code : 'KC_MAIL', // Email Client
   type : 'application',
   name : 'open mail',
   icon : 'app-mail'
 }, {
-  keyCode : 'KC_CALC', // Calculator
+  code : 'KC_CALC', // Calculator
   type : 'application',
   name : 'open calculator',
   icon : 'app-calc'
 }, {
-  keyCode : 'KC_MYCM', // My Computer
+  code : 'KC_MYCM', // My Computer
   type : 'application',
   name : 'open my computer',
   icon : 'app-my-computer'
 }, {
-  keyCode : 'KC_WSCH',
+  code : 'KC_WSCH',
   type : 'application',
   name : 'open search',
   icon : 'app-search'
 }
 // Web browser
 , {
-  keyCode : 'KC_WHOM', // Home
+  code : 'KC_WHOM', // Home
   type : 'web',
   name : 'Home page',
   icon : 'www-home'
 }, {
-  keyCode : 'KC_WBAK', // Back
+  code : 'KC_WBAK', // Back
   type : 'web',
   name : 'back',
   icon : 'www-back'
 }, {
-  keyCode : 'KC_WFWD', // Forward
+  code : 'KC_WFWD', // Forward
   type : 'web',
   name : 'forward',
   icon : 'www-forward'
 }, {
-  keyCode : 'KC_WSTP', // Stop
+  code : 'KC_WSTP', // Stop
   type : 'web',
   name : 'stop',
   icon : 'www-stop'
 }, {
-  keyCode : 'KC_WREF', // Refresh
+  code : 'KC_WREF', // Refresh
   type : 'web',
   name : 'refresh',
   icon : 'www-refresh'
 }, {
-  keyCode : 'KC_WFAV', // Favorite
+  code : 'KC_WFAV', // Favorite
   type : 'web',
   name : 'favorite',
   icon : 'www-favorite'
 }
 // Computer controls
 , {
-  keyCode : 'KC_PWR', // Home
+  code : 'KC_PWR', // Home
   type : 'computer',
   name : 'power off',
   icon : 'computer-power'
 }, {
-  keyCode : 'KC_SLEP', // Back
+  code : 'KC_SLEP', // Back
   type : 'computer',
   name : 'sleep',
   icon : 'computer-sleep',
 }, {
-  keyCode : 'KC_WAKE', // Forward
+  code : 'KC_WAKE', // Forward
   type : 'computer',
   name : 'wake',
   icon : 'computer-wake'
@@ -825,7 +825,7 @@ KEYCODE.MOUSE_BUTTON = [];
 
 KEYCODE.LIST.forEach(function (a) {
   var cat = a.type.toUpperCase();
-  var kc = a.keyCode;
+  var kc = a.code;
 
   if (typeof KEYCODE[cat] === 'undefined') {
     KEYCODE[cat] = [];
@@ -839,5 +839,5 @@ KEYCODE.LIST.forEach(function (a) {
     KEYCODE.MOUSE_BUTTON.push(kc);
   }
 
-  KEYCODE[a.keyCode] = a;
+  KEYCODE[a.code] = a;
 });

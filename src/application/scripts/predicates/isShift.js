@@ -1,3 +1,3 @@
-function isShift(keyCode) {
-  return KEYCODE.SFT.includes(keyCode);
+function isShift(code) {
+  return KEYCODE.SFT.includes(code);
 }

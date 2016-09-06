@@ -1,3 +1,3 @@
-function isTransparent(keyCode) {
-  return keyCode === 'KC_TRNS';
+function isTransparent(code) {
+  return code === 'KC_TRNS';
 }

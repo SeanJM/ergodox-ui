@@ -40,8 +40,8 @@ Form.SearchKey = function () {
 
   KEYCODE.LIST.forEach(function (a, i) {
     var key;
-    if (!omit.includes(a.keyCode)) {
-      key = el(Key, { keyCode : a.keyCode });
+    if (!omit.includes(a.code)) {
+      key = el(Key, { code : a.code });
       self.node.category[a.type].append(key);
       self.keyList.push(key);
     }

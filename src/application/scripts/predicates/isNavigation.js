@@ -1,3 +1,3 @@
-function isNavigation(keyCode) {
-  return KEYCODE.NAVIGATION.includes(keyCode);
+function isNavigation(code) {
+  return KEYCODE.NAVIGATION.includes(code);
 }

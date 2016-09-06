@@ -11,7 +11,7 @@
   ];
 
   function isUpperCase(self) {
-    if (isLetter(self.keyCode)) {
+    if (isLetter(self.code)) {
       return true;
     } else if (
       self.isHoldModifierTapKey

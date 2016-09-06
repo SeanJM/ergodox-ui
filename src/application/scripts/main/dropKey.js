@@ -1,8 +1,8 @@
 (function () {
   function menu(opt) {
     var contextMenu = el(ContextMenu);
-    var targetCode = opt.key.dropTarget.keyCode;
-    console.log(KEYCODE[opt.key.dropTarget.keyCode]);
+    var targetCode = opt.key.dropTarget.code;
+    console.log(KEYCODE[opt.key.dropTarget.code]);
 
     opt.key.lightOn();
 
@@ -42,14 +42,14 @@
           }
         }, 'Replace tap key')
       );
-    } else if (opt.key.isShift && KEYCODE.SFT[opt.key.dropTarget.keyCode]) {
+    } else if (opt.key.isShift && KEYCODE.SFT[opt.key.dropTarget.code]) {
       contextMenu.append(
         el('hr'),
         el({
           onClick : function () {
             opt.key.dropTarget.setShift(opt.key.dropTarget);
           }
-        }, 'Shift key (' + KEYCODE.SFT[opt.key.dropTarget.keyCode] + ')')
+        }, 'Shift key (' + KEYCODE.SFT[opt.key.dropTarget.code] + ')')
       );
     }
     contextMenu.open({

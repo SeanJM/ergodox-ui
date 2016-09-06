@@ -1,3 +1,3 @@
-function isMomentLayer(keyCode) {
-  return keyCode.substr(0, 3) === 'MO(';
+function isMomentLayer(code) {
+  return code.substr(0, 3) === 'MO(';
 }

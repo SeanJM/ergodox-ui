@@ -1,3 +1,3 @@
-function isNumber(keyCode) {
-  return /^KC_[0-9]$/.test(keyCode);
+function isNumber(code) {
+  return /^KC_[0-9]$/.test(code);
 }

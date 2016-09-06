@@ -1,8 +1,8 @@
 (function () {
   var MATCH_KEYCODE = /^([A-Z0-9_]+)(?:\((?:([A-Z0-9_]+?),|)(?:| )([A-Z0-9_]+?)\)|)$/;
 
-  function getArgs(keyCode) {
-    return keyCode
+  function getArgs(code) {
+    return code
       .match(MATCH_KEYCODE)
       .slice(1)
       .filter(a => a)
@@ -117,94 +117,94 @@
     return 'Hold';
   }
 
-  Key.prototype.keyCodeObject = function (keyCode) {
-    var args = getArgs(keyCode);
+  Key.prototype.codeObject = function (code) {
+    var args = getArgs(code);
 
-    if (isEmpty(keyCode)) {
+    if (isEmpty(code)) {
       this.isEmpty = true;
     }
 
-    if (isFnKey(keyCode)) {
+    if (isFnKey(code)) {
       this.isFnKey = true;
     }
 
-    if (isHoldLayerTapKey(keyCode)) {
+    if (isHoldLayerTapKey(code)) {
       this.isHoldLayerTapKey = true;
     }
 
-    if (isHoldModifierTapKey(keyCode)) {
+    if (isHoldModifierTapKey(code)) {
       this.isHoldModifierTapKey = true;
     }
 
-    if (isHyper(keyCode)) {
+    if (isHyper(code)) {
       this.isHyper = true;
     }
 
-    if (isLayerSignal(keyCode)) {
+    if (isLayerSignal(code)) {
       this.isLayerSignal = true;
     }
 
-    if (isLayerToggle(keyCode)) {
+    if (isLayerToggle(code)) {
       this.isLayerToggle = true;
     }
 
-    if (isLetter(keyCode)) {
+    if (isLetter(code)) {
       this.isLetter = true;
     }
 
-    if (isLocked(keyCode)) {
+    if (isLocked(code)) {
       this.isLocked = true;
     }
 
-    if (isMacro(keyCode)) {
+    if (isMacro(code)) {
       this.isMacro = true;
     }
 
-    if (isMedia(keyCode)) {
+    if (isMedia(code)) {
       this.isMedia = true;
     }
 
-    if (isMeh(keyCode)) {
+    if (isMeh(code)) {
       this.isMeh = true;
     }
 
-    if (isModifiedKey(keyCode)) {
+    if (isModifiedKey(code)) {
       this.isModifiedKey = true;
     }
 
-    if (isCommand(keyCode)) {
+    if (isCommand(code)) {
       this.isCommand = true;
     }
 
-    if (isMomentLayer(keyCode)) {
+    if (isMomentLayer(code)) {
       this.isMomentLayer = true;
     }
 
-    if (isMouseButton(keyCode)) {
+    if (isMouseButton(code)) {
       this.isMouseButton = true;
     }
 
-    if (isNumber(keyCode)) {
+    if (isNumber(code)) {
       this.isNumber = true;
     }
 
-    if (isShift(keyCode)) {
+    if (isShift(code)) {
       this.isShift = true;
     }
 
-    if (isTransparent(keyCode)) {
+    if (isTransparent(code)) {
       this.isTransparent = true;
     }
 
-    if (isWeb(keyCode)) {
+    if (isWeb(code)) {
       this.isWeb = true;
     }
 
-    if (isNavigation(keyCode)) {
+    if (isNavigation(code)) {
       this.isNavigation = true;
     }
 
-    this.keyCode = keyCode;
+    this.code = code;
     this.args = args;
 
     this.str_icon = getIcon.call(this);

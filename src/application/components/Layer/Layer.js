@@ -13,10 +13,10 @@ function Layer(opt) {
 Layer.prototype.keys = function (keys) {
   var self = this;
 
-  keys.forEach(function (keyCode, i) {
+  keys.forEach(function (code, i) {
     // Outside keys
     self.keyList[i] = el(Key, {
-      keyCode : keyCode,
+      code : code,
 
       onMousemove : function (e) {
         self.trigger('keyhover', e);

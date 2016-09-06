@@ -1,3 +1,3 @@
-function isLocked(keyCode) {
+function isLocked(code) {
   return false;
 }

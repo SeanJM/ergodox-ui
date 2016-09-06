@@ -4,11 +4,11 @@ Layers.prototype.rename = function (e) {
   this.eachKey(function (key) {
     if (key.isLayerToggle && !key.isEmpty && key.keyHold === e.previousValue) {
       key.keyHold = e.value;
-      key.keyCodeObject(key.valueOf());
+      key.codeObject(key.valueOf());
       key.draw();
     } else if (key.isHoldLayerTapKey && key.keyHold === e.previousValue) {
       key.keyHold = e.value;
-      key.keyCodeObject(key.valueOf());
+      key.codeObject(key.valueOf());
       key.draw();
     }
   });

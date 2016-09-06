@@ -1,4 +1,4 @@
-function isModifiedKey(keyCode) {
-  var keySubstr = keyCode.substr(0, keyCode.indexOf('('));
+function isModifiedKey(code) {
+  var keySubstr = code.substr(0, code.indexOf('('));
   return isCommand('KC_' + keySubstr);
 }

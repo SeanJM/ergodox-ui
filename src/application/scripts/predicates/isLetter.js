@@ -1,3 +1,3 @@
-function isLetter(keyCode) {
-  return /^KC_[A-Z]$/.test(keyCode);
+function isLetter(code) {
+  return /^KC_[A-Z]$/.test(code);
 }

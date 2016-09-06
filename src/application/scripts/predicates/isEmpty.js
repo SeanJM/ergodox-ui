@@ -1,3 +1,3 @@
-function isEmpty(keyCode) {
-  return keyCode === 'KC_NO';
+function isEmpty(code) {
+  return code === 'KC_NO';
 }

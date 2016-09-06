@@ -1,3 +1,3 @@
-function isMedia(keyCode) {
-  return KEYCODE.MEDIA.includes(keyCode);
+function isMedia(code) {
+  return KEYCODE.MEDIA.includes(code);
 }

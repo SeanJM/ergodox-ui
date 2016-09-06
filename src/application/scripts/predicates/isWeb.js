@@ -1,3 +1,3 @@
-function isWeb(keyCode) {
-  return KEYCODE.WEB.includes(keyCode);
+function isWeb(code) {
+  return KEYCODE.WEB.includes(code);
 }

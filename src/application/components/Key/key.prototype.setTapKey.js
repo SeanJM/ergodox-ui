@@ -1,5 +1,5 @@
 Key.prototype.setTapKey = function (key) {
-  this.keyTap = key.keyCode;
-  this.replaceWith(new Key({ keyCode : this.valueOf() }));
+  this.keyTap = key.code;
+  this.replaceWith(new Key({ code : this.valueOf() }));
   return this;
 };

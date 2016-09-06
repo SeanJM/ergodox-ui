@@ -1,7 +1,7 @@
-function isLayerSignal(keyCode) {
+function isLayerSignal(code) {
   return (
-    isLayerToggle(keyCode)
-    || isHoldLayerTapKey(keyCode)
-    || isMomentLayer(keyCode)
+    isLayerToggle(code)
+    || isHoldLayerTapKey(code)
+    || isMomentLayer(code)
   );
 }
