@@ -101,8 +101,8 @@ Modal.prototype.open = function () {
 
   document.body.addEventListener('keydown', this.cancelListener = function (e) {
     if (e.which === KEYCODE_ESC) {
-      if (self.node_control.cancel) {
-        self.node_control.cancel.trigger('click');
+      if (self.node.control.cancel) {
+        self.node.control.cancel.trigger('click');
       }
       self.close();
     }
