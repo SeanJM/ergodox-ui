@@ -41,7 +41,12 @@ Form.SearchKey = function () {
   KEYCODE.LIST.forEach(function (a, i) {
     var key;
     if (!omit.includes(a.code)) {
-      key = el(Key, { code : a.code });
+
+      key = el(Key, {
+        code : a.code,
+        isImmutable : true
+      });
+
       self.node.category[a.type].append(key);
       self.keyList.push(key);
     }
