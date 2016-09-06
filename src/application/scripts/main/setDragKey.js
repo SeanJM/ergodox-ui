@@ -93,8 +93,8 @@
         leftest = opt.offset.left;
       }
 
-      if (!rightest || opt.offset.left > rightest) {
-        rightest = opt.offset.left;
+      if (!rightest || opt.offset.right > rightest) {
+        rightest = opt.offset.right;
       }
 
       hoverPoints.push(opt);
