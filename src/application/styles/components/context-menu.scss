@@ -1,0 +1,53 @@
+.context-menu {
+  z-index       : 1;
+  position      : absolute;
+  border-radius : 5px;
+  background    : color(grey, lightest);
+  box-shadow    : 0 1px 10px rgba(0, 0, 0, 0.6);
+  user-select   : none;
+  cursor        : default;
+}
+
+.context-menu hr {
+  margin     : 6px 0;
+  border     : none;
+  border-top : 1px solid color(grey, lighter);
+}
+
+.context-menu_content {
+  min-width : 200px;
+  padding   : 7px 0;
+}
+
+.context-menu_item-symbol {
+  position      : absolute;
+  top           : 50%;
+  right         : 10px;
+  min-width     : 18px;
+  margin-top    : (fontSize(s) * 1.5) / -2;
+  padding       : 0 4px;
+  color         : color(grey, lightest);
+  border-radius : 4px;
+  background    : color(grey, base);
+  text-align    : center;
+  font-size     : fontSize(s);
+  line-height   : fontSize(s) * 1.5;
+}
+
+.context-menu_item {
+  position    : relative;
+  padding     : 0 10px 0 20px;
+  color       : color(grey, darker);
+  font-size   : fontSize(m);
+  line-height : fontSize(m) * 2.5;
+
+  &:hover {
+    color      : color(blue, lightest);
+    background : color(blue, base);
+
+    .context-menu_item-symbol {
+      color      : color(blue, base);
+      background : color(blue, lightest);
+    }
+  }
+}
