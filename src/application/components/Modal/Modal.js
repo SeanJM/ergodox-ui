@@ -60,16 +60,15 @@ Modal.prototype.control = function () {
 };
 
 Modal.prototype.icon = function (name) {
-  if (typeof this.node.icon === 'undefined') {
-    this.node.document.addClass('modal--has-icon');
+  name = name.split('-');
 
-    this.node.body.append(
-      this.node.icon = el(IconLarge, name)
-    );
-  } else {
-    this.node.icon.node.className = this.node.icon.node.className.replace(/icon-large--[a-z\-]+/g, name);
-  }
+  this.node.document.addClass('modal--has-icon');
 
+  this.node.body.append(
+    el({ class : 'modal-icon modal-icon-' + name[0] },
+      el(Icon, name.slice(1, name.length).join('-'), { init : [ 'large' ]})
+    )
+  );
 };
 
 Modal.prototype.open = function () {
