@@ -31,9 +31,7 @@ App.prototype.setKeyboard = function (keyboard) {
 
   keyboard.layers.forEach(function (layer, i) {
     self.node.tabs.append(
-      el(Tab, { title : layer.name })
-      .canEdit()
-      .canClose()
+      el(Tab, { title : layer.name, init : [ 'canEdit', 'canClode' ] })
     );
   });
 };
@@ -47,6 +45,7 @@ App.prototype.loadLetterbox = function () {
 App.prototype.bind = function () {
   this.bindTabs();
   this.bindLayers();
+  this.bindLetterBox();
   this.node.tabs.select(0);
 };
 
