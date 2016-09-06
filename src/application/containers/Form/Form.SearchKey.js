@@ -12,6 +12,8 @@ Form.SearchKey = function () {
     document : el(Form)
   };
 
+  this.keyList = [];
+
   this.node.category = {};
 
   this.target(this.node.document).append(
@@ -40,13 +42,10 @@ Form.SearchKey = function () {
     var key;
     if (!omit.includes(a.keyCode)) {
       key = el(Key, { keyCode : a.keyCode });
-      self.node.category[a.type].append(
-        key
-      );
+      self.node.category[a.type].append(key);
+      self.keyList.push(key);
     }
   });
-
-  console.log(App.main);
 };
 
 Component.extend(Form.SearchKey);
