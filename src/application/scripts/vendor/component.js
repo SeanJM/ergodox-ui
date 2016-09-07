@@ -179,11 +179,11 @@
     for (; i < n; i++) {
       x = names[i].trim();
 
-      if (typeof this._subscriber_[x] !== 'undefined') {
-        indexOf = this._subscriber_[x].indexOf(callback);
+      if (typeof this.subscriber[x] !== 'undefined') {
+        indexOf = this.subscriber[x].indexOf(callback);
 
         if (indexOf !== -1) {
-          this._subscriber_[x].slice(indexOf, 1);
+          this.subscriber[x].slice(indexOf, 1);
         }
       }
     }
@@ -200,19 +200,58 @@
     var n = names.length;
     var x;
 
-    if (typeof this._subscriber_ === 'undefined') {
-      this._subscriber_ = {};
+    if (typeof this.subscriber === 'undefined') {
+      this.subscriber = {};
     }
 
     for (; i < n; i++) {
       x = names[i].trim();
 
-      if (typeof this._subscriber_[x] === 'undefined') {
-        this._subscriber_[x] = [];
+      if (typeof this.subscriber[x] === 'undefined') {
+        this.subscriber[x] = [];
       }
 
-      if (this._subscriber_[x].indexOf(callback) === -1) {
-        this._subscriber_[x].push(callback);
+      if (this.subscriber[x].indexOf(callback) === -1) {
+        this.subscriber[x].push(callback);
+      }
+    }
+
+    return this;
+  };
+
+  Component.prototype.trigger = function (name, e) {
+    var names = name.split(',')
+      .filter(a => a.length)
+      .map(a => a.toLowerCase());
+
+    var i = 0;
+    var n = names.length;
+    var index;
+    var x;
+    var j;
+    var k;
+
+    if (typeof e === 'undefined') {
+      e = {
+        type : name,
+        target : this
+      };
+    } else if (typeof e.type === 'undefined') {
+      e.type = name;
+      e.target = this;
+    }
+
+    if (typeof this.subscriber === 'undefined') {
+      this.subscriber = {};
+    }
+
+    for (; i < n; i++) {
+      x = names[i].trim();
+
+      if (typeof this.subscriber[x] === 'object') {
+        for (j = 0, k = this.subscriber[x].length; j < k; j++) {
+          this.subscriber[x][j](e);
+        }
       }
     }
 
@@ -297,45 +336,6 @@
 
   Component.prototype.target = function (target) {
     return new Target(this, target);
-  };
-
-  Component.prototype.trigger = function (name, e) {
-    var names = name.split(',')
-      .filter(a => a.length)
-      .map(a => a.toLowerCase());
-
-    var i = 0;
-    var n = names.length;
-    var index;
-    var x;
-    var j;
-    var k;
-
-    if (typeof e === 'undefined') {
-      e = {
-        type : name,
-        target : this
-      };
-    } else if (typeof e.type === 'undefined') {
-      e.type = name;
-      e.target = this;
-    }
-
-    if (typeof this._subscriber_ === 'undefined') {
-      this._subscriber_ = {};
-    }
-
-    for (; i < n; i++) {
-      x = names[i].trim();
-
-      if (typeof this._subscriber_[x] === 'object') {
-        for (j = 0, k = this._subscriber_[x].length; j < k; j++) {
-          this._subscriber_[x][j](e);
-        }
-      }
-    }
-
-    return this;
   };
 
   Component.prototype.attr = function (property, value) {
