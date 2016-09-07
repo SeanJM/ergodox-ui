@@ -82,10 +82,12 @@
     if (key.dropTarget) {
       if (key.dropTarget.isLocked) {
         key.dropTarget.lightOff();
+
         el(Modal.Confirm, {
           text : lang.get('error drop target key is locked'),
           icon : 'error-layer',
         });
+
       } else if (key.dropTarget.isEmpty) {
         key.dropTarget.replaceWith(key);
         key.clear();
@@ -93,7 +95,7 @@
       } else {
         menu(key, coordinates);
       }
-    } else {
+    } else if (!key.isImmutable) {
       dropOffMenu(key, coordinates);
     }
   }
