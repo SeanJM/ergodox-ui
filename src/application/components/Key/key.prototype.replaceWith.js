@@ -1,6 +1,6 @@
 Key.prototype.replaceWith = function (key) {
   var clone = key.clone();
-  var exclude = ['node', 'dropTarget'];
+  var exclude = [ 'node', 'dropTarget', 'subscriber' ];
 
   for (var k in this) {
     if (this.hasOwnProperty(k) && exclude.indexOf(k) === -1) {
