@@ -11,12 +11,10 @@ App.prototype.bindTabs = function () {
     var index = self.node.tabs.indexOf(e.target);
     var layer = self.node.layers.elements[index];
 
-    var collision = self.node.layers.elements.filter(function (a) {
-      return (
-        a.name === e.value
-        && a !== layer
-      );
-    });
+    var collision = self.node.layers.elements.filter(a => (
+      a.name === e.value
+      && a !== layer
+    ));
 
     if (collision.length) {
       el(Modal.ConfirmCancel, {
