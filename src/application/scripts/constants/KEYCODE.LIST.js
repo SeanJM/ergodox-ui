@@ -692,7 +692,7 @@ KEYCODE.LIST = [{
 }, {
   code : 'KC_MSEL',
   type : 'media',
-  name : 'select media',
+  name : 'open media player',
   icon : 'media-select',
   primary : 'MSel'
 }
