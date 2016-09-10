@@ -12,7 +12,7 @@ Key.prototype.valueOf = function () {
     return 'LT(' + this.keyHold + ',' + this.keyTap + ')';
   }
   if (this.isLayerToggle) {
-    return 'TG(' + this.keyHold + ')';
+    return 'TG(' + this.keyTap + ')';
   }
   if (this.isModifiedKey) {
     return this.keyHold + '(' + this.keyTap + ')';
