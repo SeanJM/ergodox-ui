@@ -31,7 +31,7 @@ App.prototype.setKeyboard = function (keyboard) {
 
   keyboard.layers.forEach(function (layer, i) {
     self.node.tabs.append(
-      el(Tab, { title : layer.name, init : [ 'canEdit', 'canClode' ] })
+      el(Tab, { title : layer.name, init : [ 'canEdit', 'canClose' ] })
     );
   });
 };
