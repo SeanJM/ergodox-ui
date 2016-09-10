@@ -23,15 +23,21 @@ let src = {
 let dest = {
   development : {},
   production : {
-    bundle : config.scripts && config.bundle
-      ? config.bundle
+    bundle : config.bundle
+      ? 'bin/' + config.bundle + '.min.js'
       : 'bin/bundle.min.js'
   }
 };
 
-for (var k in src) {
-  if (src[k].length) {
-    dest.development[k] = 'bin/' + k + '.js';
+if (config.bundle) {
+  dest.development.bundle = config.bundle
+    ? 'bin/' + config.bundle + '.js'
+    : 'bin/bundle.js';
+} else {
+  for (var k in src) {
+    if (src[k].length) {
+      dest.development[k] = 'bin/' + k + '.js';
+    }
   }
 }
 

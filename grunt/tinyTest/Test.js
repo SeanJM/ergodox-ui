@@ -15,98 +15,132 @@ function Test(opt) {
   };
 }
 
-Test.prototype.pass = function () {
-  this.passed[this.index] = (
-    {
-      index : this.index,
-      name : this.name,
-      a : this.a,
-      b : this.b
-    }
-  );
-};
-
-Test.prototype.fail = function () {
-  this.failed[this.index] = (
-    {
-      isCaught : this.isCaught,
-      index : this.index,
-      name : this.name,
-      a : this.a,
-      b : this.b
-    }
-  );
-};
-
 Test.prototype.this = function (value) {
   this.a = value;
   return this;
 };
 
-Test.prototype.runTest = function() {
+Test.prototype.run = function() {
   var self = this;
 
   this.isCaught = [ false, false ];
 
-  function maybeB(b_value) {
-    self.b = b_value;
+  function pass() {
+    self.passed[self.index] = (
+      {
+        index : self.index,
+        name : self.name,
+        a : self.a,
+        b : self.b
+      }
+    );
+  }
 
+  function fail() {
+    self.failed[self.index] = (
+      {
+        isCaught : self.isCaught,
+        index : self.index,
+        name : self.name,
+        a : self.a,
+        b : self.b
+      }
+    );
+  }
 
+  function checkFailure() {
+    if (self.isCaught[0] && self.a.toString() === self.b) {
+      pass();
+    } else {
+      fail();
+    }
+  }
+
+  function checkEquality() {
     if (
       !self.isCaught[0] && !self.isCaught[1]
       && isTypeEqual(self.a, self.b) === self.equality
     ) {
-      self.pass();
+      pass();
     } else {
-      self.fail();
+      fail();
+    }
+  }
+
+  function maybeRight(b_value) {
+    self.b = b_value;
+
+    if (self.isFailure) {
+      checkFailure();
+    } else {
+      checkEquality();
     }
 
     self.resolve();
   }
 
-  function maybeA(a_value) {
+  function maybeLeft(a_value) {
     self.a = a_value;
+
     maybePromise(self.b)
       .then(function (b_value) {
-        maybeB(b_value);
+        maybeRight(b_value);
       })
       .catch(function (b_value) {
         self.isCaught[1] = true;
-        maybeB(b_value);
+        maybeRight(b_value);
       });
   }
 
   maybePromise(this.a)
-    .then(maybeA)
+    .then(maybeLeft)
     .catch(function (a_value) {
       self.isCaught[0] = true;
-      maybeA(a_value);
+      maybeLeft(a_value);
     });
 };
 
-Test.prototype.shouldBe = function (value) {
+Test.prototype.equal = function (value) {
   this.equality = true;
   this.b = value;
-  this.runTest();
 };
 
-Test.prototype.shouldNotBe = function (value) {
+Test.prototype.notEqual = function (value) {
   this.equality = false;
   this.b = value;
-  this.runTest();
+};
+
+Test.prototype.fail = function (value) {
+  this.isFailure = true;
+
+  if (typeof value !== 'string') {
+    throw (
+      'Invalid argument for \'shouldFail\', the value should be the error message'
+    );
+  }
+
+  this.b = value;
 };
 
 Test.prototype.then = function (callback) {
-  this.method.resolve.push(
-    callback
-  );
+  if (typeof callback === 'function') {
+    this.method.resolve.push(
+      callback
+    );
+  } else {
+    throw 'callback is not a function';
+  }
   return this;
 };
 
 Test.prototype.catch = function (callback) {
-  this.method.reject.push(
-    callback
-  );
+  if (typeof callback === 'function') {
+    this.method.reject.push(
+      callback
+    );
+  } else {
+    throw 'callback is not a function';
+  }
   return this;
 };
 

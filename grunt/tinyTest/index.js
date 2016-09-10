@@ -9,6 +9,10 @@ function TinyTest(callback) {
   var self = this;
   var index = 1;
 
+  if (typeof callback !== 'function') {
+    throw 'TinyTest cannot run, you have not passed a valid callback.';
+  }
+
   function test(name) {
     var promise_test = new Test(
       {
@@ -23,6 +27,10 @@ function TinyTest(callback) {
 
     return promise_test;
   }
+
+  test.done = function () {
+    test.ready();
+  };
 
   this.passed = {};
   this.failed = {};
@@ -40,9 +48,14 @@ function TinyTest(callback) {
   setTimeout(function () {
     callback(test);
 
-    self.log('\n Loading tests (' + self.list_tests.length.toString().cyan + ')\n');
-
-    Promise.all(self.list_tests).then(a => self.complete());
+    test.ready = function () {
+      self.log('\n Loading tests (' + self.list_tests.length.toString().cyan + ')\n');
+      Promise.all(self.list_tests.map(a => a.run())).then(
+        function () {
+          self.complete();
+        }
+      );
+    };
   }, 20);
 }
 
@@ -75,7 +88,6 @@ TinyTest.prototype.complete = function () {
   this.int_failed = 0;
   this.int_passed = 0;
 
-
   for (var k in this.passed) {
     this.log(
       padLeft(this.passed[k].index + '. ', 6, ' ') + padRight(this.passed[k].name + ' ', 66, '.'.grey) + ' PASSED'.green
@@ -83,13 +95,12 @@ TinyTest.prototype.complete = function () {
     this.int_passed += 1;
   }
 
-
   for (k in this.failed) {
     this.logError(this.failed[k]);
     this.int_failed += 1;
   }
 
-  if (Object.keys(this.failed).length) {
+  if (this.int_failed) {
     this.printFail();
   } else {
     this.printPass();
@@ -172,9 +183,9 @@ TinyTest.prototype.logError = function (value) {
     }
   } else {
     this.log(
-      '\n' + padLeft(value.index + '. ', 6, ' ') + padRight(value.name + ' ', 66, '.').red + ' FAILED'.red +
-      '\n     +'.green + ' Right: ' + padLeft(typeToString(value.b), 67, ' ').grey +
-      '\n     -'.red + '  Left: ' + padLeft(typeToString(value.a), 67, ' ').grey
+      '\n' + padLeft(value.index + '. ', 6, ' ').red + padRight(value.name + ' ', 66, '.').red + ' FAILED'.red +
+      '\n     +'.green + ' Right: ' + padLeft(typeToString(value.b), 64, ' ').grey +
+      '\n     -'.red + '  Left: ' + padLeft(typeToString(value.a), 64, ' ').grey
     );
   }
 };
