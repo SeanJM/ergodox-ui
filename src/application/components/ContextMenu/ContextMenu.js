@@ -15,7 +15,7 @@ Component.extend(ContextMenu);
 ContextMenu.prototype.close = function () {
   var self = this;
 
-  this.node.document.fadeOut(700, function () {
+  this.node.document.fadeOut(function () {
     self.node.document.remove();
   });
 

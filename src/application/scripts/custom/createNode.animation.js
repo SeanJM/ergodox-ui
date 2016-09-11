@@ -45,8 +45,8 @@ el.fn('fadeOut', function () {
     targets : this.node,
     opacity : [1, 0],
     elasticity : 0,
-    duration : 600,
-    ease : 'linear',
+    duration : 300,
+    easing : 'linear',
   };
 
   if (typeof arguments[0] === 'function') {
@@ -73,8 +73,8 @@ el.fn('fadeIn', function () {
     targets : this.node,
     opacity : [0, 1],
     elasticity : 0,
-    duration : 600,
-    ease : 'linear',
+    duration : 300,
+    easing : 'linear',
   };
 
   if (typeof arguments[0] === 'function') {
