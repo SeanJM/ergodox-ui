@@ -9,7 +9,8 @@ function LetterBox(opt) {
 
   this.node.document.append(
     this.node.trigger = el({ class : 'letterbox_trigger'},
-      el(Icon, 'menu')
+      el(Icon, 'menu'),
+      el({ class : 'letterbox_label' }, 'Key Caps')
     ),
     this.node.container = el({ class : 'letterbox_container' })
   );

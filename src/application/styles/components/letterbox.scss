@@ -12,15 +12,24 @@
 .letterbox_trigger {
   position      : absolute;
   top           : 3px;
-  left          : -34px;
-  width         : 34px;
+  left          : -104px;
+  width         : 100px;
   height        : 33px;
+  padding       : 3px 5px 0 32px;
   border        : 1px solid color(grey, base);
-  border-right  : none;
-  border-radius : 5px 0 0 5px;
+  border-radius : 5px;
   background    : color(grey, lightest);
+  user-select   : none;
+  cursor        : default;
+
+  &:active {
+    background : rgba(0, 0, 0, 0.07);
+  }
 
   .icon-menu {
+    position    : absolute;
+    top         : 0px;
+    left        : 0;
     margin-top  : 3px;
     margin-left : 4px;
 
@@ -30,6 +39,13 @@
       }
     }
   }
+}
+
+.letterbox_label {
+  display     : inline-block;
+  color       : color(grey, base);
+  font-size   : fontSize(s);
+  line-height : 28px;
 }
 
 .letterbox_container {
