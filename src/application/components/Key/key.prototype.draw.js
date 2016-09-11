@@ -92,10 +92,13 @@
   }
 
   function setIcon() {
-    if (this.str_icon) {
-      this.icon(this.str_icon);
-    } else if (this.isModifiedKey && isShift(this.args[0])) {
+    if (
+      this.isModifiedKey
+      && isShift(this.args[0])
+    ) {
       this.icon(KEYCODE.KC_LSFT.icon);
+    } else {
+      this.icon(this.str_icon);
     }
   }
 
