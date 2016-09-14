@@ -40,9 +40,9 @@ if (images.files.length) {
 }
 
 tasks.push(
-  'flatman',
+  'clean',
   'readme',
-  'clean'
+  'flatman'
 );
 
 if (!config.isProduction) {
