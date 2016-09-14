@@ -53,23 +53,12 @@ task.imagemin.images = {
 _.forEach(_.omit(group, 'root'), function (files, key) {
   var svg_files = {};
   var name = 'bin/' + key + '.svg';
-  var split = key.split('_');
-  var filePrefix = files.map(x => path.basename(x).split('_')[0]);
-  var prefix = key + '_';
-
-  if (filePrefix.indexOf(split.slice(-1)[0]) > -1) {
-    prefix = key.split('_').slice(0, -1).join('_') + '_';
-  }
 
   svg_files[name] = files;
   dest.group[name] = files;
 
   task.svgstore[key] = {
-    options : {
-      prefix : prefix,
-      cleanup : [ 'fill', 'stroke' ],
-      cleanupdefs : true
-    },
+    options : {},
     files : svg_files
   };
 

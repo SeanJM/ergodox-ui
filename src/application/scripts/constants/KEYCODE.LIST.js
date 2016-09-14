@@ -578,73 +578,73 @@ KEYCODE.LIST = [{
   type : 'command',
   name : 'left shift',
   primary : 'Shift',
-  icon : 'command-shift'
+  icon : 'shift'
 }, {
   code : 'KC_RSFT',
   type : 'command',
   name : 'right shift',
   primary : 'Shift',
-  icon : 'command-shift'
+  icon : 'shift'
 }, {
   code : 'KC_ALT',
   type : 'command',
   name : 'alt',
   primary : 'Alt',
-  icon : 'command-alt'
+  icon : 'alt'
 }, {
   code : 'KC_LALT',
   type : 'command',
   name : 'left alt',
   primary : 'Alt',
-  icon : 'command-alt'
+  icon : 'alt'
 }, {
   code : 'KC_RALT',
   type : 'command',
   name : 'right alt',
   primary : 'Alt',
-  icon : 'command-alt'
+  icon : 'alt'
 }, {
   code : 'KC_GUI',
   type : 'command',
   name : 'menu',
   primary : 'GUI',
-  icon : 'command-gui'
+  icon : 'gui'
 }, {
   code : 'KC_LGUI',
   type : 'command',
   name : 'left menu',
   primary : 'GUI',
-  icon : 'command-gui'
+  icon : 'gui'
 }, {
   code : 'KC_RGUI',
   type : 'command',
   name : 'right menu',
   primary : 'GUI',
-  icon : 'command-gui'
+  icon : 'gui'
 }, {
   code : 'KC_CTL',
   type : 'command',
   name : 'control',
   primary : 'Ctrl',
-  icon : 'command-ctrl'
+  icon : 'ctrl'
 }, {
   code : 'KC_MEH',
   type : 'command',
   name : 'ctrl + alt + shift',
   primary : 'MEH',
-  icon : 'command-meh'
+  icon : 'meh'
 }, {
   code : 'KC_HYPR',
   type : 'command',
   name : 'ctrl + alt + shift + ' + (IS_MACINTOSH ? 'command' : 'windows key'),
   primary : 'Hyper',
-  icon : 'command-hyper'
+  icon : 'hyper'
 }, {
   code : 'KC_ALL',
   type : 'command',
   name : 'ctrl + alt + shift + ' + (IS_MACINTOSH ? 'command' : 'windows key'),
   primary : 'Hyper',
-  icon : 'command-hyper'
+  icon : 'hyper'
 }
 // Media
 , {
