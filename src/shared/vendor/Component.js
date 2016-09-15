@@ -250,7 +250,7 @@
 
       if (typeof this.subscriber[x] === 'object') {
         for (j = 0, k = this.subscriber[x].length; j < k; j++) {
-          this.subscriber[x][j](e);
+          this.subscriber[x][j].call(this, e);
         }
       }
     }
