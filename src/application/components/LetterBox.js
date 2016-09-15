@@ -51,7 +51,10 @@ function LetterBox(opt) {
 
         key = el(Key, {
           code : a.code,
-          isImmutable : true
+          isImmutable : true,
+          onMouseenter : function (e) {
+            self.trigger('keyhover', e);
+          },
         });
 
         self.node.category[a.type].append(key);
@@ -63,6 +66,10 @@ function LetterBox(opt) {
   this.node.trigger.on('click', function () {
     self.toggle();
   });
+
+  this.elements = [
+    this.node.form
+  ];
 }
 
 LetterBox.prototype.offset = function () {
@@ -115,7 +122,6 @@ LetterBox.prototype.close = function () {
 
 LetterBox.prototype.select = function (layer) {
   this.keyList.forEach(function (key) {
-    console.log(key);
     setDragKey(key, layer.keyList);
   });
 };
