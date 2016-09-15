@@ -176,6 +176,10 @@
     var indexOf;
     var x;
 
+    if (typeof this.subscriber === 'undefined') {
+      this.subscriber = {};
+    }
+
     for (; i < n; i++) {
       x = names[i].trim();
 
