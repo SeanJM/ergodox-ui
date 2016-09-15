@@ -44,14 +44,15 @@ KEYCODE.LIST = [{
   code : 'KC_NO',
   type : 'special',
   name : 'nothing',
-  primary : false
+  primary : false,
+  icon : 'none'
 }, {
   code : 'KC_TRNS', // Transparent
   type : 'special',
   name : 'transparent',
   primary : undefined
 }, {
-  code : 'KC_M', // Transparent
+  code : 'M', // Macro
   type : 'special',
   name : 'Macro',
   icon : 'macro'
@@ -560,7 +561,8 @@ KEYCODE.LIST = [{
   code : 'KC_BSPC',
   type : 'editing',
   name : 'backspace',
-  icon : 'backspace'
+  icon : 'backspace',
+  primary : 'Backspace'
 }, {
   code : 'KC_DELT',
   type : 'editing',
@@ -570,7 +572,8 @@ KEYCODE.LIST = [{
   code : 'KC_SPC',
   type : 'editing',
   name : 'space',
-  icon : 'space'
+  icon : 'space',
+  primary : 'Space'
 }
 // Command
 , {
@@ -721,32 +724,32 @@ KEYCODE.LIST = [{
   code : 'KC_BTN1',
   type : 'mouse',
   name : 'mouse button 1',
-  icon : 'mouse-button'
+  icon : 'mouse'
 }, {
   code : 'KC_BTN2',
   type : 'mouse',
   name : 'mouse button 2',
-  icon : 'mouse-button'
+  icon : 'mouse'
 }, {
   code : 'KC_BTN3',
   type : 'mouse',
   name : 'mouse button 3',
-  icon : 'mouse-button'
+  icon : 'mouse'
 }, {
   code : 'KC_BTN4',
   type : 'mouse',
   name : 'mouse button 4',
-  icon : 'mouse-button'
+  icon : 'mouse'
 }, {
   code : 'KC_BTN5',
   type : 'mouse',
   name : 'mouse button 5',
-  icon : 'mouse-button'
+  icon : 'mouse'
 }, {
   code : 'KC_BTN6',
   type : 'mouse',
   name : 'mouse button 6',
-  icon : 'mouse-button'
+  icon : 'mouse'
 }
 // Applications
 , {
@@ -758,7 +761,7 @@ KEYCODE.LIST = [{
   code : 'KC_CALC', // Calculator
   type : 'application',
   name : 'open calculator',
-  icon : 'app-calc'
+  icon : 'app-calculator'
 }, {
   code : 'KC_MYCM', // My Computer
   type : 'application',
