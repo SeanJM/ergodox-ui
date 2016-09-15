@@ -18,7 +18,7 @@ Layer.prototype.keys = function (keys) {
     self.keyList[i] = el(Key, {
       code : code,
 
-      onMousemove : function (e) {
+      onMouseenter : function (e) {
         self.trigger('keyhover', e);
       },
 
