@@ -58,7 +58,10 @@ _.forEach(_.omit(group, 'root'), function (files, key) {
   dest.group[name] = files;
 
   task.svgstore[key] = {
-    options : {},
+    options : {
+      cleanup : [ 'fill', 'stroke' ],
+      cleanupdefs : true
+    },
     files : svg_files
   };
 
