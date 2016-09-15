@@ -17,6 +17,7 @@ Icon.prototype.large = function () {
 };
 
 Icon.prototype.text = function (str_value) {
+  this.node.document.addClass('icon-' + str_value);
   this.node.use.attr('href', '#icon_' + str_value);
 };
 
