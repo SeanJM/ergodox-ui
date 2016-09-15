@@ -23,15 +23,25 @@
   }
 
   function isStrPrimary(self) {
-    if (self.isMedia) {
-      return false;
-    } else if (self.isWeb) {
-      return false;
-    } else if (self.isNavigation && self.str_icon) {
-      return false;
-    } else if (
-      self.isHoldModifierTapKey
-      && (isMedia(self.args[1]) || isWeb(self.args[1]))
+    if (
+      self.isMedia
+      || self.isWeb
+      || (
+        self.isNavigation
+        && self.str_icon
+      ) || (
+        self.isHoldModifierTapKey
+        && (
+          isMedia(self.args[1])
+          || isWeb(self.args[1])
+        )
+      ) || (
+        self.args.length === 1
+        && (
+          isSpace(self.args[0])
+          || isBackspace(self.args[0])
+        )
+      )
     ) {
       return false;
     }
