@@ -96,9 +96,9 @@
       this.isModifiedKey
       && isShift(this.args[0])
     ) {
-      this.icon(KEYCODE.KC_LSFT.icon);
+      Key.prototype.icon.call(this, KEYCODE.KC_LSFT.icon);
     } else {
-      this.icon(this.str_icon);
+      Key.prototype.icon.call(this, this.str_icon);
     }
   }
 
