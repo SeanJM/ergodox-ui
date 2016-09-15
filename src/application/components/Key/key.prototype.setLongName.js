@@ -5,11 +5,19 @@ Key.prototype.setLongName = function () {
   } else if (isHoldModifierTapKey(this.code)) {
     this.name = KEYCODE[this.keyHold].name + ' when held, ' + KEYCODE[this.keyTap].name + ' when tapped.';
   } else if (isHoldLayerTapKey(this.code)) {
-    this.name = 'switch to layer ' + this.keyHold + ' when held, ' + KEYCODE[this.keyTap].primary + ' when tapped.';
+    if (this.code === 'KC_LT') {
+      this.name = 'switch to selected layer when held and send a key when tapped.';
+    } else {
+      this.name = 'switch to layer ' + this.keyHold + ' when held, ' + KEYCODE[this.keyTap].primary + ' when tapped.';
+    }
   } else if (isMomentLayer(this.code)) {
     this.name = 'activates layer ' + this.keyHold + ' while held.';
   } else if (isLayerToggle(this.code)) {
-    this.name = 'tap once to toggle "' + this.keyTap + '" layer, tap again to toggle back.';
+    if (this.code === 'KC_TG') {
+      this.name = 'tap once to toggle a layer, tap again to toggle back.';
+    } else {
+      this.name = 'tap once to toggle "' + this.keyTap + '" layer, tap again to toggle back.';
+    }
   } else if (this.isModifiedKey) {
     if (
       isCommand(this.keyHold)
@@ -26,9 +34,13 @@ Key.prototype.setLongName = function () {
       this.name = 'Unknown';
     }
   } else if (this.isFnKey) {
-    this.name = 'Function key \"' + this.args[1] + '\" this function is defined in keymap.c';
+    this.name = 'Function key \"' + this.args[0].substr(-1) + '\" this function is defined in keymap.c';
   } else if (isMacro(this.code)) {
-    this.name = 'macro \"' + this.args[1] + '\"';
+    if (this.code === 'M') {
+      this.name = 'macro key';
+    } else {
+      this.name = 'macro \"' + this.args[1] + '\"';
+    }
   } else {
     this.name = KEYCODE[this.code].name;
   }
