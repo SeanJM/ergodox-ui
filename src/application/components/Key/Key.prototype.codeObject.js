@@ -11,6 +11,10 @@
           return 'KC_' + a.slice(0, -2);
         }
 
+        if (isMacro(code) && i === 0) {
+          return a;
+        }
+
         if (isKeyCode(a) || isLayerName(a)) {
           return a;
         }
@@ -21,11 +25,19 @@
 
   function getIcon() {
     if ((
-      this.args.length === 1 && KEYCODE[this.args[0]].icon
+      this.args.length === 1
+      && KEYCODE[this.args[0]].icon
     ) || (
       this.isLayerToggle
     )) {
       return KEYCODE[this.args[0]].icon;
+    } else if (
+      this.isMeh
+      || this.isHyper
+    ) {
+      return KEYCODE[this.args[0]].icon;
+    } else if (this.isMacro) {
+      return KEYCODE.M.icon;
     } else if (this.isHoldModifierTapKey) {
       return KEYCODE[this.args[1]].icon;
     }
@@ -92,6 +104,7 @@
     if (
       this.args.length === 1
       || this.isLayerToggle
+      || this.isMacro
     ) {
       return false;
     }
