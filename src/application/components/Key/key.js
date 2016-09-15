@@ -15,8 +15,8 @@
           self.trigger('keyClick');
         },
 
-        onMousemove : function () {
-          self.trigger('mousemove');
+        onMouseenter : function () {
+          self.trigger('mouseenter');
         }
       })
     };
