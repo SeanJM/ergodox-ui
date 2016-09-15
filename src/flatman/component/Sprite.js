@@ -16,7 +16,9 @@ let Sprite = function () {
 Sprite.prototype.text = function (value) {
   let content = fs.readFileSync('bin/' + value + '.svg', 'utf8')
       .replace(/^<svg [^>]+?>/, '')
-      .replace(/<\/svg>$/, '');
+      .replace(/<\/svg>$/, '')
+      .replace(/<style>[^<]+?<\/style>/g, '');
+
 
   this.node.document.attr('data-name', value);
   this.node.document.append(content);
