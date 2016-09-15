@@ -33,13 +33,13 @@ KEYCODE.LIST = [{
   type : 'special',
   name : 'layer toggle',
   primary : 'LT',
-  icon : 'toggle'
+  icon : 'layer'
 }, {
   code : 'KC_TG',
   type : 'special',
   name : 'layer switch',
   primary : 'TG',
-  icon : 'toggle'
+  icon : 'layer'
 }, {
   code : 'KC_NO',
   type : 'special',
@@ -498,25 +498,25 @@ KEYCODE.LIST = [{
   code : 'KC_LEFT',
   type : 'navigation',
   name : 'left',
-  icon : 'left',
+  icon : 'arrow-left',
   primary : 'Left'
 }, {
   code : 'KC_RGHT',
   type : 'navigation',
   name : 'right',
-  icon : 'right',
+  icon : 'arrow-right',
   primary : 'Right'
 }, {
   code : 'KC_UP',
   type : 'navigation',
   name : 'up',
-  icon : 'up',
+  icon : 'arrow-up',
   primary : 'Up'
 }, {
   code : 'KC_DOWN',
   type : 'navigation',
   name : 'down',
-  icon : 'down',
+  icon : 'arrow-down',
   primary : 'Down'
 }, {
   code : 'KC_HOME',
@@ -663,13 +663,13 @@ KEYCODE.LIST = [{
   code : 'KC_MPRV',
   type : 'media',
   name : 'previous',
-  icon : 'media-previous',
+  icon : 'media-backward',
   primary : 'Previous'
 }, {
   code : 'KC_MNXT',
   type : 'media',
   name : 'next',
-  icon : 'media-next',
+  icon : 'media-forward',
   primary : 'Next'
 }, {
   code : 'KC_VOLU',
