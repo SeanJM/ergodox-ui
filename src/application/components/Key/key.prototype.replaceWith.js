@@ -14,8 +14,8 @@ Key.prototype.replaceWith = function (key) {
     }
   }
 
-  this.draw();
-  this.trigger('keyChange');
+  Key.prototype.draw.call(this);
+  Component.prototype.trigger.call(this, 'keyChange');
 
   return this;
 };
