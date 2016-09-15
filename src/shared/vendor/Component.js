@@ -20,6 +20,9 @@
     this.target = target;
     if (typeof self.elements === 'undefined') {
       self.elements = [];
+      for (var k in self.node) {
+        self.elements.push(self.node[k]);
+      }
     }
   }
 
@@ -100,7 +103,7 @@
       a.push(arguments[i]);
     }
 
-    target.append(a);
+    target.append.apply(target, a);
 
     return this;
   };
