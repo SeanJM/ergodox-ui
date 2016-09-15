@@ -1,7 +1,7 @@
 App.prototype.bindLetterBox = function () {
   var self = this;
 
-  this.node.layers.on('keyHover', function (e) {
+  this.node.letterBox.on('keyHover', function (e) {
     self.node.status.value(e.target);
   });
 
