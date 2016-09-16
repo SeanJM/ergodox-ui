@@ -118,3 +118,5 @@ Modal.prototype.close = function () {
 };
 
 Modal.isOpen = false;
+
+Component.extend(Modal);
