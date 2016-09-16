@@ -24,7 +24,18 @@
     contextMenu.append(
       el({
         onClick : function () {
-          key.dropTarget.replaceWith(key);
+          if (key.code === 'KC_LT') {
+            el(Dialog.SelectLayer, {
+              x : coordinates.x,
+              y : coordinates.y,
+
+              onSelect : function () {
+
+              }
+            });
+          } else {
+            key.dropTarget.replaceWith(key);
+          }
         }
       }, 'Replace and Copy')
     );
