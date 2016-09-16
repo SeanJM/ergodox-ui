@@ -1,37 +1,33 @@
 .dialog {
   z-index       : 10;
   position      : absolute;
-  left          : 50%;
-  width         : 500px;
-  margin-left   : -250px;
+  width         : 400px;
   overflow      : hidden;
-  border        : 1px solid color(grey, dark);
-  border-radius : 3px;
-  box-shadow    : 0 6px 60px rgba(0, 0, 0, 0.6);
+  border        : 1px solid color(grey, base);
+  border-radius : 9px;
+  box-shadow    : 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 .dialog_head {
-  padding       : 2px 10px 0;
-  border-bottom : 1px solid $grey;
-  background    : color(grey, light);
-  box-shadow    : 0 1px 0 rgba(255, 255, 255, 0.3) inset,
-                  0 1px 0 #fff;
+  padding       : 5px 15px;
+  border-bottom : 1px solid color(grey, light);
+  background    : color(grey, lightest);
 
   h1 {
-    color       : color(grey, darker);
-    font-size   : $default;
-    line-height : $default * 2.3;
+    color       : color(grey, dark);
+    font-size   : fontSize(m);
+    line-height : fontSize(m) * 2.3;
   }
 }
 
 .dialog_body {
-  padding    : 10px;
-  background : color(grey, lighter);
+  padding    : 15px;
+  background : color(grey, lightest);
 }
 
 .dialog_feet {
-  padding    : 0 10px 10px;
-  background : color(grey, lighter);
+  padding    : 0 15px 15px;
+  background : color(grey, lightest);
 
   .button {
     @extend %button;
