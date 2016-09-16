@@ -1,4 +1,49 @@
 .input_list {
+  position   : relative;
   height     : 100%;
   overflow-y : scroll;
+
+  &:focus {
+    outline : none;
+  }
+}
+
+.input_list-item_body {
+  position : relative;
+}
+
+.input_list-item {
+  padding       : 7px 10px;
+  border-bottom : 1px solid color(grey, lightest);
+
+  .icon {
+    position : absolute;
+    top      : 0;
+    left     : 0;
+    fill     : color(grey, dark);
+  }
+
+  h1 {
+    color       : color(grey, dark);
+    font-size   : fontSize(m);
+    line-height : 25px;
+  }
+}
+
+.input_list-item--icon {
+  h1 {
+    padding-left : 30px;
+  }
+}
+
+.input_list-item--select {
+  background : color(blue, base);
+
+  .icon {
+    fill : #fff;
+  }
+
+  h1 {
+    color : #fff;
+  }
 }
