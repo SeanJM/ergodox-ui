@@ -40,7 +40,7 @@ Button.Confirm = function () {
   var self = this;
   var button = el(Button, {
     class : 'button--primary',
-  }, 'OK');
+  }, lang.get('button ok'));
 
   Object.assign(this, button);
 
@@ -55,7 +55,7 @@ Button.Cancel = function () {
   var self = this;
   var button = el(Button, {
     class : 'button--cancel',
-  }, 'Cancel');
+  }, lang.get('button cancel'));
 
   Object.assign(this, button);
 
