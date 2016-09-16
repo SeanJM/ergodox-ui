@@ -756,22 +756,22 @@ KEYCODE.LIST = [{
   code : 'KC_MAIL', // Email Client
   type : 'application',
   name : 'open mail',
-  icon : 'app-mail'
+  icon : 'mail'
 }, {
   code : 'KC_CALC', // Calculator
   type : 'application',
   name : 'open calculator',
-  icon : 'app-calculator'
+  icon : 'calculator'
 }, {
   code : 'KC_MYCM', // My Computer
   type : 'application',
   name : 'open my computer',
-  icon : 'app-my-computer'
+  icon : 'computer'
 }, {
   code : 'KC_WSCH',
   type : 'application',
   name : 'open search',
-  icon : 'app-search'
+  icon : 'search'
 }
 // Web browser
 , {
@@ -810,17 +810,17 @@ KEYCODE.LIST = [{
   code : 'KC_PWR', // Home
   type : 'computer',
   name : 'power off',
-  icon : 'computer-power'
+  icon : 'power-on'
 }, {
   code : 'KC_SLEP', // Back
   type : 'computer',
   name : 'sleep',
-  icon : 'computer-sleep',
+  icon : 'sleep',
 }, {
   code : 'KC_WAKE', // Forward
   type : 'computer',
   name : 'wake',
-  icon : 'computer-wake'
+  icon : 'wake'
 }];
 
 KEYCODE.SFT = [];
