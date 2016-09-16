@@ -5,10 +5,6 @@ function Input() {
     document : el({ class : 'input' })
   };
 
-  this.node.document.append(
-    this.node.active = el({ class : 'input_active' })
-  );
-
   this.on('focus', function () {
     self.node.document.addClass('input--active');
   });
@@ -36,6 +32,7 @@ Input.prototype.append = function () {
       this.node.input = arguments[i];
       this.node.input.on('focus, blur', trigger);
     }
+
     Component.prototype.append.call(this, arguments[i]);
   }
 };
