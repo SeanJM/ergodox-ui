@@ -144,36 +144,39 @@
   }
 
   function drawLink(ctx, keyOffset, cloneOffset, e) {
+    var pageX = e.detail.pageX;
+    var pageY = e.detail.pageY;
+
     // Top left corner
     drawLine(ctx,
       keyOffset[0].x,
       keyOffset[0].y,
-      e.pageX - (cloneOffset.width / 2) + 1,
-      e.pageY - (cloneOffset.height / 2) + 1
+      pageX - (cloneOffset.width / 2) + 1,
+      pageY - (cloneOffset.height / 2) + 1
     );
 
     // Top right corner
     drawLine(ctx,
       keyOffset[1].x,
       keyOffset[1].y,
-      e.pageX + (cloneOffset.width / 2) - 1,
-      e.pageY - (cloneOffset.height / 2) + 1
+      pageX + (cloneOffset.width / 2) - 1,
+      pageY - (cloneOffset.height / 2) + 1
     );
 
     // Bottom left corner
     drawLine(ctx,
       keyOffset[2].x,
       keyOffset[2].y,
-      e.pageX - (cloneOffset.width / 2) + 1,
-      e.pageY + (cloneOffset.height / 2) - 1
+      pageX - (cloneOffset.width / 2) + 1,
+      pageY + (cloneOffset.height / 2) - 1
     );
 
     // Bottom right corner
     drawLine(ctx,
       keyOffset[3].x,
       keyOffset[3].y,
-      e.pageX + (cloneOffset.width / 2) - 1,
-      e.pageY + (cloneOffset.height / 2) - 1
+      pageX + (cloneOffset.width / 2) - 1,
+      pageY + (cloneOffset.height / 2) - 1
     );
 
     drawPoly(ctx, [
@@ -181,9 +184,9 @@
     ], [
       keyOffset[1].x, keyOffset[1].y,
     ], [
-      e.pageX + (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2),
+      pageX + (cloneOffset.width / 2), pageY - (cloneOffset.height / 2),
     ], [
-      e.pageX - (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
+      pageX - (cloneOffset.width / 2), pageY - (cloneOffset.height / 2)
     ]);
 
     drawPoly(ctx, [
@@ -191,9 +194,9 @@
     ], [
       keyOffset[2].x, keyOffset[2].y,
     ], [
-      e.pageX - (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
+      pageX - (cloneOffset.width / 2), pageY + (cloneOffset.height / 2),
     ], [
-      e.pageX - (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
+      pageX - (cloneOffset.width / 2), pageY - (cloneOffset.height / 2)
     ]);
 
     drawPoly(ctx, [
@@ -201,9 +204,9 @@
     ], [
       keyOffset[3].x, keyOffset[3].y,
     ], [
-      e.pageX + (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
+      pageX + (cloneOffset.width / 2), pageY + (cloneOffset.height / 2),
     ], [
-      e.pageX + (cloneOffset.width / 2), e.pageY - (cloneOffset.height / 2)
+      pageX + (cloneOffset.width / 2), pageY - (cloneOffset.height / 2)
     ]);
 
     drawPoly(ctx, [
@@ -211,9 +214,9 @@
     ], [
       keyOffset[3].x, keyOffset[3].y,
     ], [
-      e.pageX + (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2)
+      pageX + (cloneOffset.width / 2), pageY + (cloneOffset.height / 2)
     ], [
-      e.pageX - (cloneOffset.width / 2), e.pageY + (cloneOffset.height / 2),
+      pageX - (cloneOffset.width / 2), pageY + (cloneOffset.height / 2),
     ]);
   }
 
@@ -224,6 +227,7 @@
       onDone : [ Function ]
     }
   */
+
   function setDragKey(key, keyList) {
     var angle;
     var clone;
@@ -247,8 +251,9 @@
     var ctx = canvas.node.getContext('2d');
 
     function drawClone(e) {
-      var width = parseInt(e.target.styles().width, 10);
-      var height = parseInt(e.target.styles().height, 10);
+      var styles = key.node.document.styles();
+      var width = parseInt(styles.width, 10);
+      var height = parseInt(styles.height, 10);
 
       var left = pivot[0] - (width / 2) + 1;
       var top = pivot[1] - (height / 2) + 1;
@@ -292,34 +297,34 @@
 
       cloneOffset = clone.node.document.offset();
       clone.node.document.style.transform = 'translate(' +
-        (e.pageX - (cloneOffset.width / 2)) + 'px, ' +
-        (e.pageY - (cloneOffset.height / 2)) + 'px' +
+        (e.detail.pageX - (cloneOffset.width / 2)) + 'px, ' +
+        (e.detail.pageY - (cloneOffset.height / 2)) + 'px' +
       ')';
       drawLink(ctx, keyOffset, cloneOffset, e);
     }
 
     function dragstart(e) {
-      angle = e.target.matrixRotation();
-      targetOffset = e.target.offset();
+      angle = key.node.document.matrixRotation();
+      targetOffset = key.node.document.offset();
 
       pivot = [
         targetOffset.left + (targetOffset.width / 2),
         targetOffset.top + (targetOffset.height / 2)
       ];
 
-      e.target.addClass('key--drag-source');
+      key.addClass('key--drag-source');
     }
 
     function dragmove(e) {
       // Calculate the rotated distance around a pivot of 0 -- the starting point
       var distance = rotatePoint(
         [ 0, 0 ],
-        [ e.distanceX, e.distanceY ],
+        [ e.detail.distanceX, e.detail.distanceY ],
         angle
       );
 
       if (
-        (Math.abs(e.distanceX) > 35 || Math.abs(e.distanceY) > 35)
+        (Math.abs(e.detail.distanceX) > 35 || Math.abs(e.detail.distanceY) > 35)
         && !clone
       ) {
         anime({
@@ -343,8 +348,8 @@
         drawLink(ctx, keyOffset, cloneOffset, e);
 
         clone.node.document.style.transform = 'translate(' +
-          (e.pageX - (cloneOffset.width / 2)) + 'px, ' +
-          (e.pageY - (cloneOffset.height / 2)) + 'px' +
+          (e.detail.pageX - (cloneOffset.width / 2)) + 'px, ' +
+          (e.detail.pageY - (cloneOffset.height / 2)) + 'px' +
         ')';
 
       } else {
@@ -359,7 +364,7 @@
     }
 
     function dragend(e) {
-      e.target.removeClass('key--drag-source');
+      key.removeClass('key--drag-source');
 
       if (canvas) {
         canvas.remove();
@@ -371,8 +376,8 @@
       }
 
       dropKey(key, {
-        x : e.pageX,
-        y : e.pageY
+        x : e.detail.pageX,
+        y : e.detail.pageY
       });
     }
 
