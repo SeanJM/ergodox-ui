@@ -1,4 +1,7 @@
 .form {
+  z-index  : 1;
+  position : relative;
+
   .input + .input {
     margin-top : 5px;
   }
