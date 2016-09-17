@@ -14,33 +14,13 @@
     height      : 50px;
     margin-top  : -25px;
     margin-left : -25px;
-  }
-
-  .icon-layer {
-    svg {
-      margin-top : -375px * 2;
-    }
+    fill        : #fff;
   }
 }
 
 .modal-icon-error {
   background : linear-gradient(
-                 color(red, base),
-                 color(orange, base)
+                 color(purple, base),
+                 color(red, light)
                );
-
-  svg {
-    width  : 75px * 2;
-    height : auto;
-
-    .cls-2,
-    .cls-4,
-    .cls-5 {
-      stroke : #fff;
-    }
-
-    .cls-3 {
-      fill : #fff;
-    }
-  }
 }
