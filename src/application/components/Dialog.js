@@ -21,15 +21,9 @@ function Dialog(opt) {
   );
 
   this.on('open', function () {
-    var y = window.innerHeight / 2;
-    var x = window.innerWidth / 2;
+    var y = this.y || (window.innerHeight / 2);
+    var x = this.x || (window.innerWidth / 2);
     var o = this.node.document.offset();
-    this.node.document.appendTo(document.body);
-
-    if (opt && opt.x && opt.y) {
-      y = opt.y;
-      x = opt.x;
-    }
 
     this.node.document.style({
       top : y - (o.height / 2),
@@ -62,8 +56,9 @@ Dialog.prototype.append = function () {
   }
 };
 
-Dialog.prototype.open = function () {
-  this.trigger('open');
+Dialog.prototype.open = function (opt) {
+  this.node.document.appendTo(document.body);
+  this.trigger('open', opt);
 };
 
 Dialog.prototype.title = function (value) {
