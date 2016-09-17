@@ -2,40 +2,38 @@ Dialog.SelectLayer = function (opt) {
   var self = this;
 
   this.node = {
-    document : el(Dialog, opt)
+    document : el(
+      Dialog, {
+        title : lang.get('select layer'),
+        x : opt.x,
+        y : opt.y,
+      }
+    )
   };
 
   this.node.document.append(
-    el(Title, lang.get('select layer')),
-    this.node.form = el(Form,
-      this.node.list = el(Input.List, {
-        style : {
-          height : 200
-        }
-      })
-    ),
-    el(Control,
-      el(Button.Confirm),
-      el(Button.Cancel)
+    this.node.list = el(
+      Input.List, {
+        style : { height : 200 }
+      }
     )
   );
 
-  this.node.document.on('submit', function () {
-
-  });
-
   this.node.document.on('open', function () {
+    self.node.list.clear();
+
     App.main.layers.forEach(function (layer) {
       self.node.list.append(
-        el(Input.Item,
-          { selectable : true },
+        el(
+          Input.Item, {
+            selectable : true
+          },
           el(Icon, 'layer'),
           el(Title, layer.name)
         )
       );
     });
 
-    self.node.form.focus();
     self.node.list.select(0);
   });
 
