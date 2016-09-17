@@ -8,15 +8,18 @@ Input.List = function (opt) {
   this.list = [];
 
   this.node.document.append(
-    this.node.list = el(_.assign({}, { class : 'input_list', tabIndex : 0 }, opt))
+    this.node.list = el(
+      {
+        class : 'input_list',
+        tabIndex : 0
+      },
+      opt
+    )
   );
-
-  this.style = this.node.document.style;
 
   this.on('mount', function () {
     self.node.document.trigger('mount');
   });
-
 };
 
 Input.List.prototype.select = function (n) {
@@ -25,6 +28,13 @@ Input.List.prototype.select = function (n) {
   this.list
     .filter((a, i) => i !== n)
     .forEach(a => a.deselect());
+};
+
+Input.List.prototype.clear = function () {
+  if (this.elements) {
+    this.elements = this.elements.filter(a => this.list.indexOf(a) > -1);
+    this.node.list.html('');
+  }
 };
 
 Input.List.prototype.append = function () {
