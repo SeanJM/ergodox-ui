@@ -24,9 +24,9 @@ App.prototype.bindTabs = function () {
         onCancel : function () {
           // The name has not been set yet
           if (!layer.name) {
-            self.node.layers.remove(e.index);
-            self.node.tabs.remove(e.index);
-            self.node.tabs.select(e.index - 1);
+            self.node.layers.remove(index);
+            self.node.tabs.remove(index);
+            self.node.tabs.select(index - 1);
           } else {
             // Layer has a name, set it back to it's old name
             e.target.setTitle(layer.name);
@@ -70,6 +70,7 @@ App.prototype.bindTabs = function () {
   });
 
   this.node.tabs.on('tabEditCancel', function (e) {
+    console.log(self.node.tabs, e.target);
     var index = self.node.tabs.indexOf(e.target);
     // If it has no title, it is a newly created tab
     if (!e.target.title) {
