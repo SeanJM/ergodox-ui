@@ -14,7 +14,10 @@ Form.prototype.append = function () {
     function resize() {
       var formOffset = self.node.document.offset();
       var inputTop = element.node.document.offset().top;
-      element.style.height = formOffset.height - element.bottom - (inputTop - formOffset.top) + 'px';
+
+      element.style('height',
+        formOffset.height - element.bottom - (inputTop - formOffset.top) + 'px'
+      );
     }
 
     element.on('mount', function () {

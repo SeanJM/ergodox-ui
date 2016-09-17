@@ -14,12 +14,14 @@ Tabs.prototype.add = function (tab, cb) {
   paddingRight = parseInt(styles.paddingRight, 10);
   marginLeft = parseInt(styles.marginLeft, 10);
 
-  tab.node.document.style.width = 0;
-  tab.node.document.style.minWidth = 0;
-  tab.node.document.style.marginLeft = 0;
-  tab.node.document.style.paddingLeft = 0;
-  tab.node.document.style.paddingRight = 0;
-  tab.node.document.style.position = 'relative';
+  tab.node.document.style({
+    width : 0,
+    minWidth : 0,
+    marginLeft : 0,
+    paddingLeft : 0,
+    paddingRight : 0,
+    position : 'relative'
+  });
 
   anime({
     targets : tab.node.document.node,
@@ -32,13 +34,16 @@ Tabs.prototype.add = function (tab, cb) {
     opacity : [0, 1],
     ease : 'easeOutQuad',
     elasticity : 0,
+
     complete : function () {
-      tab.node.document.style.width = '';
-      tab.node.document.style.minWidth = '';
-      tab.node.document.style.marginLeft = '';
-      tab.node.document.style.paddingLeft = '';
-      tab.node.document.style.paddingRight = '';
-      tab.node.document.style.opacity = '';
+      tab.node.document.style({
+        width : '',
+        minWidth : '',
+        marginLeft : '',
+        paddingLeft : '',
+        paddingRight : '',
+        opacity : ''
+      });
 
       if (typeof cb === 'function') {
         cb();

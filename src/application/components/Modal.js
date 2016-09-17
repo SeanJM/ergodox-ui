@@ -78,7 +78,8 @@ Modal.prototype.open = function () {
   var bodyHeight;
   var winHeight;
 
-  this.node.document.node.style.opacity = 0;
+  this.style('opacity', 0);
+
   this.node.document.appendTo(document.body);
   this.node.control.focus();
 
@@ -86,7 +87,9 @@ Modal.prototype.open = function () {
   bodyHeight = this.node.body.offset().height;
   winHeight = this.node.window.offset().height;
 
-  this.node.content.style.paddingTop = (bodyHeight / 2) - (contentHeight / 2) + 'px';
+  this.node.content.style({
+    paddingTop : (bodyHeight / 2) - (contentHeight / 2)
+  });
 
   this.node.document.fadeIn(1000);
 
@@ -118,5 +121,4 @@ Modal.prototype.close = function () {
 };
 
 Modal.isOpen = false;
-
 Component.extend(Modal);

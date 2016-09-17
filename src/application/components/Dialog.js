@@ -6,15 +6,24 @@ function Dialog(opt) {
   };
 
   this.node.document.append(
-    this.node.head = el({ class : 'dialog_head' }),
-    this.node.body = el({ class : 'dialog_body' }),
-    this.node.feet = el({ class : 'dialog_feet' })
+    this.node.head = el({ class : 'dialog_head' },
+      this.node.title = el(Title)
+    ),
+    this.node.body = el({ class : 'dialog_body' },
+      this.node.form = el(Form)
+    ),
+    this.node.feet = el({ class : 'dialog_feet' },
+      this.node.control = el(Control,
+        el(Button.Confirm),
+        el(Button.Cancel)
+      )
+    )
   );
 
   this.on('open', function () {
     var y = window.innerHeight / 2;
     var x = window.innerWidth / 2;
-
+    var o = this.node.document.offset();
     this.node.document.appendTo(document.body);
 
     if (opt && opt.x && opt.y) {
@@ -22,20 +31,21 @@ function Dialog(opt) {
       x = opt.x;
     }
 
-    this.node.document.style.top = (
-      y - (this.node.document.offset().height / 2)
-    ) + 'px';
+    this.node.document.style({
+      top : y - (o.height / 2),
+      left : x - (o.width / 2)
+    });
 
-    this.node.document.style.left = (
-      x - (this.node.document.offset().width / 2)
-    ) + 'px';
+    this.node.form.focus();
   });
 
   this.node.head.on('dragmove', function (e) {
-    self.node.document.style.transform = [
-      'translateX(' + e.detail.distanceX + 'px)',
-      'translateY(' + e.detail.distanceY + 'px)'
-    ].join(' ');
+    self.node.document.style({
+      transform : {
+        translateX : e.detail.distanceX,
+        translateY : e.detail.distanceY
+      }
+    });
   });
 }
 
@@ -44,18 +54,20 @@ Dialog.prototype.append = function () {
   var n = arguments.length;
 
   for (; i < n; i++) {
-    if (arguments[i] instanceof Form) {
-      this.node.body.append(arguments[i]);
-    } else if (arguments[i] instanceof Control) {
-      this.node.feet.append(arguments[i]);
-    } else if (arguments[i] instanceof Title) {
+    if (arguments[i] instanceof Title) {
       this.node.head.append(arguments[i]);
+    } else {
+      this.node.form.append(arguments[i]);
     }
   }
 };
 
 Dialog.prototype.open = function () {
   this.trigger('open');
+};
+
+Dialog.prototype.title = function (value) {
+  this.node.title.text(value);
 };
 
 Component.extend(Dialog);

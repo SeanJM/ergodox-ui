@@ -73,7 +73,6 @@
     this.isImmutable = opt.isImmutable || false; // Prevent the key from being changed
     this.codeObject(opt.code);
     this.draw();
-    this.style = this.node.document.style;
   }
 
   Key.Letter = function () {

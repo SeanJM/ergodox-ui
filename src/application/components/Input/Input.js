@@ -12,8 +12,6 @@ function Input() {
   this.on('blur', function () {
     self.node.document.removeClass('input--active');
   });
-
-  this.style = this.node.document.style;
 }
 
 Input.prototype.append = function () {

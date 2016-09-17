@@ -34,8 +34,11 @@ ContextMenu.prototype.open = function (coordinates) {
   if (coordinates) {
     documentOffset = this.node.document.offset();
     contextOffset = this.elements[0].offset();
-    this.node.document.style.left = coordinates.x - (documentOffset.width * 0.05) + 'px';
-    this.node.document.style.top = coordinates.y - (contextOffset.top + (contextOffset.height / 2)) + 'px';
+
+    this.style({
+      left : coordinates.x - (documentOffset.width * 0.05),
+      top : coordinates.y - (contextOffset.top + (contextOffset.height / 2))
+    });
   }
 
   document.body.addEventListener('click', close = function () {

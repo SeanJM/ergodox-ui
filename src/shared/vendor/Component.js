@@ -145,22 +145,30 @@
   Component.prototype.column = function () {
     var isArray = Array.isArray(arguments[0]);
 
-    var start = isArray ? arguments[0][0] : arguments[0];
-    var end = isArray ? arguments[0][1] : arguments[1];
+    var start = isArray
+      ? arguments[0][0]
+      : arguments[0];
+    var end = isArray
+      ? arguments[0][1]
+      : arguments[1];
 
     var width = (
       (
         isArray
           ? arguments[0][2]
           : arguments[2]
-      ) || 100 / end
+      ) || (
+        100 / end
+      )
     );
 
     var res = column(start, end);
 
-    this.node.document.style.paddingLeft = res.left + 'px';
-    this.node.document.style.paddingRight = res.right + 'px';
-    this.node.document.style.width = width  + '%';
+    this.style({
+      paddingLeft : res.left,
+      paddingRight : res.right,
+      width : width  + '%'
+    });
 
     return this;
   };
@@ -270,38 +278,9 @@
     return this;
   };
 
-  Component.prototype.spinnerStart = function () {
-    if (typeof this._spinner_ === 'undefined') {
-      this._spinner_ = Spinner.new();
-      this._spinner_ = this._spinner_.start();
-      this._spinner_.centerTo(this.node.document);
-    }
-  };
-
-  Component.prototype.spinnerStop = function () {
-    if (typeof this._spinner_ === 'object') {
-      this._spinner_.stop();
-      this._spinner_ = undefined;
-    }
-  };
-
-  Component.prototype.style = function () {
-    var i = 0;
-    var n = arguments.length;
-
-    for (; i < n; i++) {
-      if (typeof arguments[i] === 'object') {
-        for (var k in arguments[i]) {
-          if (arguments[i].hasOwnProperty(k)) {
-            this.node.document.node.style[k] = arguments[i][k];
-          }
-        }
-      } else if (typeof arguments[i] === 'string' && typeof arguments[i + 1] !== 'object') {
-        this.node.document.style[arguments[i]] = arguments[i + 1];
-        i++;
-      }
-    }
-
+  Component.prototype.style = function (a, b) {
+    console.log(this.node.document);
+    this.node.document.style(a, b);
     return this;
   };
 
@@ -393,10 +372,6 @@
       Constructor.prototype.on = Component.prototype.on;
     if (!Constructor.prototype.removeClass)
       Constructor.prototype.removeClass = Component.prototype.removeClass;
-    if (!Constructor.prototype.spinnerStart)
-      Constructor.prototype.spinnerStart = Component.prototype.spinnerStart;
-    if (!Constructor.prototype.spinnerStop)
-      Constructor.prototype.spinnerStop = Component.prototype.spinnerStop;
     if (!Constructor.prototype.style)
       Constructor.prototype.style = Component.prototype.style;
     if (!Constructor.prototype.target)

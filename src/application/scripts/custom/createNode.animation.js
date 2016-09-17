@@ -2,7 +2,7 @@ el.fn('popFadeIn', function (time, callback) {
   var self = this;
   time = time || 600;
 
-  this.node.style.opacity = 0;
+  this.node.style('opacity', 0);
 
   anime({
     targets : self.node,
@@ -100,15 +100,17 @@ el.fn('slidedown', function () {
   var self = this;
   var height;
 
-  this.style.position = 'absolute';
-  this.style.opacity = 0;
+  this.style({
+    position : 'absolute',
+    opacity : 0
+  });
 
   if (this.styles().display === 'none') {
-    this.node.display = '';
+    this.style('display', '');
   }
 
   height = this.offset().height;
-  this.style.position = 'static';
+  this.style('position', 'static');
 
   anime({
     targets : this.node,
@@ -116,7 +118,7 @@ el.fn('slidedown', function () {
     easing : 'easeOutQuad',
     duration : 200,
     complete : function () {
-      self.node.style.height = '';
+      self.style('height', '');
     }
   });
 
@@ -132,11 +134,11 @@ el.fn('slideup', function () {
   var height;
   var self = this;
 
-  this.style.height = '';
+  this.style(height, '');
 
   height = this.offset().height;
 
-  this.style.display = 'block';
+  this.style('display', 'block');
 
   anime({
     duration : 200,
@@ -144,8 +146,10 @@ el.fn('slideup', function () {
     height : [ height, 0 ],
     easing : 'easeOutQuad',
     complete : function () {
-      self.style.display = '';
-      self.style.height = '';
+      self.style({
+        display : '',
+        height : ''
+      });
     }
   });
 
