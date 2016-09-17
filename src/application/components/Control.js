@@ -1,20 +1,6 @@
 function Control() {
-  var self = this;
-
-  this.node = {
-    document : el({ class : 'control' })
-  };
-
-  this.on('cancel', function () {
-    self.node.cancel.trigger('click');
-  });
-
-  this.on('confirm', function () {
-    self.node.confirm.trigger('click');
-  });
+  this.node = { document : el({ class : 'control' }) };
 }
-
-Component.extend(Control);
 
 Control.prototype.focus = function () {
   this.elements[0].focus();
@@ -23,14 +9,24 @@ Control.prototype.focus = function () {
 Control.prototype.append = function () {
   var i = 0;
   var n = arguments.length;
+  var self = this;
+
+  function cancel(e) {
+    self.trigger('cancel', e);
+  }
+
+  function confirm(e) {
+    self.trigger('confirm', e);
+  }
 
   for (; i < n; i++) {
     if (arguments[i].isCancel) {
-      this.node.cancel = arguments[i];
+      arguments[i].on('cancel', cancel);
     } else if (arguments[i].isConfirm) {
-      this.node.confirm = arguments[i];
+      arguments[i].on('confirm', confirm);
     }
-
     Component.prototype.append.call(this, arguments[i]);
   }
 };
+
+Component.extend(Control);
