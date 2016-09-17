@@ -35,7 +35,7 @@ let task = {
   watch : {}
 };
 
-group.root.forEach(function (file) {
+_.forEach(group.root, function (file) {
   dest.root['bin/' + path.basename(file)] = file;
 });
 
