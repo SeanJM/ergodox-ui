@@ -8,6 +8,18 @@
   background  : rgba(0, 0, 0, 0.3);
   user-select : none;
   cursor      : default;
+
+  .button {
+    @extend %button;
+  }
+
+  .button.button--primary {
+    @extend %button-primary;
+  }
+
+  .button + .button {
+    margin-left : 5px;
+  }
 }
 
 .modal_window {
@@ -50,16 +62,4 @@
 .modal--has-icon .modal_body {
   min-height   : 64px;
   padding-left : 85px;
-}
-
-.modal_button {
-  @extend %button;
-}
-
-.modal_button.button--primary {
-  @extend %button-primary;
-}
-
-.modal_button + .modal_button {
-  margin-left : 5px;
 }
