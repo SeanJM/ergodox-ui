@@ -1,46 +1,31 @@
 (function () {
-  function drawPoly(ctx) {
-    var i = 1;
-    var n = arguments.length;
-
-    var gradient = ctx.createLinearGradient(
-      // X1
-      Math.floor((arguments[1][0] + arguments[2][0]) / 2),
-      // Y1
-      Math.floor((arguments[1][1] + arguments[2][1]) / 2),
-      // X2
-      Math.floor((arguments[3][0] + arguments[4][0]) / 2),
-      // Y2
-      Math.floor((arguments[3][1] + arguments[4][1]) / 2)
-    );
-
-    gradient.addColorStop(0, blush(COLOR.cyan).alpha(0.3).rgba());
-    gradient.addColorStop(1, blush(COLOR.cyan).alpha(0.0).rgba());
-
-    ctx.beginPath();
-    ctx.moveTo(arguments[1][0], arguments[1][1]);
-    ctx.fillStyle = gradient;
-
-    for (; i < n; i++) {
-      ctx.lineTo(arguments[i][0], arguments[i][1]);
-    }
-
-    ctx.closePath();
-    ctx.fill();
-  }
-
   function drawLine(ctx, fromX, fromY, toX, toY) {
-    var gradient = ctx.createLinearGradient(fromX, fromY, toX, toY);
-
-    gradient.addColorStop(0, blush(COLOR.cyan).alpha(0.1).rgba());
-    gradient.addColorStop(1, blush(COLOR.cyan).alpha(0.6).rgba());
-
     ctx.beginPath();
-    ctx.strokeStyle = gradient;
-    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+
+    ctx.strokeStyle = blush(COLOR.blue).darken(0.3).alpha(0.1).rgba();
+    ctx.lineWidth = 8;
     ctx.moveTo(fromX, fromY);
     ctx.lineTo(toX, toY);
-    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = blush(COLOR.blue).darken(0.3).alpha(0.2).rgba();
+    ctx.lineWidth = 6;
+    ctx.moveTo(fromX, fromY);
+    ctx.lineTo(toX, toY);
+    ctx.stroke();
+
+    ctx.strokeStyle = blush(COLOR.blue).lighten(0.4).rgba();
+    ctx.lineWidth = 4;
+    ctx.moveTo(fromX, fromY);
+    ctx.lineTo(toX, toY);
+    ctx.stroke();
+
+    ctx.strokeStyle = blush(COLOR.blue).rgba();
+    ctx.setLineDash([4, 8]);
+    ctx.lineWidth = 2;
+    ctx.moveTo(fromX, fromY);
+    ctx.lineTo(toX, toY);
     ctx.stroke();
   }
 
@@ -149,75 +134,11 @@
 
     // Top left corner
     drawLine(ctx,
-      keyOffset[0].x,
-      keyOffset[0].y,
-      pageX - (cloneOffset.width / 2) + 1,
-      pageY - (cloneOffset.height / 2) + 1
+      (keyOffset[0].x + keyOffset[1].x + keyOffset[2].x + keyOffset[3].x) / 4,
+      (keyOffset[0].y + keyOffset[1].y + keyOffset[2].y + keyOffset[3].y) / 4,
+      pageX,
+      pageY
     );
-
-    // Top right corner
-    drawLine(ctx,
-      keyOffset[1].x,
-      keyOffset[1].y,
-      pageX + (cloneOffset.width / 2) - 1,
-      pageY - (cloneOffset.height / 2) + 1
-    );
-
-    // Bottom left corner
-    drawLine(ctx,
-      keyOffset[2].x,
-      keyOffset[2].y,
-      pageX - (cloneOffset.width / 2) + 1,
-      pageY + (cloneOffset.height / 2) - 1
-    );
-
-    // Bottom right corner
-    drawLine(ctx,
-      keyOffset[3].x,
-      keyOffset[3].y,
-      pageX + (cloneOffset.width / 2) - 1,
-      pageY + (cloneOffset.height / 2) - 1
-    );
-
-    drawPoly(ctx, [
-      keyOffset[0].x, keyOffset[0].y,
-    ], [
-      keyOffset[1].x, keyOffset[1].y,
-    ], [
-      pageX + (cloneOffset.width / 2), pageY - (cloneOffset.height / 2),
-    ], [
-      pageX - (cloneOffset.width / 2), pageY - (cloneOffset.height / 2)
-    ]);
-
-    drawPoly(ctx, [
-      keyOffset[0].x, keyOffset[0].y,
-    ], [
-      keyOffset[2].x, keyOffset[2].y,
-    ], [
-      pageX - (cloneOffset.width / 2), pageY + (cloneOffset.height / 2),
-    ], [
-      pageX - (cloneOffset.width / 2), pageY - (cloneOffset.height / 2)
-    ]);
-
-    drawPoly(ctx, [
-      keyOffset[1].x, keyOffset[1].y,
-    ], [
-      keyOffset[3].x, keyOffset[3].y,
-    ], [
-      pageX + (cloneOffset.width / 2), pageY + (cloneOffset.height / 2),
-    ], [
-      pageX + (cloneOffset.width / 2), pageY - (cloneOffset.height / 2)
-    ]);
-
-    drawPoly(ctx, [
-      keyOffset[2].x, keyOffset[2].y,
-    ], [
-      keyOffset[3].x, keyOffset[3].y,
-    ], [
-      pageX + (cloneOffset.width / 2), pageY + (cloneOffset.height / 2)
-    ], [
-      pageX - (cloneOffset.width / 2), pageY + (cloneOffset.height / 2),
-    ]);
   }
 
   /*
@@ -236,7 +157,7 @@
     var targetOffset;
     var pivot;
 
-    var dragDecay = 0.98;
+    var decay = 0.98;
 
     var canvas = el('canvas', {
       class : 'key-drag-canvas',
@@ -244,7 +165,7 @@
         position : 'absolute',
         left : 0,
         top : 0,
-        zIndex : 1
+        zIndex : '1'
       }
     });
 
@@ -280,15 +201,20 @@
       clone.removeClass('key--tall');
       clone.addClass('key--dragging');
 
-      clone.node.document.style.position = 'absolute';
-      clone.node.document.style.zIndex = 2;
-      clone.node.document.style.left = '0';
-      clone.node.document.style.top = '0';
+      clone.style({
+        position : 'absolute',
+        zIndex : 2,
+        left : '0',
+        top : '0'
+      });
 
       canvas.node.width = window.innerWidth * 2;
       canvas.node.height = window.innerHeight * 2;
-      canvas.node.style.width = window.innerWidth + 'px';
-      canvas.node.style.height = window.innerHeight + 'px';
+
+      canvas.style({
+        width : window.innerWidth,
+        height : window.innerHeight
+      });
 
       ctx.scale(2, 2);
 
@@ -296,10 +222,14 @@
       canvas.appendTo('body');
 
       cloneOffset = clone.node.document.offset();
-      clone.node.document.style.transform = 'translate(' +
-        (e.detail.pageX - (cloneOffset.width / 2)) + 'px, ' +
-        (e.detail.pageY - (cloneOffset.height / 2)) + 'px' +
-      ')';
+
+      clone.style({
+        transform : {
+          translateX : (e.detail.pageX - (cloneOffset.width / 2)),
+          translateY : (e.detail.pageY - (cloneOffset.height / 2))
+        }
+      });
+
       drawLink(ctx, keyOffset, cloneOffset, e);
     }
 
@@ -330,11 +260,11 @@
         anime({
           targets : key.node.cap.node,
           translateX : [
-            (distance.x * Math.pow(dragDecay, Math.abs(distance.x))),
+            (distance.x * Math.pow(decay, Math.abs(distance.x))),
             0
           ],
           translateY : [
-            (distance.y * Math.pow(dragDecay, Math.abs(distance.y))),
+            (distance.y * Math.pow(decay, Math.abs(distance.y))),
             0
           ],
           duration : 700,
@@ -347,19 +277,24 @@
         ctx.clearRect(0, 0, canvas.node.width, canvas.node.height);
         drawLink(ctx, keyOffset, cloneOffset, e);
 
-        clone.node.document.style.transform = 'translate(' +
-          (e.detail.pageX - (cloneOffset.width / 2)) + 'px, ' +
-          (e.detail.pageY - (cloneOffset.height / 2)) + 'px' +
-        ')';
+        clone.style({
+          transform : {
+            translateX : (e.detail.pageX - (cloneOffset.width / 2)),
+            translateY : (e.detail.pageY - (cloneOffset.height / 2))
+          }
+        });
 
       } else {
-        key.node.cap.style.transform = '' +
-        'translate(' +
-          (distance.x * Math.pow(dragDecay, Math.abs(distance.x))) + 'px' +
-        ')' +
-        'translateY(' +
-          (distance.y * Math.pow(dragDecay, Math.abs(distance.y))) + 'px' +
-        ')';
+        key.node.cap.style({
+          transform : {
+            translateX : (
+              distance.x * Math.pow(decay, Math.abs(distance.x))
+            ),
+            translateY : (
+              distance.y * Math.pow(decay, Math.abs(distance.y))
+            )
+          }
+        });
       }
     }
 
