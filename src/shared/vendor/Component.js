@@ -279,7 +279,6 @@
   };
 
   Component.prototype.style = function (a, b) {
-    console.log(this.node.document);
     this.node.document.style(a, b);
     return this;
   };
