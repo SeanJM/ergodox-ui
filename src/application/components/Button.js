@@ -42,6 +42,8 @@ Button.Confirm = function () {
     class : 'button--primary',
   }, lang.get('button ok'));
 
+  this.isConfirm = true;
+
   _.assign(this, button);
 
   button.on('click', function (e) {
@@ -54,6 +56,8 @@ Button.Cancel = function () {
   var button = el(Button, {
     class : 'button--cancel',
   }, lang.get('button cancel'));
+
+  this.isCancel = true;
 
   _.assign(this, button);
 
