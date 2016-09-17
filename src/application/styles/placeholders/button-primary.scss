@@ -2,22 +2,13 @@
   @extend   %button;
 
   .button_face {
-    border-color : color(aqua, darker);
-    background   : linear-gradient(
-                     color(aqua, base) 93%,
-                     color(aqua, dark)
-                   );
-    box-shadow   : 0 1px 0 color(aqua, light) inset;
+    border-color : color(aqua, dark);
+    background   : color(aqua, base);
   }
 
   &.button--active .button_face,
   &:active .button_face {
-    background : linear-gradient(
-                   color(aqua, dark) 93%,
-                   color(aqua, dark)
-                 );
-    box-shadow : 0 1px 3px color(aqua, darkest) inset,
-                 0 1px 0 #fff;
+    background : mix(color(aqua, dark), color(aqua, base), 50%);
   }
 
   .button_text {

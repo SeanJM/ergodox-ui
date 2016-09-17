@@ -6,13 +6,9 @@
   .button_face {
     @extend         %button_face-common;
     padding       : 0 10px;
-    border        : 1px solid $grey;
-    border-color  : color(grey, dark);
+    border        : 1px solid color(grey, base);
     border-radius : 4px;
-    background    : linear-gradient(
-                      color(grey, lightest) 93%,
-                      color(grey, light)
-                    );
+    background    : color(grey, lightest);
   }
 
   .button_text {
@@ -32,17 +28,12 @@
 
   &.button--active .button_face,
   &:active .button_face {
-    background : linear-gradient(
-                   color(grey, lighter) 93%,
-                   color(grey, lighter)
-                 );
-    box-shadow : 0 1px 3px color(grey, dark) inset,
-                 0 1px 0 #fff;
+    background : color(grey, lighter);
   }
 
   &.button--active .button_text,
   &:active .button_text {
     opacity     : 0.8;
-    line-height : 33px;
+    line-height : 32px;
   }
 }
