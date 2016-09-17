@@ -1,6 +1,6 @@
 Tabs.prototype.remove = function (index) {
   var tab = this.elements[index];
-  var styles = tab.node.document();
+  var styles = tab.node.document.styles();
   var self = this;
 
   self.elements.splice(index, 1);
