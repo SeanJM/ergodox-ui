@@ -1,0 +1,48 @@
+%button {
+  @extend     %button-common;
+  min-width : 90px;
+  height    : 30px;
+
+  .button_face {
+    @extend         %button_face-common;
+    padding       : 0 10px;
+    border        : 1px solid $grey;
+    border-color  : color(grey, dark);
+    border-radius : 4px;
+    background    : linear-gradient(
+                      color(grey, lightest) 93%,
+                      color(grey, light)
+                    );
+  }
+
+  .button_text {
+    @extend       %button_text-common;
+    font-size   : $default;
+    line-height : 30px;
+  }
+
+  &:focus {
+    outline : none;
+  }
+
+  &:focus .button_face::after {
+    background : transparentize(color(aqua, light), 0.3);
+    animation  : button_active 1.3s;
+  }
+
+  &.button--active .button_face,
+  &:active .button_face {
+    background : linear-gradient(
+                   color(grey, lighter) 93%,
+                   color(grey, lighter)
+                 );
+    box-shadow : 0 1px 3px color(grey, dark) inset,
+                 0 1px 0 #fff;
+  }
+
+  &.button--active .button_text,
+  &:active .button_text {
+    opacity     : 0.8;
+    line-height : 33px;
+  }
+}

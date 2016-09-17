@@ -5,49 +5,47 @@ function Button() {
     document : el({
       class : 'button',
       tabIndex : 0,
-
-      onClick : function (e) {
-        self.trigger('click');
-      },
-
-      onDoubleclick : function (e) {
-        self.trigger('doubleclick');
-      },
-
-      onKeydown : function (e) {
-        if (e.which === KEYCODE_ENTER) {
-          self.node.document.addClass('button--active');
-        }
-      },
-
-      onKeyup : function (e) {
-        if (e.which === KEYCODE_ENTER) {
-          self.node.document.removeClass('button--active');
-          self.trigger('click');
-        }
-      }
     })
   };
 
   this.node.document.append(
     this.node.face = el({ class : 'button_face' }),
-    this.node.text = el({ class : 'button_text' }),
-    el({ class : 'button_active' })
+    this.node.text = el({ class : 'button_text' })
   );
+
+  this.node.document.on('click', function (e) {
+    self.trigger('click');
+  });
+
+  this.node.document.on('doubleclick', function (e) {
+    self.trigger('doubleclick');
+  });
+
+  this.node.document.on('keydown', function (e) {
+    if (e.which === KEYCODE_ENTER) {
+      self.node.document.addClass('button--active');
+    }
+  });
+
+  this.node.document.on('keyup', function (e) {
+    if (e.which === KEYCODE_ENTER) {
+      self.node.document.removeClass('button--active');
+      self.trigger('click');
+    }
+  });
 }
 
 Button.Confirm = function () {
   var self = this;
+
   var button = el(Button, {
     class : 'button--primary',
   }, lang.get('button ok'));
 
-  Object.assign(this, button);
-
-  this.isConfirm = true;
+  _.assign(this, button);
 
   button.on('click', function (e) {
-    self.trigger('click', e);
+    self.trigger('confirm', e);
   });
 };
 
@@ -57,12 +55,10 @@ Button.Cancel = function () {
     class : 'button--cancel',
   }, lang.get('button cancel'));
 
-  Object.assign(this, button);
-
-  this.isCancel = true;
+  _.assign(this, button);
 
   button.on('click', function (e) {
-    self.trigger('click', e);
+    self.trigger('cancel', e);
   });
 };
 

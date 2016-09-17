@@ -1,0 +1,34 @@
+@keyframes button_active {
+  0% {
+    top     : -8px;
+    right   : -8px;
+    bottom  : -8px;
+    left    : -8px;
+    opacity : 0;
+  }
+
+  100% {
+    top    : -2px;
+    right  : -2px;
+    bottom : -2px;
+    left   : -2px;
+  }
+}
+
+@keyframes button_active_stroke {
+  0% {
+    top     : 1px;
+    right   : 1px;
+    bottom  : 1px;
+    left    : 1px;
+    opacity : 1;
+  }
+
+  100% {
+    top     : -12px;
+    right   : -12px;
+    bottom  : -12px;
+    left    : -12px;
+    opacity : 0;
+  }
+}
